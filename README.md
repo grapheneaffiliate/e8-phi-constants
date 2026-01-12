@@ -1,39 +1,73 @@
 # The Geometric Standard Model (GSM)
 
-**A Deductive Derivation of the Constants of Nature**
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-**Author:** Timothy McGirl  
-**Location:** Manassas, Virginia  
-**Date:** January 2026  
-**Version:** 1.0
-
----
+> **Physics ≡ Geometry(E₈ → H₄)**
 
 ## Overview
 
-The Geometric Standard Model demonstrates that the fundamental constants of the Standard Model and cosmology are not free parameters but **geometric invariants** of the unique projection from the E₈ Lie algebra onto the H₄ icosahedral Coxeter group.
+This repository presents **The Geometric Standard Model (GSM)** — a mathematical framework demonstrating that the 26 fundamental constants of the Standard Model and cosmology are not free parameters but **geometric invariants** of the unique projection from the E₈ Lie algebra onto the H₄ icosahedral Coxeter group.
 
-$$\boxed{\text{Physics} \equiv \text{Geometry}(E_8 \to H_4)}$$
+### Key Results
 
-### Key Achievements
+| Property | Value |
+|----------|-------|
+| **Foundation** | E₈ lattice (unique by Viazovska 2016 Fields Medal proof) |
+| **Projection** | E₈ → H₄ icosahedral mapping |
+| **Selection rules** | Casimir degrees {2, 8, 12, 14, 18, 20, 24, 30} |
+| **Constants derived** | 25 confirmed + 1 high-energy prediction |
+| **Median deviation** | 0.03% |
+| **Maximum deviation** | < 1% (all 25 confirmed constants) |
+| **Free parameters** | **Zero** |
 
-- **Zero adjustable parameters**
-- **25 confirmed constants** match experiment within 1% (median deviation: 0.03%)
-- **1 high-energy prediction** (CHSH suppression to 2.382)
-- Statistical significance exceeding 50σ
+## The Master Equation
+
+```
+α⁻¹ = 137 + φ⁻⁷ + φ⁻¹⁴ + φ⁻¹⁶ - φ⁻⁸/248 = 137.0359954...
+```
+
+Where:
+- **137** = Topological invariant of the gauge embedding
+- **φ** = Golden ratio (1 + √5)/2 from icosahedral eigenvalue
+- **248** = Dimension of E₈
+- Each exponent is a Casimir eigenvalue or derived class
 
 ---
 
-## Files
+## 🔑 Computational Proof: Why 137 is Forced
 
-| File | Description |
-|------|-------------|
-| `GSM_v1_Complete.md` | Complete paper in Markdown format |
-| `GSM_v1_Complete.tex` | Complete paper in LaTeX format |
-| `GSM_v1_Complete.pdf` | Compiled PDF document |
-| `GSM_v1_Appendix_Formal_Proofs.md` | Formal mathematical foundations and proofs |
-| `GSM_v1_Appendix_B_Complete_Formalization.md` | Complete mathematical formalization |
-| `gsm_verification.py` | Verification script for all constants |
+**The anchor 137 is not selected by comparing to the experimental value of α⁻¹. It is uniquely determined by Casimir matching.**
+
+The E₈ structure requires the electromagnetic anchor to have the form:
+
+```
+A = 128 + 8 + k = dim(SO(16)₊) + rank(E₈) + k
+```
+
+where k must satisfy the Euler characteristic constraint χ(E₈/H₄) = k.
+
+### Theorem (Anchor Uniqueness)
+
+> **Among anchors of form 128 + 8 + k, only k = 1 permits sub-ppm accuracy with Casimir-structured exponents. This determines the anchor uniquely, independent of the experimental value.**
+
+### Proof by Exhaustion
+
+| k | Anchor | Best Casimir Fit | Deviation from α⁻¹ |
+|---|--------|------------------|-------------------|
+| 0 | 136 | 136 + φ⁻⁷ + φ⁻¹⁴ + ... | **> 7000 ppm** |
+| **1** | **137** | **137 + φ⁻⁷ + φ⁻¹⁴ + φ⁻¹⁶ - φ⁻⁸/248** | **< 0.03 ppm** ✓ |
+| 2 | 138 | 138 - φ⁻⁷ - φ⁻¹⁴ + ... | **> 7000 ppm** |
+| 3 | 139 | No convergent Casimir series | **> 14000 ppm** |
+
+For k ≠ 1, no combination of Casimir-structured exponents (from {2,8,12,14,18,20,24,30} and derived classes) achieves better than 0.7% accuracy. Only k = 1 admits a Casimir expansion that converges to sub-ppm precision.
+
+**This is a computational proof, not an empirical fit.**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  137 = 128 + 8 + 1 is the UNIQUE Casimir-compatible anchor  │
+└─────────────────────────────────────────────────────────────┘
+```
 
 ---
 
@@ -90,109 +124,75 @@ The **15.8% suppression** below Tsirelson is testable at high energies where H�
 
 ---
 
+## Repository Structure
+
+```
+├── paper/
+│   ├── GSM_v1_Complete.pdf        # Publication-ready paper (17 pages)
+│   ├── GSM_v1_Complete.tex        # LaTeX source for arXiv submission
+│   └── GSM_v1_Complete.md         # Markdown version of main paper
+├── appendices/
+│   ├── GSM_v1_Appendix_Formal_Proofs.md      # Appendix A: Theorem proofs
+│   └── GSM_v1_Appendix_B_Complete_Formalization.md  # Appendix B: Complete formalization
+└── verification/
+    └── gsm_verification.py        # Python verification script
+```
+
 ## Summary of Derived Constants
 
 ### Electromagnetic Sector
-- **α⁻¹** = 137.0360 (experimental: 137.0360) — deviation: 0.000003%
-- **sin²θ_W** = 0.23122 (experimental: 0.23122) — deviation: 0.001%
-- **α_s(M_Z)** = 0.1179 (experimental: 0.1179) — deviation: 0.01%
+- **α⁻¹** = 137.0360 (exp: 137.0360) — 0.000003% deviation
+- **sin²θ_W** = 0.23122 (exp: 0.23122) — 0.001% deviation
+- **α_s(M_Z)** = 0.1179 (exp: 0.1179) — 0.01% deviation
 
-### Lepton Mass Sector
-- **m_μ/m_e** = 206.768 (experimental: 206.768) — deviation: 0.00003%
-- **m_τ/m_μ** = 16.820 (experimental: 16.817) — deviation: 0.016%
+### Mass Ratios
+- **m_μ/m_e** = 206.768 (exp: 206.768) — 0.00003% deviation
+- **m_τ/m_μ** = 16.820 (exp: 16.817) — 0.016% deviation
+- **m_s/m_d** = 20.000 (exp: 20.0) — **Exact** (Lucas eigenvalue L₃²)
+- **m_c/m_s** = 11.831 (exp: 11.83) — 0.008% deviation
+- **m_b/m_c** = 2.854 (exp: 2.86) — 0.21% deviation
+- **m_p/m_e** = 1836.15 (exp: 1836.15) — 0.0001% deviation
+- **y_t** = 0.9919 (exp: 0.9919) — 0.001% deviation
+- **m_H** = 125.3 GeV (exp: 125.25 GeV) — 0.064% deviation
+- **m_W** = 80.33 GeV (exp: 80.377 GeV) — 0.063% deviation
 
-### Quark Mass Sector
-- **m_s/m_d** = 20.000 (experimental: 20.0) — deviation: 0.000% (exact!)
-- **m_c/m_s** = 11.831 (experimental: 11.83) — deviation: 0.008%
-- **m_b/m_c** = 2.854 (experimental: 2.86) — deviation: 0.21%
-
-### Proton and Electroweak Sector
-- **m_p/m_e** = 1836.15 (experimental: 1836.15) — deviation: 0.0001%
-- **y_t** = 0.9919 (experimental: 0.9919) — deviation: 0.001%
-- **m_H** = 125.3 GeV (experimental: 125.25 GeV) — deviation: 0.064%
-- **m_W** = 80.33 GeV (experimental: 80.377 GeV) — deviation: 0.063%
-
-### CKM Matrix
-- **sin θ_C** = 0.2250 (experimental: 0.2250) — deviation: 0.004%
-- **J_CKM** = 3.08×10⁻⁵ (experimental: 3.08×10⁻⁵) — deviation: 0.007%
-- **V_cb** = 0.0409 (experimental: 0.0410) — deviation: 0.16%
-- **V_ub** = 0.00363 (experimental: 0.00361) — deviation: 0.55%
-
-### PMNS Matrix
-- **θ₁₂** = 33.45° (experimental: 33.44°) — deviation: 0.027%
-- **θ₂₃** = 49.19° (experimental: 49.2°) — deviation: 0.011%
-- **θ₁₃** = 8.57° (experimental: 8.57°) — deviation: 0.009%
-- **δ_CP** = 196.3° (experimental: 197°) — deviation: 0.37%
+### CKM & PMNS Mixing
+- **sin θ_C** = 0.2250 (exp: 0.2250) — 0.004% deviation
+- **J_CKM** = 3.08×10⁻⁵ (exp: 3.08×10⁻⁵) — 0.007% deviation
+- **V_cb** = 0.0409 (exp: 0.0410) — 0.16% deviation
+- **V_ub** = 0.00363 (exp: 0.00361) — 0.55% deviation
+- **θ₁₂** = 33.45° (exp: 33.44°) — 0.027% deviation
+- **θ₂₃** = 49.19° (exp: 49.2°) — 0.011% deviation
+- **θ₁₃** = 8.57° (exp: 8.57°) — 0.009% deviation
+- **δ_CP** = 196.3° (exp: 197°) — 0.37% deviation
 
 ### Neutrino and Cosmology
-- **Σm_ν** = 59.2 meV (experimental: 59 meV) — deviation: 0.40%
-- **Ω_Λ** = 0.6889 (experimental: 0.6889) — deviation: 0.002%
-- **z_CMB** = 1089.9 (experimental: 1089.9) — deviation: 0.002%
-- **H₀** = 70.0 km/s/Mpc (experimental: 70.0) — deviation: 0.05%
-- **n_s** = 0.9656 (experimental: 0.9649) — deviation: 0.07%
+- **Σm_ν** = 59.2 meV (exp: 59 meV) — 0.40% deviation
+- **Ω_Λ** = 0.6889 (exp: 0.6889) — 0.002% deviation
+- **z_CMB** = 1089.9 (exp: 1089.9) — 0.002% deviation
+- **H₀** = 70.0 km/s/Mpc (exp: 70.0) — 0.05% deviation
+- **n_s** = 0.9656 (exp: 0.9649) — 0.07% deviation
 
 ### High-Energy Prediction
 - **S(CHSH)** = **2.382** — predicts 15.8% suppression from Tsirelson bound at high energies
 
 ---
 
-## The 137 Anchor Proof
+## Verification
 
-The electromagnetic anchor 137 is **uniquely determined** by Casimir matching, independent of the experimental value of α⁻¹:
+Run the verification script to confirm all calculations:
 
-| k | Anchor | Best Casimir fit | Deviation from α⁻¹ |
-|---|--------|------------------|-------------------|
-| 0 | 136 | 136 + φ⁻⁷ + φ⁻¹⁴ + ... | > 7000 ppm |
-| 1 | **137** | **137 + φ⁻⁷ + φ⁻¹⁴ + φ⁻¹⁶ - φ⁻⁸/248** | **< 0.03 ppm** |
-| 2 | 138 | 138 - φ⁻⁷ - φ⁻¹⁴ + ... | > 7000 ppm |
-| 3 | 139 | No convergent Casimir series | > 14000 ppm |
+```bash
+python verification/gsm_verification.py
+```
 
-Only k = 1 permits sub-ppm accuracy with Casimir-structured exponents. This geometric proof establishes 137 as the unique Casimir-compatible anchor.
+## Key Mathematical Foundations
 
----
-
-## Mathematical Foundation
-
-### Key Components
-
-1. **E₈ Lattice**: Unique optimal sphere packing in 8D (Viazovska 2016)
-   - Dimension: 248
-   - Rank: 8
-   - Kissing number: 240
-   - Casimir degrees: {2, 8, 12, 14, 18, 20, 24, 30}
-
-2. **H₄ Projection**: Unique icosahedral mapping to 4D
-   - Order: 14,400
-   - Exponents: {1, 11, 19, 29}
-   - Golden ratio φ = (1+√5)/2 ≈ 1.6180339887
-
-3. **Torsion Ratio**: ε = 28/248 = dim(SO(8))/dim(E₈)
-   - Represents the "trialic kernel" invariant under H₄ folding
-
-### Selection Rules
-
-Allowed exponents fall into four classes:
-- **Direct Casimirs**: {2, 8, 12, 14, 18, 20, 24, 30}
-- **Half-Casimirs**: {1, 4, 6, 7, 9, 10, 12, 15}
-- **Rank multiples**: {8, 16, 24}
-- **Torsion dimension**: {28}
-
-Every φⁿ in the formulas satisfies n ∈ {Casimir degree or derived class}.
-
----
-
-## Experimental Tests
-
-### Neutrino Sector
-- **Mass ordering**: Normal (test: DUNE, JUNO, Hyper-K)
-- **Σm_ν**: 59.2 meV (test: cosmological surveys)
-- **δ_CP**: 196.3° (test: NOvA, T2K, DUNE)
-
-### High-Energy Prediction
-- **CHSH suppression**: S = 2.382 at high energies (test: high-energy Bell tests)
-  - Current low-energy: ~2.8 (approaches Tsirelson bound)
-  - Predicted transition to icosahedral limit at high energies
-  - 15.8% suppression is a definitive signature of H₄ spacetime
+1. **E₈ Uniqueness**: The E₈ lattice is the unique optimal sphere packing in 8D (Viazovska, 2016)
+2. **H₄ Projection**: The only maximal non-crystallographic Coxeter subgroup of E₈
+3. **Golden Ratio**: φ = (1+√5)/2 emerges from the icosahedral eigenvalue equation x² - x - 1 = 0
+4. **Torsion Ratio**: ε = 28/248 = dim(SO(8))/dim(E₈)
+5. **Anchor Uniqueness**: 137 = 128 + 8 + 1 is forced by Casimir matching
 
 ---
 
@@ -208,20 +208,30 @@ Every φⁿ in the formulas satisfies n ∈ {Casimir degree or derived class}.
 
 ---
 
-## License
+## Citation
 
-CC BY 4.0
+```bibtex
+@article{mcgirl2026gsm,
+  title={The Geometric Standard Model: A Deductive Derivation of the Constants of Nature},
+  author={McGirl, Timothy},
+  year={2026},
+  note={Version 1.0}
+}
+```
 
----
-
-## Contact
+## Author
 
 **Timothy McGirl**  
 Independent Researcher  
-Manassas, Virginia, USA
+Manassas, Virginia, USA  
+January 2026
+
+## License
+
+This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 ---
 
-**The universe is not fine-tuned. It is geometrically determined.**
-
-$$\text{Physics} \equiv \text{Geometry}(E_8 \to H_4)$$
+> *"The constants of nature are the spectral invariants of the E₈ manifold projected onto four-dimensional spacetime."*
+>
+> — The universe is not fine-tuned. It is **geometrically determined**.
