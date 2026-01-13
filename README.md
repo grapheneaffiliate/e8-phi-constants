@@ -275,6 +275,15 @@ Independent Researcher
 Manassas, Virginia, USA  
 January 2026
 
+@misc{mcgirl2026rh,
+  author       = {McGirl, Timothy},
+  title        = {The φ-Separation Proof of the Riemann Hypothesis},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.18226408},
+  url          = {https://doi.org/10.5281/zenodo.18226408}
+}
+
 ## License
 
 This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
