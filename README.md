@@ -8,6 +8,9 @@
 
 This repository presents **The Geometric Standard Model (GSM)** — a mathematical framework demonstrating that the 26 fundamental constants of the Standard Model and cosmology are not free parameters but **geometric invariants** of the unique projection from the E₈ Lie algebra onto the H₄ icosahedral Coxeter group.
 
+"The same geometry that proves the Riemann Hypothesis determines the fine-structure constant."
+https://claude.ai/public/artifacts/4e0f110f-c6ae-4e7e-928e-83fac680d7a0
+
 ### Key Results
 
 | Property | Value |
