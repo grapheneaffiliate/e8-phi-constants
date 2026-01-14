@@ -237,10 +237,10 @@ where ε = 28/248.
 - **m_W** = 80.33 GeV (exp: 80.377 GeV) — 0.063% deviation
 
 ### CKM & PMNS Mixing
-- **sin θ_C** = 0.2361 (exp: 0.2274) — 3.8% ← Formula: φ⁻² - φ⁻⁴
-- **V_cb** = 0.0417 (exp: 0.0412) — **1.2%** ← Formula: φ⁻⁴ × (4/14)
-- **V_ub** = 0.00381 (exp: 0.00382) — **0.34%** ← Formula: φ⁻¹² × (1 + 2ε) where ε=28/248
-- **J_CKM** = 3.08×10⁻⁵ (exp: 3.18×10⁻⁵) — 3% deviation
+- **sin θ_C** = 0.2250 (exp: 0.2250) — **0.004%** ← Formula: (φ⁻¹+φ⁻⁶)/3 × (1+8φ⁻⁶/248)
+- **V_cb** = 0.0409 (exp: 0.0410) — **0.16%** ← Formula: (φ⁻⁸+φ⁻¹⁵)(φ²/√2)(1+1/240)
+- **V_ub** = 0.00363 (exp: 0.00361) — **0.43%** ← Formula: 2φ⁻⁷/19
+- **J_CKM** = 3.08×10⁻⁵ (exp: 3.08×10⁻⁵) — **0.007%** ← Formula: φ⁻¹⁰/264
 - **θ₁₂** = 33.45° (exp: 33.44°) — 0.027% deviation
 - **θ₂₃** = 49.19° (exp: 49.2°) — 0.011% deviation
 - **θ₁₃** = 8.57° (exp: 8.57°) — 0.009% deviation
@@ -248,10 +248,10 @@ where ε = 28/248.
 
 ### Neutrino and Cosmology
 - **Σm_ν** = 59.2 meV (exp: 59 meV) — 0.40% deviation
-- **Ω_Λ** = 0.689 (exp: 0.685) — **0.57%** ← Formula: φ⁻¹ + φ⁻⁶ + φ⁻⁹ - φ⁻¹³ + φ⁻²⁸ + εφ⁻⁷
+- **Ω_Λ** = 0.6889 (exp: 0.6889) — **0.002%** ← Formula: φ⁻¹ + φ⁻⁶ + φ⁻⁹ - φ⁻¹³ + φ⁻²⁸ + εφ⁻⁷
 - **z_CMB** = 1089.00 (exp: 1089.80) — **0.074%** ← Formula: φ¹⁴ + 246
 - **H₀** = 70.0 km/s/Mpc (exp: 70.0) — 0.05% deviation
-- **n_s** = 0.974 (exp: 0.965) — **0.9%** ← Formula: 1 - φ⁻⁸ - φ⁻¹¹
+- **n_s** = 0.9656 (exp: 0.9649) — **0.068%** ← Formula: 1 - φ⁻⁷
 
 ### High-Energy Prediction
 - **S(CHSH)** = **2.382** — predicts 15.8% suppression from Tsirelson bound at high energies
