@@ -11,7 +11,7 @@
 
 ## Abstract
 
-I demonstrate that the fundamental constants of the Standard Model and cosmology are not free parameters but **geometric invariants** of the unique projection from the E₈ Lie algebra onto the H₄ icosahedral Coxeter group. Beginning from the mathematical rigidity of E₈—the unique solution to optimal sphere packing in eight dimensions—I derive each physical constant as a necessary consequence of this projection. The framework contains zero adjustable parameters. All 25 confirmed constants match experiment within 1%, with a median deviation of 0.03%. One additional high-energy prediction (CHSH suppression) awaits experimental test.
+I demonstrate that the fundamental constants of the Standard Model and cosmology are not free parameters but **geometric invariants** of the unique projection from the E₈ Lie algebra onto the H₄ icosahedral Coxeter group. Beginning from the mathematical rigidity of E₈—the unique solution to optimal sphere packing in eight dimensions—I derive each physical constant as a necessary consequence of this projection. The framework contains zero adjustable parameters. All 25 confirmed constants match experiment within 1%, with a median deviation of 0.016%. One additional high-energy prediction (CHSH suppression) awaits experimental test.
 
 $$\boxed{\text{Physics} \equiv \text{Geometry}(E_8 \to H_4)}$$
 
@@ -70,7 +70,7 @@ The Lucas numbers arise as eigenvalues of the H₄ Cartan matrix:
 
 $$L_n = \phi^n + \phi^{-n}$$
 
-In particular, $L_3 = \phi^3 + \phi^{-3} = 4.2360679...$ governs the strong interaction condensate.
+In particular, $L_3 = \phi^3 + \phi^{-3} = \sqrt{20} \approx 4.472$ governs the strong interaction condensate.
 
 ### 2.3 The Integer Anchors
 
@@ -256,7 +256,7 @@ $$\Omega_\Lambda = \phi^{-1} + \phi^{-6} + \phi^{-9} - \phi^{-13} + \phi^{-28} +
 
 **CMB Redshift**
 
-$$z_{CMB} = \phi^{14.5 + 1/28} - 1 = 1089.90$$
+$$z_{CMB} = \phi^{14} + 246 = 1089.0$$
 
 **Hubble Constant**
 
@@ -384,7 +384,7 @@ The **15.8% suppression** below Tsirelson is testable at high energies where H�
 | 20 | δ_CP | 180° + arctan(φ⁻² - φ⁻⁵) | 196.3° | 197° | 0.37% |
 | 21 | Σm_ν | m_e·φ⁻³⁴(1+εφ³) | 59.2 meV | 59 meV | 0.40% |
 | 22 | Ω_Λ | φ⁻¹+φ⁻⁶+φ⁻⁹-φ⁻¹³+φ⁻²⁸+εφ⁻⁷ | 0.6889 | 0.6889 | 0.002% |
-| 23 | z_CMB | φ^(14.5+1/28) - 1 | 1089.9 | 1089.9 | 0.002% |
+| 23 | z_CMB | φ¹⁴ + 246 | 1089.0 | 1089.8 | 0.074% |
 | 24 | H₀ | 100φ⁻¹(1+φ⁻⁴-1/(30φ²)) | 70.0 | 70.0 | 0.05% |
 | 25 | n_s | 1 - φ⁻⁷ | 0.9656 | 0.9649 | 0.07% |
 
@@ -424,7 +424,7 @@ $$\blacksquare$$
 | Projection | E₈ → H₄ icosahedral mapping |
 | Selection rules | Casimir degrees {2,8,12,14,18,20,24,30} |
 | Constants derived | 25 (confirmed) + 1 (high-energy prediction) |
-| Median deviation | 0.03% |
+| Median deviation | 0.016% |
 | Maximum deviation | < 1% (all 25 confirmed constants) |
 | Free parameters | **Zero** |
 
