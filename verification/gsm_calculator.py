@@ -264,24 +264,6 @@ class GSMCalculator:
             derivation="From depth difference in E8 folding (NOT exact)"
         )
     
-    def top_bottom_ratio(self) -> PhysicalConstant:
-        """
-        Top to bottom quark mass ratio: m_t/m_b
-        
-        Formula: m_t/m_b = φ⁵ + φ⁴ + φ³
-        """
-        value = self.phi**5 + self.phi**4 + self.phi**3
-        
-        return PhysicalConstant(
-            name="Top-bottom mass ratio",
-            symbol="m_t/m_b",
-            gsm_value=value,
-            exp_value=40.8,
-            exp_uncertainty=0.5,
-            formula="φ⁵ + φ⁴ + φ³",
-            derivation="From top representation Casimirs"
-        )
-    
     def proton_electron_ratio(self) -> PhysicalConstant:
         """
         Proton to electron mass ratio: m_p/m_e
