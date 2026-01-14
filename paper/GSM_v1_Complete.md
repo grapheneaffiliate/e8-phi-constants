@@ -478,7 +478,7 @@ Two constants are **exactly** determined (not approximations):
 2. **m_b/m_c = φ² + φ⁻³ = 2.854** (0.21% from experiment)
    - Note: This is NOT algebraically exact like m_s/m_d = 20
 
-These are algebraic identities, not numerical fits.
+Only m_s/m_d = 20 is algebraically exact; m_b/m_c = 2.854 is a numerical match at 0.21% accuracy.
 
 ---
 
