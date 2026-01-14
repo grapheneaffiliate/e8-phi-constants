@@ -20,7 +20,7 @@ This repository presents **The Geometric Standard Model (GSM)** — a mathematic
 | **Projection** | E₈ → H₄ icosahedral mapping |
 | **Selection rules** | Casimir degrees {2, 8, 12, 14, 18, 20, 24, 30} |
 | **Constants derived** | 25 confirmed + 1 high-energy prediction |
-| **Median deviation** | 0.0109% |
+| **Median deviation** | 0.016% |
 | **Maximum deviation** | < 1% (all 25 confirmed constants) |
 | **Free parameters** | **Zero** |
 
@@ -156,14 +156,14 @@ G_N = (ℏc) / M_Pl² = (ℏc) / v² · φ^[-2(80-ε)]
 A striking new result connects cosmology to particle physics:
 
 ```
-z_CMB = φ¹⁴ + 246 = 1089.9
+z_CMB = φ¹⁴ + 246 = 1089.0
 ```
 
 where:
-- **φ¹⁴** = Casimir-14 threshold (≈843.9)
+- **φ¹⁴** = Casimir-14 threshold (≈843.0)
 - **246** = Electroweak VEV in GeV
 
-This achieves **0.003% accuracy** and reveals that the CMB redshift depends on BOTH the E₈ Casimir structure AND the electroweak scale.
+This achieves **0.074% accuracy** and reveals that the CMB redshift depends on BOTH the E₈ Casimir structure AND the electroweak scale.
 
 ---
 
@@ -226,7 +226,7 @@ This achieves **0.003% accuracy** and reveals that the CMB redshift depends on B
 ### Neutrino and Cosmology
 - **Σm_ν** = 59.2 meV (exp: 59 meV) — 0.40% deviation
 - **Ω_Λ** = 0.6889 (exp: 0.6889) — 0.002% deviation
-- **z_CMB** = 1089.9 (exp: 1089.9) — 0.002% deviation
+- **z_CMB** = 1089.0 (exp: 1089.8) — 0.074% deviation
 - **H₀** = 70.0 km/s/Mpc (exp: 70.0) — 0.05% deviation
 - **n_s** = 0.9656 (exp: 0.9649) — 0.07% deviation
 
