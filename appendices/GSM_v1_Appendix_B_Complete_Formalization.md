@@ -1402,7 +1402,9 @@ This is an **algebraic identity**, not a numerical approximation.
 
 ### B.33.2 Bottom-Charm Mass Ratio
 
-**Theorem:** m_b/m_c = 3 (exact)
+**Note:** m_b/m_c = φ² + φ⁻³ = 2.854
+
+(This is NOT algebraically exact like m_s/m_d = 20. The value 2.854 matches experiment at 0.21% accuracy.)
 
 **Proof:**
 

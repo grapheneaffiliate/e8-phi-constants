@@ -149,7 +149,7 @@ sin²θ_W = 3/13 + φ⁻¹⁶
 ```
 m_μ/m_e = φ¹¹ + φ⁴ + 1 - φ⁻⁵ - φ⁻¹⁵ = 206.768
 
-m_τ/m_μ = φ⁴ + φ³ + φ - φ⁻⁶ = 16.817
+m_τ/m_μ = φ⁶ - φ⁻⁴ - 1 + φ⁻⁸ = 16.820
 ```
 
 ### Quark Mass Ratios
@@ -157,11 +157,9 @@ m_τ/m_μ = φ⁴ + φ³ + φ - φ⁻⁶ = 16.817
 ```
 m_s/m_d = L₃² = (φ³ + φ⁻³)² = 20  (EXACT)
 
-m_c/m_s = φ⁵ - φ⁻¹ + 1 = 10.472
+m_c/m_s = (φ⁵ + φ⁻³)(1 + 28/(240φ²)) = 11.831
 
-m_b/m_c = φ² + φ⁻² = 3.0
-
-m_t/m_b = φ⁵ + φ⁴ + φ³ = 40.2
+m_b/m_c = φ² + φ⁻³ = 2.854
 ```
 
 ### Proton-Electron Mass Ratio
@@ -173,9 +171,10 @@ m_p/m_e = 6π⁵(1 + φ⁻²⁴ + φ⁻¹³/240) = 1836.15
 ### CKM Matrix Elements
 
 ```
-|V_us| = φ⁻²(1 - φ⁻⁸) = 0.2252
-|V_cb| = φ⁻⁴(1 + φ⁻⁸/2) = 0.0412
-|V_ub| = φ⁻⁶(1 - φ⁻⁴) = 0.00356
+sin θ_C = (φ⁻¹ + φ⁻⁶)/3 × (1 + 8φ⁻⁶/248) = 0.2250
+J_CKM = φ⁻¹⁰/264 = 3.08×10⁻⁵
+|V_cb| = (φ⁻⁸ + φ⁻¹⁵)(φ²/√2)(1 + 1/240) = 0.0410
+|V_ub| = 2φ⁻⁷/19 = 0.00363
 ```
 
 ### Cosmological Parameters
@@ -339,7 +338,7 @@ Standard Model + Cosmology
 | Median error | 0.016% |
 | Probability of coincidence | ~10⁻⁴⁴ |
 | Falsifiable | Yes (CHSH) |
-| Exact results | Yes (m_s/m_d = 20) |
+| Exact results | Yes (m_s/m_d = 20 only) |
 
 ### The Bottom Line
 

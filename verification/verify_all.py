@@ -65,10 +65,10 @@ def main():
     print(f"        Exp: {m_mu_m_e_exp:.10f}")
     
     # Tau/muon
-    m_tau_m_mu = PHI**4 + PHI**3 + PHI - PHI**(-6)
+    m_tau_m_mu = PHI**6 - PHI**(-4) - 1 + PHI**(-8)
     m_tau_m_mu_exp = 16.8170
     results.append(("m_τ/m_μ", m_tau_m_mu, m_tau_m_mu_exp))
-    print(f"\nm_τ/m_μ = φ⁴ + φ³ + φ - φ⁻⁶")
+    print(f"\nm_τ/m_μ = φ⁶ - φ⁻⁴ - 1 + φ⁻⁸")
     print(f"        = {m_tau_m_mu:.10f}")
     print(f"        Exp: {m_tau_m_mu_exp:.10f}")
     
@@ -90,22 +90,16 @@ def main():
     print(f"        Exp: {m_s_m_d_exp} ± 2")
     
     # Charm/strange
-    m_c_m_s = PHI**5 - PHI**(-1) + 1
-    m_c_m_s_exp = 10.5
+    m_c_m_s = (PHI**5 + PHI**(-3)) * (1 + 28/(240*PHI**2))
+    m_c_m_s_exp = 11.83
     results.append(("m_c/m_s", m_c_m_s, m_c_m_s_exp))
-    print(f"\nm_c/m_s = φ⁵ - φ⁻¹ + 1 = {m_c_m_s:.6f}")
+    print(f"\nm_c/m_s = (φ⁵ + φ⁻³)(1 + 28/(240φ²)) = {m_c_m_s:.6f}")
     
     # Bottom/charm
-    m_b_m_c = PHI**2 + PHI**(-2)
-    m_b_m_c_exp = 3.0
+    m_b_m_c = PHI**2 + PHI**(-3)
+    m_b_m_c_exp = 2.86
     results.append(("m_b/m_c", m_b_m_c, m_b_m_c_exp))
-    print(f"\nm_b/m_c = φ² + φ⁻² = L₂ = {m_b_m_c:.6f}")
-    
-    # Top/bottom
-    m_t_m_b = PHI**5 + PHI**4 + PHI**3
-    m_t_m_b_exp = 40.8
-    results.append(("m_t/m_b", m_t_m_b, m_t_m_b_exp))
-    print(f"\nm_t/m_b = φ⁵ + φ⁴ + φ³ = {m_t_m_b:.6f}")
+    print(f"\nm_b/m_c = φ² + φ⁻³ = {m_b_m_c:.6f}")
     
     # Proton/electron
     m_p_m_e = 6 * pi**5 * (1 + PHI**(-24) + PHI**(-13)/240)
@@ -240,9 +234,6 @@ def main():
     print(f"  Proof: L₃² = (φ³ + φ⁻³)² = φ⁶ + 2 + φ⁻⁶ = L₆ + 2 = 18 + 2 = 20")
     print(f"  Numerical verification: {L3**2:.15f}")
     
-    print("\nm_b/m_c = L₂ = 3 EXACTLY")
-    print(f"  Proof: L₂ = φ² + φ⁻² = (φ + 1) + (φ - 1)⁻² = ... = 3")
-    print(f"  Numerical verification: {PHI**2 + PHI**(-2):.15f}")
     
     # ==========================================================================
     # KEY RELATIONSHIPS

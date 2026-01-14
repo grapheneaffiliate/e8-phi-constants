@@ -21,7 +21,6 @@ These are **exact**—not numerical approximations.
 | Constant | Formula | Value | Proof |
 |----------|---------|-------|-------|
 | **m_s/m_d** | L₃² = (φ³ + φ⁻³)² | **20** | φ⁶ + 2 + φ⁻⁶ = L₆ + 2 = 18 + 2 = 20 |
-| **m_b/m_c** | L₂ = φ² + φ⁻² | **3** | (φ + φ⁻¹)² - 2 = 5 - 2 = 3 |
 | **v_EW** | dim(E₈) - dim(SU(2)) | **246 GeV** | 248 - 2 = 246 |
 
 ---

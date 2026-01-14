@@ -230,7 +230,7 @@ README.md now includes:
 | Zero free parameters | ✓ | All 25+ constants derived from E₈→H₄ |
 | Rigorous proofs | ✓ | theory/proofs/MATHEMATICAL_PROOFS.md |
 | Falsifiable | ✓ | CHSH bound provides definitive test |
-| Exact results | ✓ | m_s/m_d = 20, m_b/m_c = 3 proven |
+| Exact results | ✓ | m_s/m_d = 20 proven (only this one is exact) |
 | Unified | ✓ | Single dynamical mechanism |
 | Documented | ✓ | Theory, proofs, code, predictions present |
 

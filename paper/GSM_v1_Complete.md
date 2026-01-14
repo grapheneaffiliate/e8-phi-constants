@@ -475,8 +475,8 @@ Two constants are **exactly** determined (not approximations):
 1. **m_s/m_d = 20** 
    - Proof: L₃² = (φ³ + φ⁻³)² = φ⁶ + 2 + φ⁻⁶ = 18 + 2 = 20 ∎
 
-2. **m_b/m_c = 3**
-   - Proof: L₂ = φ² + φ⁻² = 3 ∎
+2. **m_b/m_c = φ² + φ⁻³ = 2.854** (0.21% from experiment)
+   - Note: This is NOT algebraically exact like m_s/m_d = 20
 
 These are algebraic identities, not numerical fits.
 
