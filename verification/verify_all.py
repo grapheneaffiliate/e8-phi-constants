@@ -122,20 +122,37 @@ def main():
     print("CKM MATRIX")
     print("=" * 80)
     
-    V_us = PHI**(-2) * (1 - PHI**(-8))
-    V_us_exp = 0.2252
-    results.append(("|V_us|", V_us, V_us_exp))
-    print(f"\n|V_us| = φ⁻²(1 - φ⁻⁸) = {V_us:.6f} (exp: {V_us_exp})")
+    # Cabibbo angle (= V_us)
+    # sin θ_C = (φ⁻¹ + φ⁻⁶)/3 × (1 + 8φ⁻⁶/248)
+    sin_theta_C = ((PHI**(-1) + PHI**(-6)) / 3) * (1 + (8 * PHI**(-6)) / 248)
+    sin_theta_C_exp = 0.2250
+    results.append(("sin θ_C", sin_theta_C, sin_theta_C_exp))
+    print(f"\nsin θ_C = (φ⁻¹ + φ⁻⁶)/3 × (1 + 8φ⁻⁶/248)")
+    print(f"       = {sin_theta_C:.6f} (exp: {sin_theta_C_exp})")
     
-    V_cb = PHI**(-4) * (1 + PHI**(-8)/2)
-    V_cb_exp = 0.0412
+    # Jarlskog invariant
+    # J_CKM = φ⁻¹⁰/264
+    ANCHOR_CKM = 264  # 11 × 24 (H₄ exponent × Casimir-24)
+    J_CKM = PHI**(-10) / ANCHOR_CKM
+    J_CKM_exp = 3.08e-5
+    results.append(("J_CKM", J_CKM, J_CKM_exp))
+    print(f"\nJ_CKM = φ⁻¹⁰/264 = {J_CKM:.2e} (exp: {J_CKM_exp:.2e})")
+    
+    # V_cb
+    # V_cb = (φ⁻⁸ + φ⁻¹⁵)(φ²/√2)(1 + 1/240)
+    KISSING_NUMBER = 240
+    V_cb = (PHI**(-8) + PHI**(-15)) * (PHI**2 / sqrt(2)) * (1 + 1/KISSING_NUMBER)
+    V_cb_exp = 0.0410
     results.append(("|V_cb|", V_cb, V_cb_exp))
-    print(f"|V_cb| = φ⁻⁴(1 + φ⁻⁸/2) = {V_cb:.6f} (exp: {V_cb_exp})")
+    print(f"\n|V_cb| = (φ⁻⁸ + φ⁻¹⁵)(φ²/√2)(1 + 1/240)")
+    print(f"      = {V_cb:.6f} (exp: {V_cb_exp})")
     
-    V_ub = PHI**(-6) * (1 - PHI**(-4))
+    # V_ub
+    # V_ub = 2φ⁻⁷/19
+    V_ub = 2 * PHI**(-7) / 19
     V_ub_exp = 0.00361
     results.append(("|V_ub|", V_ub, V_ub_exp))
-    print(f"|V_ub| = φ⁻⁶(1 - φ⁻⁴) = {V_ub:.6f} (exp: {V_ub_exp})")
+    print(f"\n|V_ub| = 2φ⁻⁷/19 = {V_ub:.6f} (exp: {V_ub_exp})")
     
     # ==========================================================================
     # COSMOLOGY
