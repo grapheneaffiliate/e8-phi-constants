@@ -256,7 +256,7 @@ $$\Omega_\Lambda = \phi^{-1} + \phi^{-6} + \phi^{-9} - \phi^{-13} + \phi^{-28} +
 
 **CMB Redshift**
 
-$$z_{CMB} = \phi^{14.5 + 1/28} - 1 = 1089.90$$
+$$z_{CMB} = \phi^{14} + 246 = 1089.0$$
 
 **Hubble Constant**
 
