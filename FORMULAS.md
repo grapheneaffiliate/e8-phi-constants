@@ -94,7 +94,7 @@
 | # | Constant | Formula | GSM Value | Experiment | Deviation |
 |---|----------|---------|-----------|------------|-----------|
 | 22 | Ω_Λ | φ⁻¹+φ⁻⁶+φ⁻⁹-φ⁻¹³+φ⁻²⁸+εφ⁻⁷ | 0.68889 | 0.6889 | 0.002% |
-| 23 | z_CMB | **φ¹⁴ + 246** | 1089.93 | 1089.80 | 0.012% |
+| 23 | z_CMB | **φ¹⁴ + 246** | 1089.0 | 1089.80 | 0.074% |
 | 24 | H₀ | 100φ⁻¹(1+φ⁻⁴-1/(30φ²)) | 70.03 | 70.0 | 0.05% |
 | 25 | n_s | 1 - φ⁻⁷ | 0.9656 | 0.9649 | 0.07% |
 
@@ -137,10 +137,10 @@ $$\frac{M_{Pl}}{v} = \phi^{80 - \varepsilon} = \phi^{79.887...}$$
 - n_eff = 80 - 0.113 = 79.887
 
 ### CMB Exact Formula
-$$z_{CMB} = \phi^{14} + 246 = 843.93 + 246 = 1089.93$$
+$$z_{CMB} = \phi^{14} + 246 = 843.0 + 246 = 1089.0$$
 
 **Components:**
-- φ¹⁴ = 843.93... (Casimir-14 threshold)
+- φ¹⁴ = 843.0 (Casimir-14 threshold)
 - 246 = electroweak VEV in GeV (exact integer!)
 
 ### CHSH Bound
@@ -204,5 +204,5 @@ print(f"L₃² = {L3**2}")  # Should print 20.0000000...
 To verify z_CMB:
 ```python
 z_cmb = phi**14 + 246
-print(f"z_CMB = {z_cmb}")  # Should print 1089.93...
+print(f"z_CMB = {z_cmb}")  # Should print 1089.0
 ```
