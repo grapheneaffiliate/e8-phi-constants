@@ -173,7 +173,7 @@ The exponent set S is closed under:
 | n | L_n | Value | Significance |
 |---|-----|-------|--------------|
 | 1 | φ + φ⁻¹ | √5 = 2.236 | Base icosahedral |
-| 2 | φ² + φ⁻² | 3 | m_b/m_c (exact) |
+| 2 | φ² + φ⁻² | 3 | Lucas identity |
 | 3 | φ³ + φ⁻³ | √20 = 4.472 | Generation eigenvalue |
 | 6 | φ⁶ + φ⁻⁶ | 18 | Hexagonal structure |
 
@@ -205,7 +205,7 @@ Appears in:
 ### Type 3: Lucas-Based
 
 - m_s/m_d = L₃²
-- m_b/m_c = L₂  
+- (Note: m_b/m_c = φ² + φ⁻³, NOT L₂)
 - m_u/m_d = 1/L₁
 
 ### Type 4: Casimir + Dimension
