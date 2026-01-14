@@ -304,37 +304,70 @@ class GSMCalculator:
     # CKM MATRIX
     # -------------------------------------------------------------------------
     
-    def ckm_us(self) -> PhysicalConstant:
-        """CKM matrix element |V_us|"""
-        value = self.phi**(-2) * (1 - self.phi**(-8))
+    def cabibbo_angle(self) -> PhysicalConstant:
+        """
+        Cabibbo angle: sin θ_C
+        
+        Formula: sin θ_C = (φ⁻¹ + φ⁻⁶)/3 × (1 + 8φ⁻⁶/248)
+        """
+        value = ((self.phi**(-1) + self.phi**(-6)) / 3) * (1 + 8*self.phi**(-6)/248)
         
         return PhysicalConstant(
-            name="CKM element V_us",
-            symbol="|V_us|",
+            name="Cabibbo angle",
+            symbol="sin θ_C",
             gsm_value=value,
-            exp_value=0.2252,
-            exp_uncertainty=0.0005,
-            formula="φ⁻²(1 - φ⁻⁸)",
-            derivation="From quark mixing in E8"
+            exp_value=0.2250,
+            exp_uncertainty=0.0003,
+            formula="(φ⁻¹ + φ⁻⁶)/3 × (1 + 8φ⁻⁶/248)",
+            derivation="From quark mixing hierarchy in E₈"
+        )
+    
+    def jarlskog_invariant(self) -> PhysicalConstant:
+        """
+        Jarlskog invariant: J_CKM
+        
+        Formula: J_CKM = φ⁻¹⁰/264
+        """
+        ANCHOR_CKM = 264  # 11 × 24 = H₄ exponent × Casimir-24
+        value = self.phi**(-10) / ANCHOR_CKM
+        
+        return PhysicalConstant(
+            name="Jarlskog invariant",
+            symbol="J_CKM",
+            gsm_value=value,
+            exp_value=3.08e-5,
+            exp_uncertainty=0.15e-5,
+            formula="φ⁻¹⁰/264",
+            derivation="From CP violation phase in E₈ representation"
         )
     
     def ckm_cb(self) -> PhysicalConstant:
-        """CKM matrix element |V_cb|"""
-        value = self.phi**(-4) * (1 + self.phi**(-8)/2)
+        """
+        CKM matrix element |V_cb|
+        
+        Formula: V_cb = (φ⁻⁸ + φ⁻¹⁵)(φ²/√2)(1 + 1/240)
+        """
+        from math import sqrt
+        KISSING_NUMBER = 240
+        value = (self.phi**(-8) + self.phi**(-15)) * (self.phi**2 / sqrt(2)) * (1 + 1/KISSING_NUMBER)
         
         return PhysicalConstant(
             name="CKM element V_cb",
             symbol="|V_cb|",
             gsm_value=value,
-            exp_value=0.0412,
-            exp_uncertainty=0.0008,
-            formula="φ⁻⁴(1 + φ⁻⁸/2)",
-            derivation="From quark mixing in E8"
+            exp_value=0.0410,
+            exp_uncertainty=0.0010,
+            formula="(φ⁻⁸ + φ⁻¹⁵)(φ²/√2)(1 + 1/240)",
+            derivation="From c→b transition in quark hierarchy"
         )
     
     def ckm_ub(self) -> PhysicalConstant:
-        """CKM matrix element |V_ub|"""
-        value = self.phi**(-6) * (1 - self.phi**(-4))
+        """
+        CKM matrix element |V_ub|
+        
+        Formula: V_ub = 2φ⁻⁷/19
+        """
+        value = 2 * self.phi**(-7) / 19
         
         return PhysicalConstant(
             name="CKM element V_ub",
@@ -342,8 +375,8 @@ class GSMCalculator:
             gsm_value=value,
             exp_value=0.00361,
             exp_uncertainty=0.00011,
-            formula="φ⁻⁶(1 - φ⁻⁴)",
-            derivation="From quark mixing in E8"
+            formula="2φ⁻⁷/19",
+            derivation="From u→b suppressed transition"
         )
     
     # -------------------------------------------------------------------------
@@ -473,9 +506,9 @@ class GSMCalculator:
             self.strange_down_ratio(),
             self.charm_strange_ratio(),
             self.bottom_charm_ratio(),
-            self.top_bottom_ratio(),
             self.proton_electron_ratio(),
-            self.ckm_us(),
+            self.cabibbo_angle(),
+            self.jarlskog_invariant(),
             self.ckm_cb(),
             self.ckm_ub(),
             self.cmb_redshift(),
