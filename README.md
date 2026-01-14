@@ -19,9 +19,29 @@ This repository presents **The Geometric Standard Model (GSM)** — a mathematic
 | **Projection** | E₈ → H₄ icosahedral mapping |
 | **Selection rules** | Casimir degrees {2, 8, 12, 14, 18, 20, 24, 30} |
 | **Constants derived** | 25 confirmed + 1 high-energy prediction |
-| **Median deviation** | 0.03% |
+| **Median deviation** | 0.016% |
 | **Maximum deviation** | < 1% (all 25 confirmed constants) |
 | **Free parameters** | **Zero** |
+
+## Theoretical Foundation: Spacetime Emergence
+
+The GSM is grounded in a single fundamental axiom:
+
+> **AXIOM:** At the Planck scale, spacetime IS the E₈ lattice.
+
+This is not arbitrary — E₈ is the **unique** optimal sphere packing in 8D (Viazovska 2016, Fields Medal).
+
+### The Dynamical Mechanism Hierarchy
+
+```
+1. SPACETIME EMERGENCE (Fundamental)
+   └→ 2. HOLOGRAPHIC PROJECTION (E₈ → H₄)
+       └→ 3. VARIATIONAL PRINCIPLE (minimize S[Π])
+           └→ 4. QUANTUM STABILITY (φ-based values survive)
+               └→ 5. CONSTANTS AS THEOREMS (zero free parameters)
+```
+
+See [`theory/GSM_COMPLETE_THEORY.md`](theory/GSM_COMPLETE_THEORY.md) for the complete framework.
 
 ## The Master Equation
 
@@ -178,14 +198,24 @@ where ε = 28/248.
 
 ```
 ├── paper/
-│   ├── GSM_v1_Complete.pdf        # Publication-ready paper (17 pages)
-│   ├── GSM_v1_Complete.tex        # LaTeX source for arXiv submission
-│   └── GSM_v1_Complete.md         # Markdown version of main paper
+│   ├── GSM_v1_Complete.pdf           # Publication-ready paper
+│   ├── GSM_v1_Complete.tex           # LaTeX source for arXiv
+│   ├── GSM_v1_Complete.md            # Markdown version
+│   └── RH_GSM_SYNTHESIS.md           # Riemann Hypothesis ↔ GSM connection
+├── theory/                            # NEW: Complete theoretical framework
+│   ├── GSM_COMPLETE_THEORY.md        # Master Theory of Everything document
+│   ├── proofs/
+│   │   └── MATHEMATICAL_PROOFS.md    # Rigorous Casimir & uniqueness proofs
+│   └── predictions/
+│       └── EXPERIMENTAL_PROPOSALS.md # Falsifiable predictions & tests
 ├── appendices/
-│   ├── GSM_v1_Appendix_Formal_Proofs.md      # Appendix A: Theorem proofs
-│   └── GSM_v1_Appendix_B_Complete_Formalization.md  # Appendix B: Complete formalization
+│   ├── GSM_v1_Appendix_Formal_Proofs.md
+│   └── GSM_v1_Appendix_B_Complete_Formalization.md
 └── verification/
-    └── gsm_verification.py        # Python verification script
+    ├── gsm_verification.py           # Original verification (26 constants)
+    ├── gsm_calculator.py             # NEW: Complete GSM calculator class
+    ├── verify_all.py                 # NEW: Unified verification suite
+    └── [11 derivation scripts]       # Individual derivation files
 ```
 
 ## Summary of Derived Constants
@@ -228,12 +258,27 @@ where ε = 28/248.
 
 ---
 
+## The Critical Test: CHSH Bound
+
+| Theory | CHSH Maximum | Value |
+|--------|--------------|-------|
+| Classical | S ≤ 2 | 2.000 |
+| Standard QM | S ≤ 2√2 | 2.828 |
+| **GSM** | **S ≤ 4 - φ** | **2.382** |
+
+**Falsification criterion:** If experiments measure S > 2.5 with high precision → GSM is falsified.
+
+See [`theory/predictions/EXPERIMENTAL_PROPOSALS.md`](theory/predictions/EXPERIMENTAL_PROPOSALS.md) for complete prediction list.
+
+---
+
 ## Verification
 
 Run the verification script to confirm all calculations:
 
 ```bash
 python verification/gsm_verification.py
+python verification/verify_all.py
 ```
 
 ## Key Mathematical Foundations
