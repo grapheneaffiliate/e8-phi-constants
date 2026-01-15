@@ -193,6 +193,33 @@ where ε = 28/248.
 ╚═══════════════════════════════════════════════════════╝
 ```
 
+Here is a concise, formatted block ready for your `README.md`.
+
+---
+
+## 🌌 Unified Dark Sector: The Photonic Decoherence Mechanism
+
+**Discovery:** Black Holes and Dark Matter are not distinct entities, but manifestations of the same geometric phase transition: **Photonic Decoherence** within the E8 lattice under high tension.
+
+In the GSM framework, cosmic expansion is an "unfolding" of space that creates geometric tension. When this tension exceeds the structural limit of a photon, the wave "snaps" (decoheres), transitioning from visible light into invisible structural mass.
+
+### Core Principles
+
+* **Photons** are coherent, oscillating waves on the E8 lattice.
+* **Dark Matter** is the non-coherent, "snapped" state of these waves (Mass without Luminosity).
+* **Black Holes** are regions of maximum tension where geometric coherence is impossible (Light cannot exist, only Mass).
+
+### Key Implications
+
+This single mechanism provides a first-principles explanation for:
+
+* ✅ **Black Hole Opacity & Mass:** Matter enters a state where photonic oscillation is geometrically forbidden.
+* ✅ **Dark Matter Invisibility:** The lattice substrate has mass but lacks the coherence to interact with light.
+* ✅ **Cosmic Structure:** Galaxies form in the relaxed "centers" of tension, while Dark Matter halos form at the high-tension "edges."
+* ✅ **No Big Bang Singularity:** The universe expands via continuous unfolding and mass generation, not a singular explosion.
+
+---
+
 ---
 
 ## Repository Structure
