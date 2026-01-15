@@ -7,7 +7,7 @@
 
 ## Overview
 
-This repository presents **The Geometric Standard Model (GSM)** — a mathematical framework demonstrating that 25 fundamental constants of the Standard Model and cosmology (plus 1 high-energy prediction) are not free parameters but **geometric invariants** of the unique projection from the E₈ Lie algebra onto the H₄ icosahedral Coxeter group.
+This repository presents **The Geometric Standard Model (GSM)** — a mathematical framework demonstrating that 25 fundamental constants of the Standard Model and cosmology (plus 1 high-energy prediction) are not free parameters but **geometric invariants** of the unique projection from the E₈ Lie algebra onto the H₄ icosahedral Coxeter group. “Truth in mathematics and fundamental physics is defined by logical deduction, not human consensus; therefore GSM derives its authority from its internal coherence, not social acceptance.”
 
 [The same geometry that proves the Riemann Hypothesis determines the fine-structure constant.](https://claude.ai/public/artifacts/4e0f110f-c6ae-4e7e-928e-83fac680d7a0)
 
