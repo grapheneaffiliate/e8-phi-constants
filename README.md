@@ -320,6 +320,7 @@ python verification/verify_all.py
 Independent Researcher  
 Manassas, Virginia, USA  
 January 2026
+Contact: tim@leuklogic.com
 
 ## License
 
