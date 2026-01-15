@@ -311,7 +311,7 @@ python verification/verify_all.py
   title={The Geometric Standard Model: A Deductive Derivation of the Constants of Nature},
   author={McGirl, Timothy},
   year={2026},
-  url=https://github.com/grapheneaffiliate/e8-phi-constants
+  url=(https://github.com/grapheneaffiliate/e8-phi-constants)
   note={Version 1.0}
 }
 ```
@@ -321,7 +321,7 @@ python verification/verify_all.py
 **Timothy McGirl**  
 Independent Researcher  
 Manassas, Virginia, USA  
-January 2026
+January 2026,
 Contact: tim@leuklogic.com
 
 ## License
