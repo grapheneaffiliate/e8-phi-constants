@@ -311,7 +311,7 @@ python verification/verify_all.py
   title={The Geometric Standard Model: A Deductive Derivation of the Constants of Nature},
   author={McGirl, Timothy},
   year={2026},
-  url={https://github.com/grapheneaffiliate/e8-phi-constants}
+  url={https://github.com/grapheneaffiliate/e8-phi-constants},
   note={Version 1.0}
 }
 ```
