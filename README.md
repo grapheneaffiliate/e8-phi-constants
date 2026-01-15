@@ -307,6 +307,7 @@ python verification/verify_all.py
 ## Citation
 
 ```bibtex
+{
 @article{mcgirl2026gsm,
   title={The Geometric Standard Model: A Deductive Derivation of the Constants of Nature},
   author={McGirl, Timothy},
