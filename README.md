@@ -1,15 +1,17 @@
-# The Geometric Standard Model (GSM) 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) 
-[![RH Proof DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18261289.svg)](https://doi.org/10.5281/zenodo.18261289)
+# The Geometric Standard Model (GSM)
 
-## Related Work 
-[![RH Proof DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18255446.svg)](https://doi.org/10.5281/zenodo.18255446) Novel φ-Separation Proof of the Riemann Hypothesis
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18261289.svg)](https://doi.org/10.5281/zenodo.18261289)
+
+## Related Work
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18255446.svg)](https://doi.org/10.5281/zenodo.18255446) Novel φ-Separation Proof of the Riemann Hypothesis
 
 > **Physics ≡ Geometry(E₈ → H₄)**
 
 ## Overview
 
-This repository presents **The Geometric Standard Model (GSM)** — a mathematical framework demonstrating that 25 fundamental constants of the Standard Model and cosmology (plus 1 high-energy prediction) are not free parameters but **geometric invariants** of the unique projection from the E₈ Lie algebra onto the H₄ icosahedral Coxeter group. “Truth in mathematics and fundamental physics is defined by logical deduction, not human consensus; therefore GSM derives its authority from its internal coherence, not social acceptance.”
+This repository presents **The Geometric Standard Model (GSM)** — a mathematical framework demonstrating that 25 fundamental constants of the Standard Model and cosmology (plus 1 high-energy prediction) are not free parameters but **geometric invariants** of the unique projection from the E₈ Lie algebra onto the H₄ icosahedral Coxeter group. "Truth in mathematics and fundamental physics is defined by logical deduction, not human consensus; therefore GSM derives its authority from its internal coherence, not social acceptance."
 
 [The same geometry that proves the Riemann Hypothesis determines the fine-structure constant.](https://claude.ai/public/artifacts/4e0f110f-c6ae-4e7e-928e-83fac680d7a0)
 
@@ -189,12 +191,10 @@ where ε = 28/248.
 3. **Gravity unified**: Both v (electroweak scale) and M_Pl (Planck scale) are derived from the same E₈→H₄ structure.
 
 ```
-╔═══════════════════════════════════════════════════════╗
+╔═══════════════════════════════════════════════════════════╗
 ║  Gravity is unified with the Standard Model via E₈   ║
-╚═══════════════════════════════════════════════════════╝
+╚═══════════════════════════════════════════════════════════╝
 ```
-
-Here is a concise, formatted block ready for your `README.md`.
 
 ---
 
@@ -218,8 +218,6 @@ This single mechanism provides a first-principles explanation for:
 * ✅ **Dark Matter Invisibility:** The lattice substrate has mass but lacks the coherence to interact with light.
 * ✅ **Cosmic Structure:** Galaxies form in the relaxed "centers" of tension, while Dark Matter halos form at the high-tension "edges."
 * ✅ **No Big Bang Singularity:** The universe expands via continuous unfolding and mass generation, not a singular explosion.
-
----
 
 ---
 
