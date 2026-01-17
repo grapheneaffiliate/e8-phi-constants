@@ -1,6 +1,14 @@
 # Zenodo-specific files (manually uploaded to Zenodo)
 ZenodoReadme.html
 
+# Zip files (for manual uploads)
+*.zip
+GOLDEN_FLOW_THEOREM_overleaf.zip
+
+# Temporary folders
+overleaf_project/
+test_extract/
+
 # Python
 __pycache__/
 *.py[cod]
