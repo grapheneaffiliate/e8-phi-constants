@@ -5,7 +5,6 @@
 
 ## Related Work
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18255446.svg)](https://doi.org/10.5281/zenodo.18255446) [Novel φ-Separation Proof of the Riemann Hypothesis](https://doi.org/10.5281/zenodo.18255446)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18255446.svg)](https://doi.org/10.5281/zenodo.18255446) Novel φ-Separation Proof of the Riemann Hypothesis
 
 > **Physics ≡ Geometry(E₈ → H₄)**
 
