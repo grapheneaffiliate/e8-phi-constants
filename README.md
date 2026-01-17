@@ -5,6 +5,7 @@
 
 ## Related Work
 [Novel φ-Separation Proof of the Riemann Hypothesis DOI](https://doi.org/10.5281/zenodo.18255446)
+- [Golden Flow Theorem](paper/GOLDEN_FLOW_THEOREM.md) — Operator unifying RH proof and GSM
 
 > **Physics ≡ Geometry(E₈ → H₄)**
 

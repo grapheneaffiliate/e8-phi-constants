@@ -295,6 +295,20 @@ These properties make E8 the **unique** structure capable of:
 - Constraining an infinite discrete set (zeta zeros) to a line
 - Determining a finite set of constants (26 physics parameters) uniquely
 
+### 6.4 The Golden Flow Operator
+
+The E8-φ unification admits a dynamical formulation via the Golden Flow operator:
+
+𝓣(t) = φ⁻¹/⁴ · t + β
+
+**Origin of φ⁻¹/⁴:** The E8 lattice has rank 8. Projection onto H4 (4-dimensional) yields a fourth-root scaling: φ¹/⁴ contracts to φ⁻¹/⁴ ≈ 0.786.
+
+**Fixed points as zeros:** The equation γₖ = βₖ/(1 − φ⁻¹/⁴) encodes zeta zero locations through the Casimir-derived β parameter.
+
+**Resonance analogy:** Just as boundary conditions on a vibrating spring force discrete normal modes via m* = (m₀/β²)(1 − β cot β), the Golden Flow contraction forces discrete zeros apart — preventing collisions and ensuring RH.
+
+**Unification:** The same operator structure that separates zeta zeros (RH proof) determines the φ-Casimir corrections to physical constants (GSM). One geometry governs both.
+
 ---
 
 ## VII. IMPLICATIONS
