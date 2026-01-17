@@ -4,7 +4,7 @@
 [GSM DOI](https://doi.org/10.5281/zenodo.18261288)
 
 ## Related Work
-[Novel φ-Separation Proof of the Riemann Hypothesis](https://doi.org/10.5281/zenodo.18255446)
+[Novel φ-Separation Proof of the Riemann Hypothesis DOI](https://doi.org/10.5281/zenodo.18255446)
 
 > **Physics ≡ Geometry(E₈ → H₄)**
 
