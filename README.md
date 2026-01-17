@@ -25,6 +25,7 @@ This repository presents **The Geometric Standard Model (GSM)** — a mathematic
 | **Median deviation** | 0.016% |
 | **Maximum deviation** | < 1% (all 25 confirmed constants) |
 | **Free parameters** | **Zero** |
+| **Extensions** | See [`Predictions Extension/`](Predictions%20Extension/) for novel derivations |
 
 ## Theoretical Foundation: Spacetime Emergence
 
