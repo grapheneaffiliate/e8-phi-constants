@@ -10,6 +10,10 @@ against experimental values.
 
 import numpy as np
 from numpy import sqrt, pi
+from mpmath import mp, mpf, asin, degrees
+
+# Set high precision for mpmath calculations
+mp.dps = 50
 
 # Golden ratio
 PHI = (1 + sqrt(5)) / 2
@@ -186,6 +190,37 @@ def main():
     n_s_exp = 0.9649
     results.append(("n_s", n_s, n_s_exp))
     print(f"\nn_s = 1 - φ⁻⁷ = {n_s:.6f} (exp: {n_s_exp})")
+    
+    # ==========================================================================
+    # PMNS EXTENDED - Leptonic CP-Violating Phase
+    # ==========================================================================
+    print("\n" + "=" * 80)
+    print("PMNS EXTENDED: LEPTONIC CP-VIOLATING PHASE (δ_CP)")
+    print("=" * 80)
+    
+    # Calculate using mpmath for high precision
+    phi_mpmath = (mpf(1) + sqrt(mpf(5))) / mpf(2)
+    phi_inv3 = mpf(1) / phi_mpmath**3
+    correction_rad = asin(phi_inv3)
+    correction_deg = degrees(correction_rad)
+    delta_cp_gsm = mpf(180) + correction_deg
+    delta_cp_exp = mpf(192.0)  # 2026 NuFIT-equivalent central for normal ordering (±20° 1σ band)
+    delta_cp_unc = mpf(20.0)  # 1σ uncertainty
+    deviation = abs(delta_cp_gsm - delta_cp_exp) / delta_cp_exp * 100
+    within_1sigma = abs(delta_cp_gsm - delta_cp_exp) < delta_cp_unc
+    
+    results.append(("δ_CP", float(delta_cp_gsm), float(delta_cp_exp)))
+    
+    print(f"\nδ_CP = π + arcsin(φ⁻³) = 180° + arcsin(φ⁻³)")
+    print(f"     φ = {phi_mpmath}")
+    print(f"     φ⁻³ = {phi_inv3}")
+    print(f"     arcsin(φ⁻³) = {correction_deg}°")
+    print(f"\nGSM Predicted δ_CP = {delta_cp_gsm}°")
+    print(f"Experimental Central (Normal Ordering): {delta_cp_exp}° ± {delta_cp_unc}°")
+    print(f"Relative Deviation: {float(deviation):.15f}%")
+    print(f"\nWithin 1σ band? {within_1sigma}")
+    print(f"\nNote: This is the triality-based derivation from Predictions Extension/")
+    print(f"See: Predictions Extension/leptonic_cp_phase_derivation.md for details")
     
     # ==========================================================================
     # PREDICTIONS

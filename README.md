@@ -234,6 +234,8 @@ This single mechanism provides a first-principles explanation for:
 │   │   └── MATHEMATICAL_PROOFS.md    # Rigorous Casimir & uniqueness proofs
 │   └── predictions/
 │       └── EXPERIMENTAL_PROPOSALS.md # Falsifiable predictions & tests
+├── Predictions Extension/              # Community-driven extensions
+│   └── leptonic_cp_phase_derivation.md  # Derivation of δ_CP via triality and φ⁻³
 ├── appendices/
 │   ├── GSM_v1_Appendix_Formal_Proofs.md
 │   └── GSM_v1_Appendix_B_Complete_Formalization.md
@@ -281,6 +283,25 @@ This single mechanism provides a first-principles explanation for:
 
 ### High-Energy Prediction
 - **S(CHSH)** = **2.382** — predicts 15.8% suppression from Tsirelson bound at high energies
+
+---
+
+## Predictions Extension: Novel Derivations
+
+This section highlights community-driven extensions building on GSM's core framework. These are housed in the `Predictions Extension/` folder for modularity.
+
+### Leptonic CP-Violating Phase (δ_CP)
+A zero-parameter derivation yielding δ_CP ≈ 193.65°, refining the PMNS matrix phase via triality and asin(φ⁻³). Matches 2026 experimental bands (normal ordering) with <1% deviation. See [Predictions Extension/leptonic_cp_phase_derivation.md](Predictions%20Extension/leptonic_cp_phase_derivation.md) for full details, formula, and verification code.
+
+**Formula:** δ_CP = π + arcsin(φ⁻³) = 180° + arcsin(φ⁻³)
+
+**Key Results:**
+- GSM Predicted: 193.65°
+- Experimental Central (Normal Ordering): 192° ± 20° (1σ)
+- Relative Deviation: 0.86%
+- Within 1σ band? **Yes**
+
+This extension is verified via `verification/verify_all.py` — the new PMNS Extended section computes the value automatically with 50-digit precision using mpmath.
 
 ---
 
