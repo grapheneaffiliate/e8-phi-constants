@@ -1,7 +1,7 @@
 # The Geometric Standard Model (GSM)
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) 
-[GSM DOI](https://doi.org/10.5281/zenodo.18261288)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18261288-blue)(https://doi.org/10.5281/zenodo.18261288)
 
 ## Related Work
 [Novel φ-Separation Proof of the Riemann Hypothesis DOI](https://doi.org/10.5281/zenodo.18255446)
