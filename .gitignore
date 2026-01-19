@@ -47,3 +47,8 @@ env/
 # OS
 .DS_Store
 Thumbs.db
+
+# Private research files - do not push
+PRIVATE_*.md
+PRIVATE_*.html
+private_*.py
