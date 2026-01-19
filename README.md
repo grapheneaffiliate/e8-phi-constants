@@ -4,7 +4,7 @@
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18261288-blue)](https://doi.org/10.5281/zenodo.18261288)
 
 ## Related Work
-[Novel φ-Separation Proof of the Riemann Hypothesis DOI](https://doi.org/10.5281/zenodo.18255446)
+[Novel φ-Separation Proof of the Riemann Hypothesis - DOI](https://doi.org/10.5281/zenodo.18255446)
 - [Golden Flow Theorem](paper/GOLDEN_FLOW_THEOREM.md) — Operator unifying RH proof and GSM
 - [**Golden Field Theory**](Golden%20Field%20Theory/EXECUTIVE_SUMMARY.md) — Im(O) Theorem achieving sub-ppb precision
 
