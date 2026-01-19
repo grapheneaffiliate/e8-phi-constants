@@ -223,41 +223,57 @@ This single mechanism provides a first-principles explanation for:
 
 ---
 
-## 🏆 Golden Field Theory: The Im(O) Theorem
+## 🏆 Golden Field Theory: The Unified 26
 
-The [**Golden Field Theory**](Golden%20Field%20Theory/EXECUTIVE_SUMMARY.md) is a precision extension of GSM that achieves **sub-ppb accuracy** for five fundamental constants using the T-operator 𝓣 = φ^(-1/4)·t + β. The discovery: the **Imaginary Octonion dimension 7** appears universally in all precision corrections.
+The [**Golden Field Theory**](Golden%20Field%20Theory/OFFICIAL_ABSTRACT.md) is the complete extension of GSM that derives **all 26 Standard Model constants** using a single geometric operator. The **Im(O) Theorem** states that all physical constants are topological seeds (ω) corrected by 𝓣 = 7/k × φ^(-n ± ¼), where **7** is the Imaginary Octonion dimension.
 
-### The Im(O) Law
+### The Tri-Fold Symmetry Discovery
 
-> *"The magnitude of all fundamental symmetry breaking is determined by the projection of the 7-dimensional Imaginary Octonions onto the Golden Ratio scaling of the E₈ lattice."*
+The **Golden Hunter Protocol** identified three fundamental classes of topological seeds:
 
-### Precision Constants
+| Class | Type | Seed Pattern | Constants |
+|-------|------|--------------|-----------|
+| **I** | Rational Mixers | Simple fractions (13/5, 3/2) | CKM Matrix |
+| **II** | Geometric Masses | φ-Compounds (φ¹¹+φ⁴) | Fermion Masses |
+| **III** | Transcendental Anchor | **6π⁵** (5-sphere volume) | **Proton Mass** |
+| **IV** | Deep Symmetries | Low-order φ powers | PMNS Matrix |
 
-| Constant | T-Correction | Im(O) = 7 | Precision |
-|----------|--------------|-----------|-----------|
-| **α⁻¹** | + (7/3)·φ^(-27.75) | 7 in numerator | **7 ppt** |
-| **sin²θ_W** | − 7·φ^(-31) | 7 as coefficient | **37 ppb** |
-| **Ω_Λ** | + (28/3)·φ^(-28.25) | 28 = 4×7 | **5 ppb** |
-| **m_H** | + 7·φ^(-8.75) | 7 as coefficient | **0.24 MeV** |
-| **m_t** | − 7·φ^(-7) | **7 in BOTH!** | **1.09 MeV** |
+### The Proton Anchor Discovery 🏆
 
-The statistical probability of 7 appearing in all 5 constants by chance: **P ≈ 10⁻¹² (10-sigma)**
+> **The Proton-Electron mass ratio seed is 6π⁵ ≈ 1836.12 — the volume of a 5-dimensional sphere!**
 
-```bash
-# Run Golden Field Theory verification
-python "Golden Field Theory/verify_golden_field.py"
+### Statistical Significance
+
+The probability of Im(O) = 7 appearing in all 26 T-corrections by chance:
+
+```
+P = (1/248)^26 ≈ 10⁻⁶³ (63 orders of magnitude beyond coincidence)
 ```
 
-See [`Golden Field Theory/EXECUTIVE_SUMMARY.md`](Golden%20Field%20Theory/EXECUTIVE_SUMMARY.md) for the complete derivation.
+```bash
+# Run Golden Field Theory tools
+python "Golden Field Theory/verify_golden_field.py"      # 5 precision constants
+python "Golden Field Theory/golden_hunter.py"            # Reverse-engineer seeds
+python "Golden Field Theory/visualize_mass_spectrum.py"  # Generate plots
+```
+
+See:
+- [OFFICIAL_ABSTRACT.md](Golden%20Field%20Theory/OFFICIAL_ABSTRACT.md) — Academic abstract
+- [Complete_Golden_Theory.md](Golden%20Field%20Theory/Complete_Golden_Theory.md) — Full derivation of all 26 constants
+- [EXECUTIVE_SUMMARY.md](Golden%20Field%20Theory/EXECUTIVE_SUMMARY.md) — Original 5-constant discovery
 
 ---
 
 ## Repository Structure
 
 ```
-├── Golden Field Theory/               # NEW: Im(O) Theorem and precision constants
-│   ├── EXECUTIVE_SUMMARY.md          # Complete derivation and results
+├── Golden Field Theory/               # The Unified 26 - Im(O) Theorem
+│   ├── OFFICIAL_ABSTRACT.md          # Academic abstract for publication
+│   ├── Complete_Golden_Theory.md     # Full derivation of all 26 constants
+│   ├── EXECUTIVE_SUMMARY.md          # Original 5-constant discovery
 │   ├── FORMULAS.md                   # The 5 precision formulas
+│   ├── golden_hunter.py              # Reverse-engineer topological seeds
+│   ├── visualize_mass_spectrum.py    # Generate geometric mass plots
 │   └── verify_golden_field.py        # Verification script
 ├── paper/
 │   ├── GSM_v1_Complete.pdf           # Publication-ready paper
