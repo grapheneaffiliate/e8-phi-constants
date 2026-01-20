@@ -428,6 +428,42 @@ Formulas with slightly better numerical precision (like using C₁₂) are physi
 
 ---
 
+## 🧬 E₈ → SM Embedding: How Casimirs Get EM Charge
+
+The PRIMARY/SECONDARY classification is **derived from the E₈ → E₇ × U(1) branching**, not chosen post-hoc.
+
+### The Adjoint Decomposition
+
+When E₈ → E₇ × U(1):
+```
+248 → 133₀ ⊕ 1₀ ⊕ 56₊₁ ⊕ 56̄₋₁ ⊕ 1₊₂ ⊕ 1₋₂
+```
+
+The charge-2 singlets (1₊₂ ⊕ 1₋₂) are crucial — they determine C₁₄'s EM coupling!
+
+### Casimir Charge Weight Derivation
+
+| Casimir | Expansion | Charge Weight | Why |
+|---------|-----------|---------------|-----|
+| C₈ | C₈^{E₇} + T¹ × (lower) | **1** | Cross-term has T¹ |
+| C₁₄ | C₁₄^{E₇} + T² × C₁₂^{E₇} | **2** | E₇ has no C₁₃, so T² is leading |
+| C₁₂ | C₁₂^{E₇} + (subleading) | **0** | Pure E₇ dominates |
+
+**Key insight:** E₇ Casimirs are {2, 6, 8, 10, 12, 14, 18} — there is NO C₁₃. Therefore C₁₄^{E₈} must couple through T² × C₁₂^{E₇}, giving charge weight 2.
+
+### The Exponent Rule Derived
+
+| Charge Weight | β-Function | Anomalous Dim | Exponent |
+|---------------|------------|---------------|----------|
+| 1 (PRIMARY) | One-loop | Yes | d - 1 = 7 |
+| 2 (SECONDARY) | Two-loop | No | d = 14 |
+
+**This is representation theory, not fitting!**
+
+📄 **Full Derivation:** [appendices/GSM_v1_Appendix_G_E8_SM_Embedding.md](appendices/GSM_v1_Appendix_G_E8_SM_Embedding.md)
+
+---
+
 ## References
 
 1. Viazovska, M. (2016). "The sphere packing problem in dimension 8." *Annals of Mathematics*.
