@@ -281,11 +281,15 @@ This single mechanism provides a first-principles explanation for:
 │   └── leptonic_cp_phase_derivation.md  # Derivation of δ_CP via triality and φ⁻³
 ├── appendices/
 │   ├── GSM_v1_Appendix_Formal_Proofs.md
-│   └── GSM_v1_Appendix_B_Complete_Formalization.md
+│   ├── GSM_v1_Appendix_B_Complete_Formalization.md
+│   ├── GSM_v1_Appendix_C_Casimir_Proofs.md
+│   ├── GSM_v1_Appendix_D_Uniqueness.md
+│   └── GSM_v1_Appendix_E_Alpha_Derivation.md  # ★ First-principles derivation
 └── verification/
     ├── gsm_verification.py           # Original verification (26 constants)
     ├── gsm_calculator.py             # Complete GSM calculator class
     ├── verify_all.py                 # Unified verification suite
+    ├── alpha_first_principles.py     # ★ α⁻¹ derivation without experimental input
     └── [11 derivation scripts]       # Individual derivation files
 ```
 
