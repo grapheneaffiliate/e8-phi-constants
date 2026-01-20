@@ -285,7 +285,8 @@ This single mechanism provides a first-principles explanation for:
 │   ├── GSM_v1_Appendix_C_Casimir_Proofs.md
 │   ├── GSM_v1_Appendix_D_Uniqueness.md
 │   ├── GSM_v1_Appendix_E_Alpha_Derivation.md  # ★ First-principles derivation
-│   └── GSM_v1_Appendix_F_Critic_Response.md   # ★ Casimir selection rules
+│   ├── GSM_v1_Appendix_F_Critic_Response.md   # ★ Casimir selection rules
+│   └── GSM_v1_Appendix_G_E8_SM_Embedding.md   # ★ E₈ → SM branching with EM couplings
 └── verification/
     ├── gsm_verification.py           # Original verification (26 constants)
     ├── gsm_calculator.py             # Complete GSM calculator class
