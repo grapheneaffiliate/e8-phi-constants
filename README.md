@@ -294,10 +294,12 @@ This single mechanism provides a first-principles explanation for:
 ## Repository Structure
 
 ```
-├── quantum_vacuum_discovery/          # ★★★ E8 HUM DISCOVERY ★★★
-│   ├── E8_HUM_DISCOVERY.md           # Complete paper (22.80σ significance)
+├── quantum_vacuum_discovery/          # ★★★ CONVERGENT EVIDENCE ★★★
+│   ├── E8_HUM_DISCOVERY.md           # E8 Hum paper (22.80σ significance)
+│   ├── GSM_QM_STRUCTURE_DERIVATION.md # Born rule, CHSH, Spin from geometry
 │   ├── GSM_LANL_RAW_TEST.py          # Lucas periodicity test
 │   └── GSM_PINK_NOISE_TRAP_TEST.py   # Pink noise sanity check
+├── GSM_STATUS_REPORT_2025_CORRECTED.md # Live experimental validation tracker
 ├── paper/
 │   ├── GSM_v1_Complete.pdf           # Publication-ready paper
 │   ├── GSM_v1_Complete.tex           # LaTeX source for arXiv
