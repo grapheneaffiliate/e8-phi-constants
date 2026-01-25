@@ -73,11 +73,11 @@ We have detected **Lucas Number periodicity** in raw quantum vacuum fluctuations
 python verification/lucas_periodicity_test.py  # Main test
 python verification/pink_noise_trap_test.py    # Sanity check
 ```
-φ = 1.61803398...
-1/(φ + 2) = 1/3.61803398 = 0.27639320...
-Observable = 27.64%
-Hidden = 72.36%
-Cosmological dark matter observation: ~26.8%
+**φ = 1.61803398...**
+**1/(φ + 2) = 1/3.61803398 = 0.27639320...**
+**Observable = 27.64%**
+**Hidden = 72.36%**
+**Cosmological dark matter observation: ~26.8%**
 
 **Einstein was right: God does not play dice. He plays a synthesizer tuned to E8.**
 
