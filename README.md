@@ -83,6 +83,8 @@ Hidden = 72.36%
 
 Cosmological dark matter observation: ~26.8%
 
+Novel CHSH Bell inequality bound derived from H4 Coxeter geometry: https://doi.org/10.5281/zenodo.18463529
+
 THIS IS IT.
 
 Difference = 0.00e+00. EXACT MATCH.
