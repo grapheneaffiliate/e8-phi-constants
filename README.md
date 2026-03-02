@@ -41,7 +41,7 @@ All from a single E₈ → H₄ geometric axiom. The repo now represents a compl
 
 | Evidence | GSM Prediction | Observation | Match |
 |----------|----------------|-------------|-------|
-| **🔔 Bell Test Ceiling** | S ≤ 4-φ = 2.382 | S = 2.38 ± 0.14 (Delft 2016) | **0.014σ** |
+| **🔔 Bell Test Ceiling** | S ≤ 4-φ = 2.382 | No loophole-free S > 2.5 | **Unfalsified** |
 | **🎵 Vacuum Structure (E8 Hum)** | Lucas periodicity | Detected at 22.80σ | **Confirmed** |
 | **⚛️ Fine Structure Constant** | 137.035995... | 137.035999... | **0.027 ppm** |
 | **🔬 9 Constants Derived** | E8 representation theory | All match | **< 1%** |
@@ -51,21 +51,23 @@ All from a single E₈ → H₄ geometric axiom. The repo now represents a compl
 
 ---
 
-## 🔔 The Bell Test Smoking Gun
+## 🔔 The Pentagonal Prism Bell Bound
 
-For 10 years, no loophole-free Bell experiment has exceeded S = 2.5, despite standard QM permitting S = 2.828.
+**Mathematical Theorem (proven):** The maximum CHSH parameter for measurement directions drawn from a pentagonal prism on S² with height h² = 3/(2φ) is exactly **S = 4 − φ ≈ 2.382**. This is established by three independent algebraic proofs from H4 Coxeter invariants and brute-force verified over all 8,100 vertex quadruples. Zero free parameters.
 
 ```
-COPENHAGEN PREDICTS:  S_max = 2√2 = 2.828 (achievable)
-GSM PREDICTS:         S_max = 4 - φ = 2.381966 (geometric limit)
+CLASSICAL LIMIT:      S ≤ 2.000
+GSM BOUND (PROVEN):   S ≤ 4 - φ = 2.382  (pentagonal prism theorem)
+TSIRELSON BOUND:      S ≤ 2√2  = 2.828
 
-DELFT 2016 RESULT:    S = 2.38 ± 0.14
-MATCH TO GSM:         0.014σ — ESSENTIALLY EXACT
+EXPERIMENTAL STATUS:  No loophole-free Bell test has exceeded S = 2.5
+FALSIFICATION:        A loophole-free S > 2.5 at 3σ would falsify GSM
 ```
 
-**This is the smoking gun.** The universe has a geometric ceiling on quantum correlations at exactly the value GSM predicts.
+**Physical conjecture:** Nature enforces the H4 geometric constraint, making 4−φ the true ceiling. This is testable — the specific pentagonal prism measurement directions are provided, and the model gives a sharp falsification criterion.
 
-📄 **Full Analysis:** [quantum_vacuum_discovery/GSM_QM_STRUCTURE_DERIVATION.md](quantum_vacuum_discovery/GSM_QM_STRUCTURE_DERIVATION.md)
+📄 **Mathematical proof:** [quantum_vacuum_discovery/test_gsm_chsh.py](quantum_vacuum_discovery/test_gsm_chsh.py)
+📄 **Experimental analysis:** [quantum_vacuum_discovery/bell_test_meta_analysis.py](quantum_vacuum_discovery/bell_test_meta_analysis.py)
 
 ---
 
@@ -108,39 +110,30 @@ Hidden = 72.36%
 
 Cosmological dark matter observation: ~26.8%
 
-Novel CHSH Bell inequality bound derived from H4 Coxeter geometry: https://doi.org/10.5281/zenodo.18463529
+📄 **Zenodo:** [Novel CHSH Bell inequality bound derived from H4 Coxeter geometry](https://doi.org/10.5281/zenodo.18463529)
 
-THIS IS IT.
+### Derivation Chain
 
-Difference = 0.00e+00. EXACT MATCH.
-
-A pentagonal prism with height h² = 3/(2φ) gives max S = 4 - φ EXACTLY.
-
-The set D is:
-
-10 unit vectors on S²
-5 vertices on a top ring, 5 on a bottom ring
-Pentagonal (5-fold) symmetry = H2 Coxeter group
-Height parameter h = √(3/(2φ))
-
-The derivation chain is now COMPLETE:
-
+```
 H4 Coxeter Geometry
        │
        ▼
-Cartan/Gram Determinants → γ² = (13-7φ)/4
+Three Independent Algebraic Proofs:
+  I.  Cartan path: γ² = det(C_H3)/2 + det(C_H4)/4 → S = √(4+4γ²) = 4−φ
+  II. Gram path:   16·[det(G_H3) − det(G_H4)] = det(C_H2) → S = 1 + det(C_H2) = 4−φ
+  III.Prism path:  h² = 3/(2φ), S = (10φ−7)/(3φ−1) = 4−φ
        │
        ▼
-Pentagonal Prism with h² = 3/(2φ)
-(5-fold symmetry from H2 ⊂ H4)
+Brute-Force Verification:
+  10 unit vectors on S² (pentagonal prism, D5h symmetry)
+  8,100 distinct vertex quadruples tested
+  80 achieve |S| = 4−φ, 0 exceed it
        │
        ▼
-max |S| = 4 - φ ≈ 2.382
+max |S| = 4 − φ ≈ 2.382  [PROVEN]
+```
 
-
-The physical interpretation: if quantum measurement directions are constrained to a pentagonal prism geometry with the golden-ratio height parameter, the maximum Bell violation is exactly 4 - φ. The 5-fold symmetry is the H2 Coxeter subgroup of H4, and the height encodes the ratio 3/(2φ) — which connects directly to the golden ratio.
-
-**Einstein was right: God does not play dice. He plays a synthesizer tuned to E8.**
+All three proofs use only the identity φ² = φ + 1 and structures intrinsic to the H4 Coxeter group.
 
 ---
 
@@ -236,54 +229,54 @@ For k ≠ 1, no combination of Casimir-structured exponents (from {2,8,12,14,18,
 
 ## Complete CHSH Derivation
 
-### Theorem: In H₄ Quantum Mechanics, the CHSH Bound is S ≤ 4 - φ ≈ 2.382
+### Theorem: The Pentagonal Prism Bell Bound is S = 4 − φ ≈ 2.382
 
-**Proof:**
+Three independent algebraic proofs, all verified computationally. Each uses only φ² = φ + 1 and H4 Coxeter group invariants.
 
-**Step 1.** The H₄ Coxeter group acts on the two-qubit Hilbert space ℂ² ⊗ ℂ² ≅ ℂ⁴ via its 4-dimensional reflection representation.
+**Proof I (Cartan Determinant Path):**
 
-**Step 2.** The spin commutator algebra is modified by H₄:
+The H-type Cartan determinants follow the pattern det(C_Hn) = (n+1) − (n−1)φ:
 
-$$[J_i, J_j]_{H_4} = i\gamma \varepsilon_{ijk} J_k$$
+| Group | det(C) | Value |
+|-------|--------|-------|
+| H2 | 3 − φ | 1.382 |
+| H3 | 4 − 2φ | 0.764 |
+| H4 | 5 − 3φ | 0.146 |
 
-where γ is constrained by the H₄ structure.
+Define γ² = det(C_H3)/2 + det(C_H4)/4 = (13 − 7φ)/4. Then:
+- |B|² = 4(1 + γ²) = 17 − 7φ
+- (4 − φ)² = 16 − 8φ + φ² = 16 − 8φ + (φ+1) = 17 − 7φ ✓
+- Therefore S = 4 − φ ∎
 
-**Step 3.** The Bell operator satisfies:
+**Proof II (Gram Determinant Path):**
 
-$$\|B\|^2 = 4 + 4\gamma^2$$
+16 · [det(G_H3) − det(G_H4)] = 3 − φ = det(C_H2), therefore:
+- S = 1 + det(C_H2) = 1 + (3 − φ) = 4 − φ ∎
 
-**Step 4.** The H₄ eigenvalue structure (via Fibonacci F₇ = 13 and Lucas L₄ = 7) gives:
+**Proof III (Pentagonal Prism Path):**
 
-$$\gamma^2 = \frac{F_7 - L_4 \cdot \phi}{4} = \frac{13 - 7\phi}{4}$$
+A pentagonal prism with h² = 3/(2φ) = 6φ · det(G_H3) gives:
+- S = (10φ − 7)/(3φ − 1) = 4 − φ
+- Cross-check: (4−φ)(3φ−1) = 10φ − 7 ✓ ∎
 
-**Step 5.** Substituting:
-
-$$\|B\|^2 = 4 + (13 - 7\phi) = 17 - 7\phi$$
-
-**Step 6.** Using φ² = φ + 1:
-
-$$(4 - \phi)^2 = 16 - 8\phi + \phi^2 = 16 - 8\phi + \phi + 1 = 17 - 7\phi$$
-
-**Step 7.** Therefore:
-
-$$\|B\| = \sqrt{17 - 7\phi} = 4 - \phi = L_3 - \phi \approx 2.382 \quad \blacksquare$$
+**Brute-Force Verification:** All 8,100 distinct vertex quadruples tested. Maximum |S| = 4 − φ exactly. Zero quadruples exceed it. 80 achieve the maximum (by D5h × Z2 symmetry).
 
 ### Key Identities
 
-- **S = 4 - φ = (7 - √5)/2 = 2 + φ⁻²**
-- **γ² = (13 - 7φ)/4 = (F₇ - L₄φ)/4**
-- The number **4 = L₃** (third Lucas number) sets the base contribution
-- The golden ratio **φ** is subtracted due to H₄ icosahedral symmetry
+- **S = 4 − φ = (7 − √5)/2 = 2 + φ⁻² = √(17 − 7φ)**
+- **det(C_Hn) = (n+1) − (n−1)φ** for n = 2, 3, 4
 
-### Physical Prediction
+### Bounds Comparison
 
-| Bound | Value | Source |
+| Bound | Value | Status |
 |-------|-------|--------|
-| Classical (LHV) | 2 | Bell inequality |
-| Standard QM | 2√2 ≈ 2.828 | Tsirelson bound |
-| **GSM (H₄)** | **4-φ ≈ 2.382** | **This derivation** |
+| Classical (LHV) | S ≤ 2 | Established |
+| **GSM (pentagonal prism)** | **S ≤ 4−φ ≈ 2.382** | **Proven (this theorem)** |
+| Standard QM (Tsirelson) | S ≤ 2√2 ≈ 2.828 | Established |
 
-The **15.8% suppression** below Tsirelson is testable at high energies where H₄ discreteness becomes relevant.
+**Falsification:** A loophole-free experiment measuring S > 2.5 at 3σ significance would falsify the physical claim that nature enforces this bound.
+
+📄 **Full verification:** `python quantum_vacuum_discovery/test_gsm_chsh.py --test` (29 tests)
 
 ---
 
@@ -458,13 +451,21 @@ This extension is verified via `verification/verify_all.py` — the new PMNS Ext
 
 ## The Critical Test: CHSH Bound
 
-| Theory | CHSH Maximum | Value |
-|--------|--------------|-------|
-| Classical | S ≤ 2 | 2.000 |
-| Standard QM | S ≤ 2√2 | 2.828 |
-| **GSM** | **S ≤ 4 - φ** | **2.382** |
+| Theory | CHSH Maximum | Value | Status |
+|--------|--------------|-------|--------|
+| Classical | S ≤ 2 | 2.000 | Established |
+| **GSM** | **S ≤ 4 − φ** | **2.382** | **Proven (pentagonal prism theorem)** |
+| Standard QM | S ≤ 2√2 | 2.828 | Established |
 
-**Falsification criterion:** If experiments measure S > 2.5 with high precision → GSM is falsified.
+**Falsification criterion:** A loophole-free measurement of S > 2.5 at 3σ significance falsifies the GSM bound.
+
+**Current experimental status:** No loophole-free Bell test has exceeded S = 2.5. Both models are consistent with existing data — distinguishing them requires next-generation experiments with apparatus efficiency > 84% and measurement error < ±0.05. See the meta-analysis for detailed roadmap.
+
+```bash
+python quantum_vacuum_discovery/test_gsm_chsh.py          # Mathematical proof (29 tests)
+python quantum_vacuum_discovery/gsm_multiparty_bounds.py   # Multi-party predictions
+python quantum_vacuum_discovery/bell_test_meta_analysis.py  # Experimental status
+```
 
 See [`theory/predictions/EXPERIMENTAL_PROPOSALS.md`](theory/predictions/EXPERIMENTAL_PROPOSALS.md) for complete prediction list.
 
@@ -472,11 +473,16 @@ See [`theory/predictions/EXPERIMENTAL_PROPOSALS.md`](theory/predictions/EXPERIME
 
 ## Verification
 
-Run the verification script to confirm all calculations:
+Run the verification scripts to confirm all calculations:
 
 ```bash
+# Core GSM verification
 python verification/gsm_verification.py
 python verification/verify_all.py
+
+# Bell test analysis (3 proofs, 29 unit tests, brute-force verification)
+python quantum_vacuum_discovery/test_gsm_chsh.py --test
+python quantum_vacuum_discovery/bell_test_meta_analysis.py
 ```
 
 ## Key Mathematical Foundations
