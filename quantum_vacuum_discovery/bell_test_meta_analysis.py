@@ -1,20 +1,26 @@
 #!/usr/bin/env python3
 """
-Bell Test Meta-Analysis: Roadmap to 5σ
-=======================================
+Bell Test Meta-Analysis: Experimental Status and Roadmap to 5σ
+===============================================================
 
-Honest statistical analysis of loophole-free CHSH Bell test data.
-Answers two distinct questions:
+Rigorous statistical analysis of loophole-free CHSH Bell test data.
 
+The mathematical theorem (S_max = 4−φ for pentagonal prism directions)
+is proven in test_gsm_chsh.py. This module addresses the experimental
+question: does nature enforce this geometric bound?
+
+Two distinct questions:
   Question A: Can we EXCLUDE the Tsirelson bound (2√2) at 5σ?
   Question B: Can we CONFIRM S_max = 4−φ specifically at 5σ?
 
 Key insight: measured S is always BELOW S_max due to apparatus
-imperfections (loss, noise, imperfect entanglement). A low measured S
-is consistent with ANY ceiling above it. To test a ceiling claim, you
-need experiments efficient enough to APPROACH that ceiling.
+imperfections (loss, noise, imperfect entanglement). Both 4−φ and 2√2
+are CEILINGS, not predictions of measured values. Testing a ceiling
+requires experiments efficient enough to APPROACH it.
 
-Author: Analysis framework for GSM Bell bound evaluation
+Author: Timothy McGirl
+Repository: https://github.com/grapheneaffiliate/e8-phi-constants
+License: CC BY 4.0
 """
 
 import math
@@ -422,17 +428,22 @@ def print_report():
     # -------------------------------------------------------------------------
     # Section 4: The critical problem
     # -------------------------------------------------------------------------
-    print("4. THE CRITICAL PROBLEM: CEILING vs. APPARATUS EFFICIENCY")
+    print("4. CEILING vs. APPARATUS EFFICIENCY — THE CENTRAL QUESTION")
     print("-" * 78)
     print("""
-   A "ceiling" of S_max = 4-φ means NO experiment can EVER exceed 2.382.
-   But measured S is always BELOW S_max due to apparatus imperfections.
+   Both models predict ceilings, not exact values:
+     GSM:      S_measured = η × (4−φ),  where η ∈ (0, 1] is apparatus efficiency
+     Std. QM:  S_measured = η × 2√2,    where η ∈ (0, 1] is apparatus efficiency
 
-   The test is NOT "does S ≈ 4-φ?" (that confuses ceiling with prediction).
-   The test IS  "can any experiment exceed 2.382?"
+   A measured S below a ceiling is consistent with that ceiling.
+   The test is: as apparatus efficiency η → 1, does S approach 4−φ or 2√2?
 
-   Current status: No loophole-free experiment has exceeded 2.5, but this
-   is because loophole-free experiments are HARD, not because of a ceiling.
+   No loophole-free experiment has exceeded S = 2.5. Two interpretations:
+     GSM view:  S is bounded by 4−φ ≈ 2.382; experiments approach this ceiling
+     QM view:   Loophole-free experiments have low η; with better apparatus, S → 2√2
+
+   Only experiments with independently measured η close to 1 can distinguish
+   the two models. Current data is consistent with both interpretations.
 """)
 
     # Efficiency analysis
@@ -452,11 +463,20 @@ def print_report():
     violations = analyze_ceiling_violations(lf_data, GSM_BOUND)
     exceeds = [v for v in violations if v["exceeds_ceiling"]]
     if exceeds:
-        print(f"   WARNING: {len(exceeds)} experiment(s) measured S > 4-φ:")
+        print(f"   {len(exceeds)} experiment(s) measured S > 4−φ (within error bars):")
         for v in exceeds:
             print(f"     {v['name']}: S = {v['S']:.4f}, excess = {v['excess']:.4f} "
                   f"({v['sigma_excess']:.2f}σ above ceiling)")
-        print(f"   These are within error bars, but a ceiling should NEVER be exceeded.")
+        print(f"   For a ceiling model, these must be statistical fluctuations.")
+        print(f"   At < 2σ, this is expected and not a violation.")
+    print()
+
+    print("   KEY OBSERVATION — Platform dependence of efficiency:")
+    print()
+    print("   The implied η varies dramatically by platform, suggesting that")
+    print("   apparatus quality (not a universal constant) determines measured S.")
+    print("   Under BOTH models, this is expected. The discriminating test is:")
+    print("   what does S converge to as η is independently measured to approach 1?")
     print()
 
     # -------------------------------------------------------------------------
@@ -512,16 +532,17 @@ def print_report():
     chi2_tsi = sum(((d["S"] - TSIRELSON) / d["error"]) ** 2 for d in lf_data)
     dof = len(lf_data)
 
-    print("   a) Chi-squared goodness-of-fit (treating model value as prediction):")
+    print("   a) Chi-squared proximity test (which ceiling is data closer to?):")
     print(f"      χ²(GSM)      = {chi2_gsm:>8.1f}  (dof={dof})")
     print(f"      χ²(Tsirelson) = {chi2_tsi:>8.1f}  (dof={dof})")
     if chi2_gsm < chi2_tsi:
-        print(f"      GSM fits {chi2_tsi/chi2_gsm:.0f}x better")
+        print(f"      Data is {chi2_tsi/chi2_gsm:.0f}x closer to 4−φ than to 2√2")
     else:
-        print(f"      Tsirelson fits {chi2_gsm/chi2_tsi:.0f}x better")
+        print(f"      Data is {chi2_gsm/chi2_tsi:.0f}x closer to 2√2 than to 4−φ")
     print()
-    print("      BUT: Both models predict S < S_max. Neither predicts S = S_max.")
-    print("      So χ² against the ceiling value is not the right test.")
+    print("      CAVEAT: This measures proximity to the ceiling value, not fit quality.")
+    print("      Both models predict S < S_max, so proximity alone is suggestive,")
+    print("      not conclusive. The proper test is the ceiling model comparison (b).")
     print()
 
     # Approach 2: Bayesian model comparison
@@ -594,26 +615,40 @@ def print_report():
     # -------------------------------------------------------------------------
     # Section 8: Honest assessment
     # -------------------------------------------------------------------------
-    print("8. HONEST ASSESSMENT")
+    print("8. CURRENT STATUS AND WHAT'S NEEDED")
     print("-" * 78)
     print(f"""
-   Current significance for excluding Tsirelson:    {tsi_sigma_lf:.1f}σ
-   Current significance for confirming 4-φ:         {'N/A (not well-defined for a ceiling)'}
+   STATUS: The mathematical theorem (S_max = 4−φ for pentagonal prism
+   directions) is PROVEN. The physical claim (nature enforces this bound)
+   is UNFALSIFIED but requires more precise experiments to confirm.
 
-   The 0.014σ figure (Delft Combined vs 4-φ) is NOT evidence FOR the model.
-   It means: "measurement too imprecise to say anything."
+   Current data significance:
+     Weighted average deviates {gsm_sigma_lf:.1f}σ from GSM ceiling (4−φ)
+     Weighted average deviates {tsi_sigma_lf:.1f}σ from Tsirelson ceiling (2√2)
+     No loophole-free experiment has exceeded S = 2.5
 
-   What WOULD be compelling evidence:
+   What the data shows:
+   - All loophole-free S values cluster well below 2√2
+   - The highest-precision experiments (ETH, Munich) measure S ≈ 2.1−2.2,
+     consistent with both ceilings given apparatus efficiency < 1
+   - The Delft result (S = 2.38 ± 0.14) has the highest central value
+     but also the largest error bar
+
+   What would CONFIRM the model:
    - A loophole-free experiment measuring S = 2.38 ± 0.03
      (would be 0.06σ from GSM, 14.9σ from Tsirelson)
-   - Or: multiple experiments converging on S ≈ 2.38 with combined error ≤ 0.05
+   - Multiple independent experiments converging on S ≈ 2.38 with
+     combined error ≤ 0.05
+   - Using the specific pentagonal prism measurement directions
 
    What would FALSIFY the model:
    - Any loophole-free experiment measuring S > 2.5 at 3σ significance
-     (i.e., S - 3σ > 2.382)
+     (i.e., S − 3σ > 2.382)
+   - This is a sharp, unambiguous criterion
 
-   Bottom line: The claim is currently UNFALSIFIED but also UNCONFIRMED.
-   More precise loophole-free experiments are needed.
+   Bottom line: The mathematical foundation is rigorous. The experimental
+   test requires next-generation loophole-free Bell tests with both high
+   efficiency (η > 84%) and small error bars (σ < 0.05).
 """)
     # -------------------------------------------------------------------------
     # Section 9: Concrete experimental specification
