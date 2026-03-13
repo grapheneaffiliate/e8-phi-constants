@@ -1,11 +1,11 @@
 # GSM Verification Scripts Index
 
-This directory contains Python scripts that derive and verify all 26 fundamental constants from E₈ → H₄ geometry.
+This directory contains Python scripts that derive and verify all 58 fundamental constants from E₈ → H₄ geometry.
 
 ## Quick Start
 
 ```bash
-# Run full verification of all 26 constants
+# Run full verification of all 58 constants
 python gsm_verification.py
 
 # Run individual derivation scripts
@@ -19,7 +19,7 @@ python lepton_derivation.py
 
 | Script | Purpose | Output |
 |--------|---------|--------|
-| `gsm_verification.py` | Calculate ALL 26 constants and compare to experiment | Full table with deviations |
+| `gsm_verification.py` | Calculate ALL 58 constants and compare to experiment | Full table with deviations |
 
 **Expected output:**
 - 25 constants verified within 1%

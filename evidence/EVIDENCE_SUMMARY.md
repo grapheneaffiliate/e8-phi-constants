@@ -82,7 +82,7 @@ the statistical significance of the match.
 | Cosmology | 4 | 0.05% | 0.002% (Ω_Λ) | 0.074% (z_CMB) |
 | Gravity | 2 | 0.5% | 0.4% (M_Pl/v) | 0.6% (G_N) |
 
-**Overall: 26/26 predictions consistent with experiment. Median error: 0.016%**
+**Overall: 58 constants derived, 50 validated within 1%. Median error: 0.016%**
 
 ### 2.2 Combined Probability of Coincidence
 
@@ -183,7 +183,7 @@ Combined with the E8 Hum and Bell test:
 
 **Confidence Level: Strong circumstantial, awaiting decisive tests**
 
-- 26/26 constant predictions verified (median 0.016%)
+- 58 constants derived, 50 validated within 1% (median 0.016%)
 - 22.80σ vacuum periodicity detection
 - 0.014σ Bell bound match
 - 0.07σ cosmic birefringence match

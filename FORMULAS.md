@@ -3,7 +3,8 @@
 ## Fundamental Parameters
 - φ = (1 + √5)/2 = 1.6180339887498948482...
 - ε = 28/248 = 0.11290322580645161... (torsion ratio)
-- L_n = φⁿ + φ⁻ⁿ (φ-Lucas numbers)
+- L_n (classical) = φⁿ + (−φ)⁻ⁿ (integer Lucas: 2, 1, 3, 4, 7, 11, 18...)
+- L_n (φ-Lucas) = φⁿ + φ⁻ⁿ (real-valued: used for mass ratios, L₃² = 20)
 
 ## E₈ Structure Constants
 - dim(E₈) = 248
@@ -102,7 +103,7 @@
 
 | Constant | Formula | GSM Value | Experiment | Deviation |
 |----------|---------|-----------|------------|-----------|
-| M_Pl/v | φ^(80-ε) where ε=28/248 | 4.94×10¹⁶ | 4.96×10¹⁶ | 0.4% |
+| M_Pl/v | φ^(80-ε) where ε=28/248 | 4.959×10¹⁶ | 4.959×10¹⁶ | 0.01% |
 | G_N | (ℏc)/v² × φ^(-160+2ε) | 6.67×10⁻³⁹ GeV⁻² | 6.71×10⁻³⁹ | 0.6% |
 
 ### 10. High-Energy Prediction (UNTESTED)

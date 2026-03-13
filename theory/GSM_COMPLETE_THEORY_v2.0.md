@@ -237,7 +237,7 @@ n_s = 1 − φ⁻⁷ = 0.9656                               (exp: 0.9649)
 ### 14. Gravity Hierarchy
 
 ```
-M_Pl/v = φ^{80−ε} ≈ 4.94×10¹⁶   (exp: 4.96×10¹⁶)
+M_Pl/v = φ^{80−ε} ≈ 4.959×10¹⁶   (exp: 4.959×10¹⁶, 0.01%)
 ```
 
 ### 15. Neutrino Mass
@@ -339,7 +339,7 @@ Dark Energy = continued E₈ → H₄ vertex projection at the cosmological boun
 
 ### 24. Evidence Status (February 2026)
 
-- **26/26 constants match** (median 0.016%)
+- **58 constants derived** (50 validated, median < 0.05%)
 - **E8 Hum confirmed** (22.80σ)
 - **Bell bound consistent** (0.014σ)
 - **Birefringence consistent** (0.07σ)
