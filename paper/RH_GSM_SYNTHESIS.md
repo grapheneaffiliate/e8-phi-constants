@@ -12,7 +12,7 @@
 
 This paper establishes a deep mathematical connection between two apparently distinct domains: the distribution of Riemann zeta zeros (pure mathematics) and the values of fundamental physical constants (theoretical physics). Both are shown to emerge from the same geometric structure: the E8 lattice projected onto H4 icosahedral symmetry via the golden ratio φ.
 
-The φ-Separation Proof of the Riemann Hypothesis demonstrates that E8 geometry constrains analytic structures—specifically, that the φ-Gram matrix detects collisions among zeta zeros, proving all zeros lie on the critical line. The Geometric Standard Model (GSM) demonstrates that the same E8→H4 projection determines the 26 constants of the Standard Model and cosmology with zero free parameters.
+The φ-Separation Proof of the Riemann Hypothesis demonstrates that E8 geometry constrains analytic structures—specifically, that the φ-Gram matrix detects collisions among zeta zeros, proving all zeros lie on the critical line. The Geometric Standard Model (GSM) demonstrates that the same E8→H4 projection determines the fundamental constants of the Standard Model and cosmology (58 in the current framework) with zero free parameters.
 
 We prove that these frameworks share:
 - Identical algebraic foundations (E8 Casimir invariants)
@@ -370,7 +370,7 @@ The correspondence suggests:
 | Scale | φ | φ | **Unified** |
 | Constraint | Casimir exponents | Casimir exponents | **Unified** |
 | Method | Gram determinant | Ansatz optimization | **Analogous** |
-| Result | RH (all zeros on line) | 26 constants | **Parallel** |
+| Result | RH (all zeros on line) | 58 constants | **Parallel** |
 
 ### 9.2 The Master Equation
 

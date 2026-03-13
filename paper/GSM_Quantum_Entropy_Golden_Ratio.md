@@ -748,7 +748,7 @@ The CHSH bound S = 4 − φ uses the same H₄ Coxeter structure that determines
 | E₈ Casimirs | Underlying symmetry | Selection rules for all formulas |
 | Torsion ratio ε = 28/248 | Not used (pure geometry) | Gravity hierarchy |
 
-The CHSH bound is the **simplest** prediction of the GSM: it involves only det(C_H₂), the lowest-rank Cartan determinant. The 26 constants use progressively higher-rank structures.
+The CHSH bound is the **simplest** prediction of the GSM: it involves only det(C_H₂), the lowest-rank Cartan determinant. The 58 constants use progressively higher-rank structures.
 
 ---
 

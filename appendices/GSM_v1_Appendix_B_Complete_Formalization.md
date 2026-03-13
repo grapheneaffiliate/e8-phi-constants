@@ -193,9 +193,11 @@ $\blacksquare$
 
 ---
 
-## B.6 Application to All 26 Constants
+## B.6 Application to Constants
 
-**Corollary B.6.1:** *Each of the 26 constants is uniquely determined by its topological anchor and the Ansatz space:*
+> **Note (v4.0):** This appendix was written for the original 26-constant framework. The GSM now derives 58 constants (50 validated + 4 pole-chain quarks + 4 predictions) using the same formalism. The uniqueness theorem applies to all constants; only the original 26 are tabulated here.
+
+**Corollary B.6.1:** *Each constant is uniquely determined by its topological anchor and the Ansatz space:*
 
 | Constant | Anchor | Leading Casimir | Unique Solution |
 |----------|--------|-----------------|-----------------|
@@ -963,7 +965,7 @@ The following internal consistency conditions have been verified:
 
 | Task | Result | Status |
 |------|--------|--------|
-| **1. Variational Principle** | $\delta\mathcal{S} = 0 \Rightarrow$ 26 constants | ✓ Established |
+| **1. Variational Principle** | $\delta\mathcal{S} = 0 \Rightarrow$ physical constants | ✓ Established |
 | **2. Ansatz Uniqueness** | Each constant is unique minimum in $\mathcal{A}$ | ✓ Proven |
 | **3. Projection Uniqueness** | Matrix $M$ unique mod O(4) | ✓ Proven |
 | **4. Mass Spectrum** | Universal functional $\mathcal{F}(\lambda, C, \phi)$ | ✓ Derived |
@@ -978,8 +980,8 @@ The following internal consistency conditions have been verified:
 *Let $E_8$ be the unique 8-dimensional optimal sphere-packing lattice. Let $\pi: E_8 \to H_4$ be the unique icosahedral projection. Then:*
 
 1. *The projection defines a coset manifold $\mathcal{M} = E_8/H_4$*
-2. *The action functional $\mathcal{S}[\Psi]$ on $\mathcal{M}$ has exactly 26 independent stationary points*
-3. *These stationary points are the 26 constants of the Standard Model and cosmology*
+2. *The action functional $\mathcal{S}[\Psi]$ on $\mathcal{M}$ has a discrete set of independent stationary points (26 in the original formulation, extended to 58 in v4.0)*
+3. *These stationary points are the constants of the Standard Model and cosmology*
 4. *Each constant is the unique element of the Ansatz space $\mathcal{A}$ satisfying the boundary conditions*
 5. *There are no free parameters*
 
@@ -1371,7 +1373,7 @@ The GSM rests on a 5-level hierarchy:
 4. QUANTUM STABILITY (φ-based values survive)
    ↓ Only φ eigenvalues are stable
 5. CONSTANTS AS THEOREMS (zero free parameters)
-   ↓ All 26 constants uniquely determined
+   ↓ All constants uniquely determined
 ```
 
 Each level is **mathematically necessary** given the previous level.
