@@ -4,7 +4,7 @@
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18261288-blue)](https://doi.org/10.5281/zenodo.18261288)
 
 ## Related Work
-[Novel φ-Separation Proof of the Riemann Hypothesis - DOI](https://doi.org/10.5281/zenodo.18255446)
+[Novel φ-Separation Proof of the Riemann Hypothesis](https://github.com/grapheneaffiliate/riemann-hypothesis-phi-separation-proof)
 
 > **Physics ≡ Geometry(E₈ → H₄)**
 

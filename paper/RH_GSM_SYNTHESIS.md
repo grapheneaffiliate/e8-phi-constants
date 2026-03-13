@@ -404,7 +404,7 @@ $$\text{Q.E.D.}$$
 
 ## REFERENCES
 
-1. McGirl, T. (2026). "The φ-Separation Proof of the Riemann Hypothesis." [This work]
+1. McGirl, T. (2026). "The φ-Separation Proof of the Riemann Hypothesis." [GitHub](https://github.com/grapheneaffiliate/riemann-hypothesis-phi-separation-proof)
 2. McGirl, T. (2026). "The Geometric Standard Model v1.0." [This work]
 3. Viazovska, M. (2016). "The sphere packing problem in dimension 8." *Annals of Mathematics*.
 4. Riemann, B. (1859). "Über die Anzahl der Primzahlen unter einer gegebenen Größe."
