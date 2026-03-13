@@ -442,6 +442,26 @@ Full reference with root systems, branching rules, and Cartan matrices: [`LIE_AL
 
 ---
 
+## The Ten Great Problems
+
+The GSM addresses physics' ten greatest unsolved problems through a single principle: spacetime is the E₈ lattice.
+
+| Problem | GSM Status | Key Result |
+|---------|-----------|------------|
+| Information paradox | **Resolved** | Unitary lattice dynamics, φ-phase Hawking encoding |
+| Black hole singularity | **Resolved** | Minimum length ℓ_p/φ, packed H₄ core replaces point |
+| Cosmological constant | **Derived** | Ω_Λ = 0.6889 (0.002%), UV cutoff avoids 10¹²⁰ |
+| Arrow of time | Framework | Golden Flow φ⁻¹/⁴ < 1 breaks time symmetry |
+| Quantum measurement | **Resolved** | Defect localization, Born rule derived + O(φ⁻⁸) correction |
+| Hierarchy problem | **Resolved** | φ^80 = 5.24×10¹⁶ from E₈ invariants |
+| Dark matter/energy | Framework | Photonic decoherence, Ω_DM + Ω_Λ derived |
+| Baryogenesis | **Derived** | η_B = 6.1×10⁻¹⁰ from δ_CP = π + arcsin(φ⁻³) |
+| Quantum gravity | **Resolved** | Regge calculus on H₄, UV-finite, G derived |
+
+Full analysis: [`theory/GSM_TEN_GREAT_PROBLEMS.md`](theory/GSM_TEN_GREAT_PROBLEMS.md)
+
+---
+
 ## Dynamic Extension v2.0 (February 2026)
 
 **Version 2.0** extends the GSM into a complete dynamical framework:
@@ -455,7 +475,7 @@ Full reference with root systems, branching rules, and Cartan matrices: [`LIE_AL
 
 | Component | Files | Status |
 |-----------|-------|--------|
-| Theory (10 docs) | `theory/GSM_WAVE_EQUATION.md` through `GSM_FIREWALL_RESOLUTION.md` | Complete |
+| Theory (11 docs) | `theory/GSM_WAVE_EQUATION.md` through `GSM_TEN_GREAT_PROBLEMS.md` | Complete |
 | Simulations (7 scripts) | `simulation/gsm_wave_600cell.py` through `gsm_ligo_template_generator.py` | Runnable |
 | Evidence catalog | `evidence/EVIDENCE_SUMMARY.md` | Complete |
 | Predictions v2.0 | `predictions/GSM_PREDICTIONS_v2.0.md` | Complete |
@@ -506,6 +526,7 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── GSM_GRAVITY_REGGE.md
 │   ├── REGGE_EQUATIONS_OF_MOTION.md
 │   ├── GSM_FIREWALL_RESOLUTION.md
+│   ├── GSM_TEN_GREAT_PROBLEMS.md
 │   ├── GSM_GW_ECHOES.md
 │   ├── GSM_COSMIC_BIREFRINGENCE.md
 │   ├── GSM_COSMIC_BIREFRINGENCE_ANISOTROPIC.md
@@ -524,6 +545,7 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── gsm_verification.py        # Canonical formula reference
 │   ├── gsm_calculator.py
 │   ├── firewall_validation.py     # Firewall paradox resolution validation
+│   ├── ten_problems_validation.py # Ten great problems numerical checks
 │   ├── alpha_first_principles.py
 │   ├── casimir_uniqueness_test.py
 │   └── [15 derivation scripts]
@@ -560,6 +582,9 @@ python3 verification/lucas_periodicity_test.py
 
 # Firewall paradox validation (8 checks)
 python3 verification/firewall_validation.py
+
+# Ten great problems validation (25 checks)
+python3 verification/ten_problems_validation.py
 
 # Individual derivations
 python3 verification/alpha_first_principles.py

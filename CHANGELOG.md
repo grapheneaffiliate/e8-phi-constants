@@ -5,6 +5,34 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2.3] — 2026-03-13
+
+### Added — Ten Great Problems & Comprehensive README Update
+
+**Theory:**
+- `theory/GSM_TEN_GREAT_PROBLEMS.md` — Complete treatment of physics' ten greatest unsolved problems:
+  - Information paradox (resolved: unitary lattice + φ-phase encoding)
+  - Black hole singularity (resolved: minimum length ℓ_p/φ, packed H₄ core)
+  - Cosmological constant (derived: Ω_Λ = 0.6889, UV cutoff avoids 10¹²⁰)
+  - Arrow of time (framework: Golden Flow asymmetry, lattice growth)
+  - Quantum measurement (resolved: defect localization, Born rule derived)
+  - Hierarchy problem (resolved: φ^80 geometric ratio)
+  - Dark matter/energy (framework: photonic decoherence, Ω_DM + Ω_Λ derived)
+  - Baryogenesis (derived: η_B = 6.1×10⁻¹⁰ from δ_CP = π + arcsin(φ⁻³))
+  - Quantum gravity (resolved: Regge calculus on H₄, UV-finite)
+  - Fermi paradox (noted as out of scope)
+
+**Verification:**
+- `verification/ten_problems_validation.py` — 25 numerical checks across all 9 physics problems
+
+**README:**
+- Updated constants summary from 34 → 58 with full list of all derived constants
+- Added hierarchy & absolute masses (18), composite & QCD (3), predictions (4) subsections
+- Added firewall resolution and ten problems to repo structure and verification commands
+- Fixed citation version from 34 to 58 constants
+
+---
+
 ## [2.2] — 2026-03-13
 
 ### Added — Firewall Paradox Resolution
