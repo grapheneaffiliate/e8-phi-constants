@@ -1095,7 +1095,7 @@ def analyze(derivations, verbose=False):
         print(f"    {sec_name:>12}: mean = {sec_mean:+.3f}sigma, std = {sec_std:.3f} ({direction})")
 
     # PCA on the error vector
-    # With n=25 constants and 1 sample, we can't do a full correlation matrix.
+    # With n constants and 1 sample, we can't do a full correlation matrix.
     # Instead, we identify the dominant error direction.
     if n > 2:
         # Normalize by sector
@@ -1299,6 +1299,19 @@ def validate(derivations):
     print(f"  Constants < 0.1%:  {n_sub_01}/{n_total}")
     print(f"  Constants < 1.0%:  {n_sub_1}/{n_total}")
 
+    # Tier Q summary
+    if tier_results.get('Q'):
+        n_q = len(tier_results['Q'])
+        print(f"  Tier Q (pole-chain quarks): {n_q} [informational — mass ratios are the predictions,")
+        print(f"    absolute masses accumulate pole-to-MS-bar scheme shift of ~15-30%]")
+
+    # Tier A sigma note
+    tier_a_sigmas = [(item[0], item[2]) for item in tier_results.get('A', []) if len(item) == 4]
+    if any(s > 10 for _, s in tier_a_sigmas):
+        print(f"\n  NOTE on Tier A sigma: High sigma values for ultra-precise constants (e.g.,")
+        print(f"    mp/me, alpha) reflect sub-ppb experimental uncertainties, not large errors.")
+        print(f"    These pass the percent gate (<0.01%) which is the meaningful test.")
+
     if failed_list:
         print(f"\n  FAILURES:")
         for key, pct, sig, _ in failed_list:
@@ -1492,7 +1505,7 @@ def discover(tolerance_ppm=500):
 # ==============================================================================
 
 def cross_validate(derivations, discoveries):
-    """Check new discoveries for consistency with existing 26 constants."""
+    """Check new discoveries for consistency with existing constants."""
     print("\n" + "=" * 72)
     print("  CROSS-VALIDATION")
     print("=" * 72)

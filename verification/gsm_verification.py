@@ -121,7 +121,7 @@ experiment = {
 # Derivations from E₈ → H₄ projection
 
 def calc_gsm():
-    """Calculate all 26 constants from geometric first principles."""
+    """Calculate all constants from geometric first principles."""
     results = {}
     m_e = 510998.95  # electron mass in eV (for neutrino calculation)
     

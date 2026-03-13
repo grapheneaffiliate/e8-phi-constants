@@ -115,7 +115,7 @@ The wavefunction is a tool for calculating probabilities, not a description of p
 | What is a constant? | Free parameter (measured) | Geometric invariant (calculated) |
 | Why these values? | No answer ("that's just how it is") | E₈ → H₄ projection determines all values |
 
-The GSM derives 25 constants with zero free parameters, at median 0.016% accuracy. Copenhagen explains zero constants.
+The GSM derives 58 constants with zero free parameters, at median 0.016% accuracy. Copenhagen explains zero constants.
 
 ---
 

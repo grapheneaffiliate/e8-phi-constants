@@ -22,9 +22,10 @@ python lepton_derivation.py
 | `gsm_verification.py` | Calculate ALL 58 constants and compare to experiment | Full table with deviations |
 
 **Expected output:**
-- 25 constants verified within 1%
-- Median deviation: 0.0109%
-- 1 prediction (CHSH bound S = 2.382)
+- 50 constants validated within 1% (Tiers A/B/C)
+- 4 light quark masses informational (Tier Q, pole-chain scheme-dependent)
+- 4 predictions (CHSH bound, Δm² splittings, tensor-to-scalar ratio)
+- Median deviation: ~0.017%
 
 ---
 
