@@ -5,6 +5,70 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2.1] — 2026-03-13
+
+### Added — Evidence, Physical Picture & Framework Strengthening
+
+**New Top-Level Documents (7 files):**
+- `EXPERIMENTAL_EVIDENCE.md` — Comprehensive evidence compilation including:
+  - Wits/Huzhou F₄ experimental confirmation (Nature Communications, Dec 2025)
+  - Complete loophole-free Bell test meta-analysis (Delft 2015/2016, ETH 2023)
+  - 2025 Nature Physics survey showing Copenhagen decline (36%, only 10% traditional)
+  - Perimeter Institute quasicrystal spacetime convergence
+  - Thermodynamics attractor deriving φ from statistical mechanics
+- `PARTICLE_DYNAMICS.md` — Complete physical ontology:
+  - Particles as stable topological defects in E₈ lattice
+  - Motion as wave propagation of defect patterns
+  - Mass as defect energy (Casimir eigenvalue)
+  - Three generations from SO(8) triality
+  - Schrödinger equation from lattice dynamics
+  - Measurement as defect localization (resolves measurement problem)
+  - Connection to Perimeter Institute program
+- `FALSIFIABLE_PREDICTIONS.md` — All predictions compiled in one place:
+  - Tier 1: CHSH bound, cosmic birefringence, GW echoes
+  - Tier 2: Neutrino ordering, Born rule corrections, proton decay
+  - Tier 3: φ-spiral Casimir enhancement, dark energy w, Hubble constant
+  - Quick-reference table with falsification criteria and timelines
+- `CASIMIR_240_CONNECTION.md` — Vacuum energy and E₈ roots:
+  - 240 in Casimir formula = 240 root vectors of E₈
+  - 240 = 5 × 48 pentagonal decomposition linking to Wits F₄ result
+  - φ-spiral Casimir enhancement prediction (~10³–10⁴×)
+  - φ-harmonic coupling series κₙ = φ⁻ⁿ converging to φ
+  - Vacuum energy catastrophe resolution via lattice UV cutoff
+- `WHY_EVERYTHING_SPIRALS.md` — φ in nature and physics:
+  - The 137 connection (phyllotaxis 137.5° vs α⁻¹ = 137.036)
+  - Why φ-geometry is energetically preferred (lattice coupling)
+  - Fibonacci → Lucas → H₄ → E₈ chain of logic
+  - Spirals in galaxies, DNA, hurricanes, plant growth
+- `COPENHAGEN_FALSIFICATION.md` — Five internal failures of Copenhagen:
+  - Measurement problem (resolved: defect localization)
+  - Born rule as postulate (resolved: derived + φ⁻⁸ correction)
+  - CHSH bound unexplained (resolved: three geometric proofs)
+  - "Truly random" vacuum (falsified: 22.80σ E₈ Hum)
+  - No ontology (resolved: complete lattice + defect picture)
+- `LIE_ALGEBRA_REFERENCE.md` — Complete root system reference:
+  - Exceptional Lie algebras G₂ through E₈ with all properties
+  - H-type Coxeter groups H₂, H₃, H₄
+  - Explicit root counts and decompositions
+  - E₈ → E₇ × U(1) and E₈ → SM branching rules
+  - Cartan matrices and determinant patterns
+  - Structural constants table
+
+### Changed
+- `README.md` — Major restructure:
+  - Now leads with experimental evidence (Wits F₄, Bell data, E₈ Hum) before mathematics
+  - Added sections: Falsifiable Predictions, Physical Picture, Copenhagen Falsification, Why Everything Spirals, Casimir 240 Connection, Lie Algebra Reference
+  - Updated repository structure to reflect all new files
+  - Added three new references (Forbes/Wits 2025, Hensen 2015, Minami & Komatsu 2020)
+  - Citation updated to version 2.1
+
+### Framework Upgrade
+- Version bumped from 2.0 → **2.1**
+- Repo transitions from "derivation framework" to "derivation + evidence + physical picture"
+- Seven new documents adding experimental context, physical ontology, and accessibility
+
+---
+
 ## [2.0] — 2026-02-25
 
 ### Added — Full Dynamic Extension
