@@ -512,6 +512,9 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── test_gsm_chsh.py           # 29 unit tests for Bell bound
 │   ├── bell_test_meta_analysis.py
 │   ├── gsm_multiparty_bounds.py
+│   ├── GSM_LANL_RAW_TEST.py        # LANL raw quantum noise analysis
+│   ├── GSM_PINK_NOISE_TRAP_TEST.py  # Pink noise control test
+│   ├── FIG2a.csv                    # Raw ASE quantum noise data
 │   ├── GSM_CHSH_Falsification_Paper.docx
 │   └── GSM_MultiParty_Bounds_Paper.docx
 ├── paper/                          # Publication-ready papers
