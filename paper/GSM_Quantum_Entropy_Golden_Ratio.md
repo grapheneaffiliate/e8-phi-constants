@@ -2,7 +2,7 @@
 
 **Timothy McGirl**
 Independent Researcher, Manassas, Virginia, USA
-[GitHub Repository](https://github.com/grapheneaffiliate/e8-phi-constants) · [Geometric Standard Model (Zenodo)](https://doi.org/10.5281/zenodo.18261289)
+[GitHub Repository](https://github.com/grapheneaffiliate/e8-phi-constants)
 
 *March 2026*
 
@@ -760,7 +760,7 @@ The CHSH bound is the **simplest** prediction of the GSM: it involves only det(C
 
 [3] S. Popescu and D. Rohrlich, "Quantum nonlocality as an axiom," *Found. Phys.* **24**, 379 (1994).
 
-[4] T. McGirl, "The Geometric Standard Model: E₈ × H₄ Unification of Fundamental Constants," Zenodo (2025). [doi:10.5281/zenodo.18261289](https://doi.org/10.5281/zenodo.18261289)
+[4] T. McGirl, "The Geometric Standard Model: E₈ × H₄ Unification of Fundamental Constants," GitHub (2025). [github.com/grapheneaffiliate/e8-phi-constants](https://github.com/grapheneaffiliate/e8-phi-constants)
 
 [5] T. McGirl, "The Pentagonal Prism Bell Bound: A Golden-Ratio CHSH Inequality from H₄ Coxeter Geometry," (2026). [github.com/grapheneaffiliate/e8-phi-constants](https://github.com/grapheneaffiliate/e8-phi-constants)
 

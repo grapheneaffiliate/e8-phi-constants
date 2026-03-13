@@ -2,7 +2,7 @@
 
 **Timothy McGirl**
 Independent Researcher, Manassas, Virginia, USA
-[GitHub Repository](https://github.com/grapheneaffiliate/e8-phi-constants) · [Geometric Standard Model (Zenodo)](https://doi.org/10.5281/zenodo.18261289)
+[GitHub Repository](https://github.com/grapheneaffiliate/e8-phi-constants)
 
 *February 2026*
 
@@ -329,6 +329,6 @@ The following identities were formally verified in Lean 4 by the theorem prover 
 
 [4] A. Tavakoli and N. Gisin, "The Platonic solids and fundamental tests of quantum mechanics," *Quantum* **4**, 293 (2020).
 
-[5] T. McGirl, "The Geometric Standard Model: E₈ × H₄ Unification of Fundamental Constants," Zenodo (2025). [doi:10.5281/zenodo.18261289](https://doi.org/10.5281/zenodo.18261289)
+[5] T. McGirl, "The Geometric Standard Model: E₈ × H₄ Unification of Fundamental Constants," GitHub (2025). [github.com/grapheneaffiliate/e8-phi-constants](https://github.com/grapheneaffiliate/e8-phi-constants)
 
 [6] T. McGirl, "e8-phi-constants: E₈/H₄ Geometric Standard Model Repository," GitHub (2025). [github.com/grapheneaffiliate/e8-phi-constants](https://github.com/grapheneaffiliate/e8-phi-constants)

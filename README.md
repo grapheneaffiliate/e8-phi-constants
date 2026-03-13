@@ -1,10 +1,10 @@
 # The Geometric Standard Model (GSM)
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18261288-blue)](https://doi.org/10.5281/zenodo.18261288)
+[![GitHub](https://img.shields.io/badge/GitHub-e8--phi--constants-blue)](https://github.com/grapheneaffiliate/e8-phi-constants)
 
 ## Related Work
-[Novel φ-Separation Proof of the Riemann Hypothesis - DOI](https://doi.org/10.5281/zenodo.18255446)
+[Novel φ-Separation Proof of the Riemann Hypothesis](https://github.com/grapheneaffiliate/riemann-hypothesis-phi-separation-proof)
 
 > **Physics ≡ Geometry(E₈ → H₄)**
 
