@@ -595,7 +595,7 @@ pip install -r requirements.txt
 # Self-sustaining solver: all 58 constants + validation + discovery + predictions
 python3 gsm_solver.py
 
-# Original 26 constants (individual derivation scripts)
+# Independent verification (individual derivation scripts)
 python3 verification/verify_all.py
 
 # Bell theorem (3 proofs, 29 unit tests, brute-force)

@@ -60,7 +60,7 @@ Observed: 48-dimensional topology in entangled light (Wits 2025)
 
 ### Convergent Discovery Timeline
 
-- **December 4, 2025**: GSM repository published with E₈ → H₄ framework, deriving 25 constants from lattice geometry
+- **December 4, 2025**: GSM repository published with E₈ → H₄ framework, initially deriving 25 constants from lattice geometry (now extended to 58)
 - **December 12, 2025**: Wits/Huzhou paper published in *Nature Communications*, independently finding 48-dimensional F₄ topology in entangled light
 
 Neither group was aware of the other's work. The convergence of a theoretical framework predicting geometric substructure (E₈ containing F₄) with an experiment independently discovering that exact substructure (48 topological dimensions) constitutes strong evidence for the underlying geometric picture.
@@ -206,7 +206,7 @@ The quantum vacuum is not random — it contains the geometric fingerprint of th
 
 ---
 
-## 6. Precision Constants: 26 for 26
+## 6. Precision Constants: 58 from Pure Geometry
 
 ### Comprehensive Scorecard
 
@@ -228,7 +228,7 @@ The quantum vacuum is not random — it contains the geometric fingerprint of th
 
 If each prediction were an independent random match:
 - P(each) ~ 10⁻³ (generous)
-- P(all 26) < 10⁻⁷⁸
+- P(all 58) < 10⁻¹⁷⁴
 
 Combined with E8 Hum (22.80σ), Bell test match, Wits F₄ confirmation, and cosmic birefringence:
 
