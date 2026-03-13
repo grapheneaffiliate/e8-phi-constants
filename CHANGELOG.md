@@ -5,6 +5,26 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2.5] — 2026-03-13
+
+### Added — Complete Derivation Audit (Priority 3: Classify Every Term)
+
+**Verification:**
+- `verification/audit/` — Complete term-by-term classification of all 58 GSM constants
+  - 10 sector-specific audit files covering gauge couplings, lepton/quark masses, CKM/PMNS mixing, cosmology, extended constants, hierarchy, absolute masses, composite/QCD, and predictions
+  - Every numerical term in every formula classified as `[GEOMETRIC]`, `[ALGEBRAIC]`, `[COMBINATORIC]`, `[DERIVED]`, or `[AD_HOC]`
+  - `SUMMARY.md` with definitive classification counts and flagged issues
+
+**Results:**
+- **44/58 FULLY_DERIVED** (75.9%) — every term traced to E₈/H₄ invariants
+- **9/58 DERIVED** (15.5%) — chain derivations from other GSM results
+- **5/58 PARTIALLY_DERIVED** (8.6%) — terms geometric but combination needs deeper proof
+- **0/58 AD_HOC** — no genuinely ad hoc terms found
+- 6 flagged issues identified for future work (lepton sign patterns, electron exponent 27, proton 6π⁵, H₀ units, V_cb combination, T_CMB units)
+- Resolved 6 previously open questions (+2 in hierarchy, 264 in J_CKM, 19 in V_ub, 14400, L₃ consistency, exponent 16)
+
+---
+
 ## [2.4] — 2026-03-13
 
 ### Added — Null Hypothesis Testing (Priority 2: Kill the Numerology Objection)
