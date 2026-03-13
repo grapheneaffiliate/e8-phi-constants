@@ -18,10 +18,13 @@ The dynamical theory (v2.0) of the Geometric Standard Model — extending the st
 7. **[GSM_GRAVITY_REGGE.md](GSM_GRAVITY_REGGE.md)** — Regge calculus on H₄ simplicial lattice
 8. **[REGGE_EQUATIONS_OF_MOTION.md](REGGE_EQUATIONS_OF_MOTION.md)** — Discrete Einstein equations and graviton modes
 
+### Black Holes & Information
+9. **[GSM_FIREWALL_RESOLUTION.md](GSM_FIREWALL_RESOLUTION.md)** — Complete firewall paradox resolution via smooth geometric gradient
+
 ### Observable Predictions
-9. **[GSM_GW_ECHOES.md](GSM_GW_ECHOES.md)** — Gravitational wave echoes with φ-commensurate delays
-10. **[GSM_COSMIC_BIREFRINGENCE.md](GSM_COSMIC_BIREFRINGENCE.md)** — Isotropic cosmic birefringence from H₄ torsion
-11. **[GSM_COSMIC_BIREFRINGENCE_ANISOTROPIC.md](GSM_COSMIC_BIREFRINGENCE_ANISOTROPIC.md)** — Anisotropic 5-fold modulation signature
+10. **[GSM_GW_ECHOES.md](GSM_GW_ECHOES.md)** — Gravitational wave echoes with φ-commensurate delays
+11. **[GSM_COSMIC_BIREFRINGENCE.md](GSM_COSMIC_BIREFRINGENCE.md)** — Isotropic cosmic birefringence from H₄ torsion
+12. **[GSM_COSMIC_BIREFRINGENCE_ANISOTROPIC.md](GSM_COSMIC_BIREFRINGENCE_ANISOTROPIC.md)** — Anisotropic 5-fold modulation signature
 
 ## Subdirectories
 

@@ -5,6 +5,37 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [2.2] — 2026-03-13
+
+### Added — Firewall Paradox Resolution
+
+**Theory:**
+- `theory/GSM_FIREWALL_RESOLUTION.md` — Complete firewall paradox resolution:
+  - Step-by-step validation of GSM black hole model
+  - E₈ → H₄ projection chain with φ^n compression
+  - Horizon as tension iso-surface (smooth sech² gradient, not sharp wall)
+  - Manifest unitarity from Hermitian graph Laplacian on 600-cell
+  - Distributed entanglement across 12-vertex graph (no monogamy violation)
+  - Hawking radiation as φ-phase encoded lattice vibration leakage
+  - Golden Flow information redirection into horizon surface currents
+  - Bekenstein-Hawking entropy from hinge counting derivation
+  - Polyhedral hull structure (icosa/dodeca stacking, φ-norms)
+  - 3D-to-8D bridge via tetrahedral/icosahedral symmetry
+  - Falsifiable predictions: Lucas-modulated ringdown, φ-delayed echoes
+
+**Verification:**
+- `verification/firewall_validation.py` — Numerical validation script:
+  - φ^80 hierarchy scale (0.01% match)
+  - Lucas sequence from H₄ Cartan eigenvalues
+  - Snap threshold φ⁻¹²⁰ ≈ 8.3×10⁻²⁶ (decoherence scale)
+  - Bekenstein-Hawking entropy from hinge counting (order-unity match)
+  - φ-shell echo template (zero free parameters)
+  - Smooth tension profile visualization
+  - Unitarity proof via icosahedron graph Laplacian
+  - H₄ Cartan matrix eigenvalue verification
+
+---
+
 ## [2.1] — 2026-03-13
 
 ### Added — Evidence, Physical Picture & Framework Strengthening
