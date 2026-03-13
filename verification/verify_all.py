@@ -219,8 +219,8 @@ def main():
     print(f"Experimental Central (Normal Ordering): {delta_cp_exp}° ± {delta_cp_unc}°")
     print(f"Relative Deviation: {float(deviation):.15f}%")
     print(f"\nWithin 1σ band? {within_1sigma}")
-    print(f"\nNote: This is the triality-based derivation from Predictions Extension/")
-    print(f"See: Predictions Extension/leptonic_cp_phase_derivation.md for details")
+    print(f"\nNote: This is the triality-based derivation from predictions_extension/")
+    print(f"See: predictions_extension/leptonic_cp_phase_derivation.md for details")
     
     # ==========================================================================
     # PREDICTIONS

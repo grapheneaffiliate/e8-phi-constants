@@ -348,7 +348,7 @@ Full reference with root systems, branching rules, and Cartan matrices: [`LIE_AL
 
 δ_CP = π + arcsin(φ⁻³) = 193.65° — zero-parameter derivation matching experiment (192° ± 20°) within 0.86%.
 
-See [`Predictions Extension/leptonic_cp_phase_derivation.md`](Predictions%20Extension/leptonic_cp_phase_derivation.md)
+See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extension/leptonic_cp_phase_derivation.md)
 
 ---
 
@@ -392,7 +392,7 @@ See [`Predictions Extension/leptonic_cp_phase_derivation.md`](Predictions%20Exte
 │   ├── predictions/EXPERIMENTAL_PROPOSALS.md
 │   └── proofs/MATHEMATICAL_PROOFS.md
 ├── appendices/                     # Formal proofs & derivations
-│   ├── GSM_v1_Appendix_Formal_Proofs.md
+│   ├── GSM_v1_Appendix_A_Formal_Proofs.md
 │   ├── GSM_v1_Appendix_B_Complete_Formalization.md
 │   ├── GSM_v1_Appendix_C_Casimir_Proofs.md
 │   ├── GSM_v1_Appendix_D_Uniqueness.md
@@ -415,7 +415,7 @@ See [`Predictions Extension/leptonic_cp_phase_derivation.md`](Predictions%20Exte
 │   └── gsm_ligo_template_generator.py
 ├── evidence/EVIDENCE_SUMMARY.md
 ├── predictions/GSM_PREDICTIONS_v2.0.md
-└── Predictions Extension/
+└── predictions_extension/
     └── leptonic_cp_phase_derivation.md
 ```
 
