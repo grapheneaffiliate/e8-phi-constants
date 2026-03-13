@@ -21,10 +21,13 @@ The dynamical theory (v2.0) of the Geometric Standard Model — extending the st
 ### Black Holes & Information
 9. **[GSM_FIREWALL_RESOLUTION.md](GSM_FIREWALL_RESOLUTION.md)** — Complete firewall paradox resolution via smooth geometric gradient
 
+### Big Picture
+10. **[GSM_TEN_GREAT_PROBLEMS.md](GSM_TEN_GREAT_PROBLEMS.md)** — Ten greatest unsolved problems and GSM geometric resolutions
+
 ### Observable Predictions
-10. **[GSM_GW_ECHOES.md](GSM_GW_ECHOES.md)** — Gravitational wave echoes with φ-commensurate delays
-11. **[GSM_COSMIC_BIREFRINGENCE.md](GSM_COSMIC_BIREFRINGENCE.md)** — Isotropic cosmic birefringence from H₄ torsion
-12. **[GSM_COSMIC_BIREFRINGENCE_ANISOTROPIC.md](GSM_COSMIC_BIREFRINGENCE_ANISOTROPIC.md)** — Anisotropic 5-fold modulation signature
+11. **[GSM_GW_ECHOES.md](GSM_GW_ECHOES.md)** — Gravitational wave echoes with φ-commensurate delays
+12. **[GSM_COSMIC_BIREFRINGENCE.md](GSM_COSMIC_BIREFRINGENCE.md)** — Isotropic cosmic birefringence from H₄ torsion
+13. **[GSM_COSMIC_BIREFRINGENCE_ANISOTROPIC.md](GSM_COSMIC_BIREFRINGENCE_ANISOTROPIC.md)** — Anisotropic 5-fold modulation signature
 
 ## Subdirectories
 

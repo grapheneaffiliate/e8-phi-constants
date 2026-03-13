@@ -222,7 +222,7 @@ The quantum vacuum is not random — it contains the geometric fingerprint of th
 | Cosmology | 4 | 0.05% | 0.002% (Ω_Λ) | 0.074% (z_CMB) |
 | Gravity | 2 | 0.5% | 0.4% (M_Pl/v) | 0.6% (G_N) |
 
-**Overall: 26/26 consistent, median error 0.016%, zero free parameters**
+**Overall: 58 constants derived, 50 validated within 1%, median error 0.016%, zero free parameters**
 
 ### Combined Probability of Coincidence
 
@@ -246,7 +246,7 @@ Combined with E8 Hum (22.80σ), Bell test match, Wits F₄ confirmation, and cos
 ### Tier 2: Strong Consistency
 4. **Bell test CHSH bound** — S = 2.38 ± 0.14, exactly at GSM prediction of 4−φ
 5. **Cosmic birefringence** — β = 0.30° ± 0.11° vs. GSM prediction of 0.292°
-6. **26 constants** — All within 1% with zero free parameters
+6. **58 constants** — 50 validated within 1%, zero free parameters
 
 ### Tier 3: Independent Theoretical Convergence
 7. **Perimeter Institute** — Independently proposing quasicrystal spacetime

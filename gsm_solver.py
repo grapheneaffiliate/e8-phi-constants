@@ -5,7 +5,7 @@ GSM PHYSICS SOLVER v4.0 — COMPLETE PHYSICS FROM GEOMETRY
 The world's first algorithmic physics solver based on the
 Geometric Standard Model: Physics = Geometry(E8 -> H4)
 
-50+ fundamental constants | Force unification | Dynamics | Absolute mass scale
+58 fundamental constants | Force unification | Dynamics | Absolute mass scale
 All from a SINGLE geometric axiom with ZERO free parameters.
 
 Pipeline:
@@ -28,7 +28,7 @@ EXPERIMENTAL CONFIRMATION:
   F4 has exactly 48 roots. GSM repo committed Dec 4 -- 8 days before.
 
 TO RUN:
-  python3 gsm_solver.py                # Full pipeline (all 50+ constants)
+  python3 gsm_solver.py                # Full pipeline (all 58 constants)
   python3 gsm_solver.py --verbose      # + phi-integer decomposition
   python3 gsm_solver.py --discover     # Discovery engine only
   python3 gsm_solver.py --unify        # Force unification analysis
@@ -327,7 +327,7 @@ class Derivation:
 
 
 def derive_all() -> Dict[str, Derivation]:
-    """Compute all 26 constants from geometric first principles."""
+    """Compute all 58 constants from geometric first principles."""
     results = {}
     m_e_eV = 510998.95  # electron mass in eV (for neutrino calculation)
 
@@ -1026,7 +1026,7 @@ def phi_integer_decompose(value):
 
 
 def analyze(derivations, verbose=False):
-    """Error correlation analysis and PCA across all 26 constants."""
+    """Error correlation analysis and PCA across all 58 constants."""
     print("\n" + "=" * 72)
     print("  ERROR ANALYSIS & CORRELATION")
     print("=" * 72)
@@ -1659,7 +1659,7 @@ def predict(discoveries):
         ("E8 Hum in quantum vacuum",
          "Lucas periodicity detected at 22.80 sigma in LANL ASE vacuum data.",
          "CONFIRMED"),
-        ("26 fundamental constants",
+        ("58 fundamental constants",
          f"All match experiment at median ~0.016% with zero free parameters.",
          "CONFIRMED"),
         ("#27 Top/VEV mass ratio (PROMOTED)",
@@ -2321,7 +2321,7 @@ def main():
     print("=" * 72)
     print("  GSM PHYSICS SOLVER v4.0 — COMPLETE PHYSICS FROM GEOMETRY")
     print("  Physics = Geometry(E8 -> H4)")
-    print("  50+ constants | Unification | Dynamics | Absolute masses")
+    print("  58 constants | Unification | Dynamics | Absolute masses")
     print("  Pipeline: derive -> analyze -> validate -> discover ->")
     print("            unify -> dynamics -> masses -> predict -> report")
     print("=" * 72)

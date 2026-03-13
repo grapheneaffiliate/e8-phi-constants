@@ -442,6 +442,26 @@ Full reference with root systems, branching rules, and Cartan matrices: [`LIE_AL
 
 ---
 
+## The Ten Great Problems
+
+The GSM addresses physics' ten greatest unsolved problems through a single principle: spacetime is the E₈ lattice.
+
+| Problem | GSM Status | Key Result |
+|---------|-----------|------------|
+| Information paradox | **Resolved** | Unitary lattice dynamics, φ-phase Hawking encoding |
+| Black hole singularity | **Resolved** | Minimum length ℓ_p/φ, packed H₄ core replaces point |
+| Cosmological constant | **Derived** | Ω_Λ = 0.6889 (0.002%), UV cutoff avoids 10¹²⁰ |
+| Arrow of time | Framework | Golden Flow φ⁻¹/⁴ < 1 breaks time symmetry |
+| Quantum measurement | **Resolved** | Defect localization, Born rule derived + O(φ⁻⁸) correction |
+| Hierarchy problem | **Resolved** | φ^80 = 5.24×10¹⁶ from E₈ invariants |
+| Dark matter/energy | Framework | Photonic decoherence, Ω_DM + Ω_Λ derived |
+| Baryogenesis | **Derived** | η_B = 6.1×10⁻¹⁰ from δ_CP = π + arcsin(φ⁻³) |
+| Quantum gravity | **Resolved** | Regge calculus on H₄, UV-finite, G derived |
+
+Full analysis: [`theory/GSM_TEN_GREAT_PROBLEMS.md`](theory/GSM_TEN_GREAT_PROBLEMS.md)
+
+---
+
 ## Dynamic Extension v2.0 (February 2026)
 
 **Version 2.0** extends the GSM into a complete dynamical framework:
@@ -455,7 +475,7 @@ Full reference with root systems, branching rules, and Cartan matrices: [`LIE_AL
 
 | Component | Files | Status |
 |-----------|-------|--------|
-| Theory (10 docs) | `theory/GSM_WAVE_EQUATION.md` through `GSM_FIREWALL_RESOLUTION.md` | Complete |
+| Theory (11 docs) | `theory/GSM_WAVE_EQUATION.md` through `GSM_TEN_GREAT_PROBLEMS.md` | Complete |
 | Simulations (7 scripts) | `simulation/gsm_wave_600cell.py` through `gsm_ligo_template_generator.py` | Runnable |
 | Evidence catalog | `evidence/EVIDENCE_SUMMARY.md` | Complete |
 | Predictions v2.0 | `predictions/GSM_PREDICTIONS_v2.0.md` | Complete |
@@ -473,6 +493,7 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 ## Repository Structure
 
 ```
+├── requirements.txt                # Python dependencies (numpy, scipy, matplotlib, etc.)
 ├── gsm_solver.py                   # ★ Self-sustaining solver v4.0 (58 constants, full pipeline)
 ├── EXPERIMENTAL_EVIDENCE.md        # ★ Wits F₄, Bell data, survey, convergence
 ├── PARTICLE_DYNAMICS.md            # ★ Particles as lattice defects
@@ -490,7 +511,12 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── GSM_QM_STRUCTURE_DERIVATION.md
 │   ├── test_gsm_chsh.py           # 29 unit tests for Bell bound
 │   ├── bell_test_meta_analysis.py
-│   └── gsm_multiparty_bounds.py
+│   ├── gsm_multiparty_bounds.py
+│   ├── GSM_LANL_RAW_TEST.py        # LANL raw quantum noise analysis
+│   ├── GSM_PINK_NOISE_TRAP_TEST.py  # Pink noise control test
+│   ├── FIG2a.csv                    # Raw ASE quantum noise data
+│   ├── GSM_CHSH_Falsification_Paper.docx
+│   └── GSM_MultiParty_Bounds_Paper.docx
 ├── paper/                          # Publication-ready papers
 │   ├── GSM_v1_Complete.tex
 │   ├── GSM_v1_Complete.md
@@ -506,6 +532,7 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── GSM_GRAVITY_REGGE.md
 │   ├── REGGE_EQUATIONS_OF_MOTION.md
 │   ├── GSM_FIREWALL_RESOLUTION.md
+│   ├── GSM_TEN_GREAT_PROBLEMS.md
 │   ├── GSM_GW_ECHOES.md
 │   ├── GSM_COSMIC_BIREFRINGENCE.md
 │   ├── GSM_COSMIC_BIREFRINGENCE_ANISOTROPIC.md
@@ -519,14 +546,30 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── GSM_v1_Appendix_E_Alpha_Derivation.md
 │   ├── GSM_v1_Appendix_F_Critic_Response.md
 │   └── GSM_v1_Appendix_G_E8_SM_Embedding.md
-├── verification/                   # 20+ Python derivation scripts
-│   ├── verify_all.py              # Run original 26 constants
+├── verification/                   # 24 Python derivation & validation scripts
+│   ├── DERIVATIONS_INDEX.md       # Complete script index with formulas
+│   ├── verify_all.py              # Run all 58 constants
 │   ├── gsm_verification.py        # Canonical formula reference
-│   ├── gsm_calculator.py
-│   ├── firewall_validation.py     # Firewall paradox resolution validation
-│   ├── alpha_first_principles.py
-│   ├── casimir_uniqueness_test.py
-│   └── [15 derivation scripts]
+│   ├── gsm_calculator.py          # Interactive calculator
+│   ├── gsm_metrics.py             # Spectral action convexity (requires sympy)
+│   ├── firewall_validation.py     # Firewall paradox validation
+│   ├── ten_problems_validation.py # Ten great problems checks
+│   ├── alpha_derivation.py        # α⁻¹ from E₈/H₄ spectrum
+│   ├── alpha_first_principles.py  # α first principles
+│   ├── bell_test_angles.py        # Optimal Bell test angles
+│   ├── casimir_uniqueness_test.py # Casimir anchor uniqueness
+│   ├── ckm_derivation.py          # CKM matrix from φ geometry
+│   ├── cosmological_derivation.py # Ω_Λ, H₀, n_s
+│   ├── coupling_running_derivation.py # β-functions from E₈
+│   ├── e8_complete_quark_derivation.py # Top Yukawa, m_u/m_d
+│   ├── e8_quark_derivation.py     # Quark mass ratios
+│   ├── gravity_derivation.py      # M_Pl/v = φ^(80−ε)
+│   ├── lepton_derivation.py       # m_μ/m_e, m_τ/m_μ
+│   ├── lucas_periodicity_test.py  # E₈ Hum Lucas analysis
+│   ├── pink_noise_trap_test.py    # Lucas periodicity control
+│   ├── refinements_derivation.py  # z_CMB = φ¹⁴ + 246
+│   ├── torsion_derivation.py      # SO(8) torsion 28/(240φ²)
+│   └── weak_mixing_derivation.py  # sin²θ_W = 3/13 + φ⁻¹⁶
 ├── simulation/                     # 7 running simulation scripts
 │   ├── gsm_wave_600cell.py
 │   ├── gsm_full_lagrangian_sim.py
@@ -546,6 +589,9 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 ## Verification
 
 ```bash
+# Install dependencies
+pip install -r requirements.txt
+
 # Self-sustaining solver: all 58 constants + validation + discovery + predictions
 python3 gsm_solver.py
 
@@ -560,6 +606,9 @@ python3 verification/lucas_periodicity_test.py
 
 # Firewall paradox validation (8 checks)
 python3 verification/firewall_validation.py
+
+# Ten great problems validation (25 checks)
+python3 verification/ten_problems_validation.py
 
 # Individual derivations
 python3 verification/alpha_first_principles.py
@@ -637,7 +686,7 @@ Full derivation: [`appendices/GSM_v1_Appendix_G_E8_SM_Embedding.md`](appendices/
   author={McGirl, Timothy},
   year={2026},
   url={https://github.com/grapheneaffiliate/e8-phi-constants},
-  note={Version 3.0 — 58 constants}
+  note={Framework v2.3, Solver v4.0 — 58 constants}
 }
 ```
 

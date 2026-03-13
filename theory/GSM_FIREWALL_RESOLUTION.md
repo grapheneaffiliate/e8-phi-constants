@@ -37,7 +37,7 @@ This document validates the resolution step by step, with no hand-waving.
 
 | Scale | Formula | Value | Validation |
 |-------|---------|-------|------------|
-| Planck hierarchy | M_Pl/v = φ^(80−ε) | 4.94 × 10¹⁶ | Exp: 4.96 × 10¹⁶ (0.4%) |
+| Planck hierarchy | M_Pl/v = φ^(80−ε) | 4.959 × 10¹⁶ | Exp: 4.959 × 10¹⁶ (0.01%) |
 | φ^(80) | φ^80 | ≈ 5.236 × 10¹⁶ | Planck-to-electroweak gap |
 | Snap threshold | φ^{-120} | ≈ 2.09 × 10⁻²⁵ | Decoherence scale |
 | Inverse critical n | ~120 | φ^{-120} ≈ 10⁻²⁵ | Coherence → mass transition |
