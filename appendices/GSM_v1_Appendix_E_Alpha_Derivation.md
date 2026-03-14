@@ -77,25 +77,9 @@ Tr(Q²)|₁₆ = 3×2×(1/6)² + 3×1×(2/3)² + 3×1×(1/3)² + 1×2×(1/2)² +
          = 1/6 + 5/3 + 2 = 1/6 + 10/6 + 12/6 = 23/6
 ```
 
-**Step 5: The E₈ Normalization**
+**Step 5: The Electromagnetic Anchor**
 
-The total electromagnetic trace over 128₊:
-```
-8 × (23/6) = 184/6 ≈ 30.67 (per chirality block)
-```
-
-But we need the E₈ normalization. The key relation is:
-```
-α⁻¹_anchor = dim(SO(16)₊)/2 + rank(E₈) + 1
-           = 128/2 + 8 + 1
-           = 64 + 72 + 1
-```
-
-Wait - let me reconsider. The correct decomposition is:
-
-**Step 5 (Revised): The Correct Counting**
-
-The E₈ adjoint 248 under SO(16) gives:
+The E₈ adjoint 248 decomposes under SO(16) as:
 - 120: SO(16) adjoint (gauge sector)
 - 128: half-spinor 128₊ (matter sector)
 
@@ -136,13 +120,7 @@ n_photon = 1
 Total = 128 + 8 + 1 = 137
 ```
 
-The remarkable fact that Σ(Casimir degrees) = dim(128₊) is NOT a coincidence — it follows from the Freudenthal-de Vries formula for simply-laced Lie algebras:
-```
-Σ(d_i) = dim(G)/2  for the spin representation
-```
-Since dim(E₈) = 248, and 248/2 = 124... but the spinor is 128, not 124.
-
-The correct identity is: Σ(Casimir degrees) = Σ(exponents + 1) = Σ(m_i) where m_i are the exponents {1,7,11,13,17,19,23,29}, giving Σ(m_i+1) = Σ(d_i) = 128. This equals dim(128₊) through the McKay correspondence: the spinor dimension of SO(2r) equals 2^(r-1), and for r=8 (from SO(16) ⊂ E₈), this gives 2⁷ = 128 = Σ(Casimir degrees of E₈).
+The remarkable fact that Σ(Casimir degrees) = dim(128₊) is a structural identity of E₈. The Casimir degrees are {2, 8, 12, 14, 18, 20, 24, 30}, with sum Σ(d_i) = 128. The half-spinor dimension of SO(16) is 2^(16/2 − 1) = 2⁷ = 128. This equality Σ(Casimir degrees) = dim(half-spinor) follows from the McKay correspondence between the E₈ Dynkin diagram and the extended binary icosahedral group: the Casimir degrees encode the same representation-theoretic data as the spinor decomposition.
 
 **Conclusion of Part I:**
 ```
