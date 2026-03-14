@@ -137,47 +137,56 @@ def fit_ringdown(data, f_qnm, tau_qnm, fs=SAMPLE_RATE):
 
 
 # ==================================================================
-# IMPROVEMENT 2: Coherent φ-comb statistic
+# IMPROVEMENT 2: Coherent φ-comb statistic (template-ratio test)
 # ==================================================================
+def _build_echo_template(t_M, f_qnm, tau_qnm, ratio, duration, fs, n_echoes=7):
+    """Build echo-train template with delay ratio `ratio` (φ for GSM)."""
+    t = np.arange(0, duration, 1.0 / fs)
+    h = np.zeros_like(t)
+    for k in range(1, n_echoes + 1):
+        delay = ratio**(k + 1) * t_M
+        amp = PHI**(-k)  # amplitude weighting same for all ratios
+        mask = t >= delay
+        if np.any(mask):
+            h[mask] += amp * np.exp(-(t[mask] - delay) / tau_qnm) * \
+                       np.cos(2 * np.pi * f_qnm * (t[mask] - delay))
+    return h
+
+
 def phi_comb_statistic(data, gen, fs=SAMPLE_RATE, n_echoes=7):
     """
-    Coherent φ-comb: sum |autocorrelation| at all expected φ-ratio delays,
-    weighted by expected echo amplitude φ⁻ᵏ.
+    Template-ratio φ-comb: build the full echo-train template using
+    φ-ratio delays, matched-filter the residual, and measure peak SNR.
+    Compare to the same procedure with 1000 random delay ratios.
 
-    Compare to same statistic with N_trials random delay ratios.
+    This properly tests whether φ-ratio delays produce a better match
+    than random geometric delay ratios.
     """
-    # Autocorrelation
-    autocorr = np.correlate(data, data, mode='full')
-    autocorr = autocorr[len(autocorr) // 2:]
-    if autocorr[0] != 0:
-        autocorr /= autocorr[0]
-
+    duration = len(data) / fs
     t_M = gen.t_M
 
-    # φ-comb: weighted sum of |autocorr| at expected delays
-    phi_comb = 0.0
-    phi_delays_ms = []
-    for k in range(1, n_echoes + 1):
-        delay_s = gen.echo_delay(k)
-        delay_samp = int(delay_s * fs)
-        weight = gen.echo_amplitude(k)  # φ⁻ᵏ
-        if 0 < delay_samp < len(autocorr):
-            phi_comb += weight * abs(autocorr[delay_samp])
-            phi_delays_ms.append(delay_s * 1000)
+    def matched_filter_snr(template):
+        """Proper matched filter SNR: peak / noise_std of correlation."""
+        c = correlate(data, template, mode='same')
+        template_norm = np.sqrt(np.sum(template**2))
+        if template_norm > 0:
+            c /= template_norm
+        c_std = np.std(c)
+        return np.max(np.abs(c)) / c_std if c_std > 0 else 0
 
-    # Control: try 1000 random delay ratios
+    # φ-ratio template
+    phi_template = _build_echo_template(t_M, gen.f_qnm, gen.tau_qnm,
+                                         PHI, duration, fs, n_echoes)
+    phi_comb = matched_filter_snr(phi_template)
+
+    # Control: 1000 random delay ratios
     rng = np.random.default_rng(42)
     control_combs = []
     for _ in range(1000):
-        ratio = rng.uniform(1.2, 2.5)  # avoid φ ≈ 1.618
-        comb = 0.0
-        for k in range(1, n_echoes + 1):
-            delay_s = ratio**(k + 1) * t_M
-            delay_samp = int(delay_s * fs)
-            weight = PHI**(-k)  # same weights for fair comparison
-            if 0 < delay_samp < len(autocorr):
-                comb += weight * abs(autocorr[delay_samp])
-        control_combs.append(comb)
+        ratio = rng.uniform(1.2, 2.5)
+        templ = _build_echo_template(t_M, gen.f_qnm, gen.tau_qnm,
+                                      ratio, duration, fs, n_echoes)
+        control_combs.append(matched_filter_snr(templ))
 
     control_combs = np.array(control_combs)
     p_value = np.mean(control_combs >= phi_comb)
@@ -185,7 +194,7 @@ def phi_comb_statistic(data, gen, fs=SAMPLE_RATE, n_echoes=7):
     z_score = (phi_comb - np.mean(control_combs)) / np.std(control_combs) \
         if np.std(control_combs) > 0 else 0
 
-    return phi_comb, control_combs, p_value, percentile, z_score, autocorr
+    return phi_comb, control_combs, p_value, percentile, z_score, phi_template
 
 
 # ==================================================================
