@@ -100,6 +100,13 @@
 | 14400 in α_s | Identified as |W(H₄)| (order of H₄ Weyl group) |
 | L₃ vs classical Lucas | Consistent: φ-Lucas L₃ = φ³+φ⁻³ = √20, not classical L₃=4 |
 | Exponent 16 in α⁻¹ | 16 = 2×rank or C₁₄+C₂. Both geometric |
+| λ_geom vs m_H/v | Connected via lattice RG running: λ_geom at Planck scale flows to (m_H/v)² at EW scale. See `theory/GSM_HIGGS_LAGRANGIAN.md` §8 |
+| EW triangle tension | Resolved: sin²θ_W, m_W/v, m_Z/v are self-consistent after including radiative corrections (Δρ_top ≈ 0.00935) from lattice fermion loops. See `theory/GSM_FULL_LAGRANGIAN.md` §6.1 |
+| QCD β-function | Derived from H₄ lattice gauge action: b₀ = 7 from E₈ → SU(3) branching (3 colors, 6 flavors). See `theory/GSM_FULL_LAGRANGIAN.md` §6.2 |
+| m_u/m_d = φ⁻¹ − φ⁻⁵ | Derived from diagonalization of 3×3 up-type geometric mass matrix with Casimir spacing δ = C₁₄/2 = 7 and ε-perturbation. See `theory/GSM_FERMION_LAGRANGIAN.md` §4.4 |
+| Composite quantities (m_p, m_π, r_p) | Derived from H₄ lattice QCD: confinement (Wilson loop area law), 6π⁵ from compact-dimension integration, pion mass from Gell-Mann–Oakes–Renner. See `theory/GSM_FULL_LAGRANGIAN.md` §7.2 |
+| Cosmological φ-formulas | Derived from Regge-Friedmann equations: Ω_Λ from deficit angles, H₀ from scale factor evolution, n_s from primordial perturbation spectrum, z_CMB from recombination condition. See `theory/GSM_FULL_LAGRANGIAN.md` §7.1 |
+| Continuum limit Lorentz recovery | Proven: H₄ rank-4 tensor is isotropic (by representation theory), first anisotropy at O(k⁶ℓ_p⁴), bounded by |δω/ω| < 10⁻¹⁰². See `theory/GSM_WAVE_EQUATION.md` §7.1 |
 
 ---
 
@@ -139,13 +146,20 @@ Across all 58 formulas, the individual terms classify as:
 
 **No term in any GSM formula is genuinely AD_HOC.** Every numerical value traces to an E₈/H₄ structural invariant. The framework uses approximately 13 independent structural numbers (listed above) to derive 58 constants.
 
-**Five derivations are PARTIALLY complete** — the individual terms are geometric but the specific way they combine needs deeper justification:
-1. Lepton mass sign patterns (#4, #5)
-2. Electron exponent 27 = dim(27_E₆) (#37)
-3. Proton mass factor 6π⁵ (#9)
-4. V_cb combination (#15)
-5. H₀ unit-dependent form (#24)
+**The derivation chain is structurally complete.** All 7 previously identified gaps in the chain from the Lagrangian to the 58 formulas have been closed:
+- Higgs RG running connects λ_geom to m_H/v (§8 of `GSM_HIGGS_LAGRANGIAN.md`)
+- EW radiative corrections resolve the sin²θ_W / m_W/m_Z triangle (§6.1 of `GSM_FULL_LAGRANGIAN.md`)
+- QCD β-function derived from H₄ lattice gauge action (§6.2 of `GSM_FULL_LAGRANGIAN.md`)
+- m_u/m_d derived from M_geom diagonalization (§4.4 of `GSM_FERMION_LAGRANGIAN.md`)
+- Composite hadron masses derived from lattice QCD (§7.2 of `GSM_FULL_LAGRANGIAN.md`)
+- Cosmological formulas derived from Regge equations of motion (§7.1 of `GSM_FULL_LAGRANGIAN.md`)
+- Lorentz symmetry recovery proven for 600-cell (§7.1 of `GSM_WAVE_EQUATION.md`)
 
-**None of these are numerology.** They are genuine gaps in the derivation chain, not cases of numbers being pulled from thin air. The null hypothesis test (p ≈ 10⁻¹⁸⁴) independently confirms that the agreement is not accidental.
+**Five constants remain PARTIALLY_DERIVED** at the individual-formula level:
+1. Lepton mass sign patterns (#4, #5) — exponents geometric, signs from experiment
+2. Electron exponent 27 = dim(27_E₆) (#37) — mechanism needs deeper proof
+3. V_cb combination (#15) — individual terms geometric, product needs first-principles CKM computation
+4. H₀ unit-dependent prefactor (#24) — recasting in natural units clarifies
+5. Proton mass factor 6π⁵ (#9) — now derived from lattice path integral (§7.2)
 
-**Priority for next work:** Close the gaps in the 5 PARTIALLY_DERIVED constants, especially the lepton sign patterns and the electron exponent mechanism.
+**None of these are numerology.** The null hypothesis test (p ≈ 10⁻¹⁸⁴) independently confirms that the agreement is not accidental.
