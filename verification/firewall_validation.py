@@ -595,14 +595,14 @@ assert n_logical <= singleton_max, "Singleton bound violated"
 
 # Verify CSS structure: H₄ has 4 simple reflections, split into
 # commuting pairs (s1,s3) and (s2,s4) from Dynkin diagram coloring
-print(f"\n  CSS structure:")
+print(f"\n  Stabilizer structure:")
 print(f"    H₄ Dynkin diagram: ●—●—●—●(5)")
-print(f"    X-stabilizers: {{s₁, s₃}} (even nodes, commute with each other)")
-print(f"    Z-stabilizers: {{s₂, s₄}} (odd nodes, commute with each other)")
-print(f"    [s_even, s_odd] generators commute → CSS condition satisfied")
+print(f"    Even generators: {{s₁, s₃}} (non-adjacent, commute)")
+print(f"    Odd generators:  {{s₂, s₄}} (non-adjacent, commute)")
+print(f"    Bipartition suggestive of CSS; full CSS containment not claimed")
 
 print(f"\n  ✓ Code parameters [[{n_vertices}, {n_logical}, {code_distance}]] satisfy Singleton bound")
-print(f"  ✓ CSS structure from Dynkin diagram 2-coloring of H₄ generators")
+print(f"  ✓ Stabilizer code from H₄ Coxeter group acting on 600-cell vertices")
 print(f"  ✓ Can protect {n_logical} logical qubits against {(code_distance-1)//2} local erasures")
 print(f"  ✓ Monogamy is satisfied: physical qubits entangle with radiation,")
 print(f"    logical qubits (interior state) remain protected by code distance {code_distance}")
@@ -666,12 +666,12 @@ print("""
 │   8. Nested 600-cell entropy counting (10⁷⁸ microstates)      ✓    │
 │   9. sech² derived from nonlinear lattice equation             ✓    │
 │  10. φ-phase encoding invertibility (fidelity > 0.99)          ✓    │
-│  11. [[120, 6, 5]] CSS code satisfies Singleton bound           ✓    │
+│  11. [[120, 6, 5]] stabilizer code satisfies Singleton bound    ✓    │
 │  12. Golden ratio from H₄ Cartan matrix                        ✓    │
 ├──────────────────────────────────────────────────────────────────────┤
 │  FIREWALL PARADOX STATUS: RESOLVED                                   │
 │  Mechanism: Smooth sech² gradient from nonlinear lattice dynamics    │
-│  Monogamy: Escaped via [[120,6,5]] CSS error-correcting code        │
+│  Monogamy: Escaped via [[120,6,5]] stabilizer code on 600-cell      │
 │  Information: Preserved by invertible φ-phase encoding map          │
 │  Entropy: 10⁷⁸ hinges on nested 600-cells match Bekenstein-Hawking  │
 │  Test: Lucas-modulated GW echoes (LIGO O5)                          │
