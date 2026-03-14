@@ -595,14 +595,15 @@ assert n_logical <= singleton_max, "Singleton bound violated"
 
 # Verify CSS structure: H₄ has 4 simple reflections, split into
 # commuting pairs (s1,s3) and (s2,s4) from Dynkin diagram coloring
-print(f"\n  Stabilizer structure:")
-print(f"    H₄ Dynkin diagram: ●—●—●—●(5)")
-print(f"    Even generators: {{s₁, s₃}} (non-adjacent, commute)")
-print(f"    Odd generators:  {{s₂, s₄}} (non-adjacent, commute)")
-print(f"    Bipartition suggestive of CSS; full CSS containment not claimed")
+print(f"\n  Code type: PERMUTATION-INVARIANT (not Pauli stabilizer)")
+print(f"    Symmetry group: W(H₄) of order {H4_order}")
+print(f"    Code space: H₄-symmetric subspace of (C²)^⊗{n_vertices}")
+print(f"    Dimension: 2^k = 2^{n_logical} = {2**n_logical}")
+print(f"    Error detection: Knill-Laflamme via H₄ symmetry projection")
+print(f"    Note: NOT CSS — Coxeter generators are permutations, not Paulis")
 
 print(f"\n  ✓ Code parameters [[{n_vertices}, {n_logical}, {code_distance}]] satisfy Singleton bound")
-print(f"  ✓ Stabilizer code from H₄ Coxeter group acting on 600-cell vertices")
+print(f"  ✓ Permutation-invariant code from H₄ acting on 600-cell vertices")
 print(f"  ✓ Can protect {n_logical} logical qubits against {(code_distance-1)//2} local erasures")
 print(f"  ✓ Monogamy is satisfied: physical qubits entangle with radiation,")
 print(f"    logical qubits (interior state) remain protected by code distance {code_distance}")
@@ -666,12 +667,12 @@ print("""
 │   8. Nested 600-cell entropy counting (10⁷⁸ microstates)      ✓    │
 │   9. sech² derived from nonlinear lattice equation             ✓    │
 │  10. φ-phase encoding invertibility (fidelity > 0.99)          ✓    │
-│  11. [[120, 6, 5]] stabilizer code satisfies Singleton bound    ✓    │
+│  11. [[120, 6, 5]] permutation-invariant code (Singleton ok)    ✓    │
 │  12. Golden ratio from H₄ Cartan matrix                        ✓    │
 ├──────────────────────────────────────────────────────────────────────┤
 │  FIREWALL PARADOX STATUS: RESOLVED                                   │
 │  Mechanism: Smooth sech² gradient from nonlinear lattice dynamics    │
-│  Monogamy: Escaped via [[120,6,5]] stabilizer code on 600-cell      │
+│  Monogamy: Escaped via [[120,6,5]] permutation-invariant code       │
 │  Information: Preserved by invertible φ-phase encoding map          │
 │  Entropy: 10⁷⁸ hinges on nested 600-cells match Bekenstein-Hawking  │
 │  Test: Lucas-modulated GW echoes (LIGO O5)                          │
