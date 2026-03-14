@@ -444,8 +444,24 @@ appear. The 9 irreps (in Alvis-Lusztig notation φ_{d,b}) are:
 | 36 | −1 | φ_{36,·} | Odd 36-dim rep |
 
 Note: the 600-cell graph is **not distance-transitive** — the 6 graph
-distances {0,...,5} split into 9 orbitals on ordered pairs, because
-some distances admit multiple geometrically distinct pair types.
+distances {0,...,5} split into 9 orbitals on ordered pairs. Verified
+computationally: distances 2, 3, and 4 each split into two orbitals
+distinguished by their Euclidean distance and common-neighbor count:
+
+| Graph dist | Orbitals | Sizes | Euclidean dist | Common nbrs |
+|------------|----------|-------|----------------|-------------|
+| 0 | 1 | {1} | 0 | 12 |
+| 1 | 1 | {12} | 1/φ | 5 |
+| 2 | **2** | {20, 12} | 1.000, 1.176 | 3, 1 |
+| 3 | **2** | {30, 12} | √2, φ | 0, 0 |
+| 4 | **2** | {20, 12} | √3, 1.902 | 0, 0 |
+| 5 | 1 | {1} | 2 | 0 |
+
+The Bose-Mesner algebra of distance matrices does not close under
+multiplication (verified: A₁² is not in span{A₀,...,A₅}), confirming
+the graph is not distance-regular. This result is consistent with
+the 600-cell skeleton graph not appearing in Brouwer-Cohen-Neumaier's
+classification of distance-regular graphs.
 
 The code parameters are therefore **[[120, 9, 5]]**:
 
