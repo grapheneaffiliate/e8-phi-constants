@@ -9,8 +9,9 @@ Zero free parameters. Median deviation < 0.05%. Independent experimental confirm
 
 ## What Already Exists (Do Not Recreate)
 - **gsm_solver.py** (110K) — Self-sustaining solver: all 58 constants, validation, discovery, predictions
-- **verification/** (24 scripts) — Per-sector derivation scripts, Bell tests, uniqueness tests
-- **theory/** (11 docs) — Wave equation, Lagrangians, Regge gravity, GW echoes, cosmic birefringence, firewall resolution, ten great problems
+- **verification/** (23 scripts) — Per-sector derivation scripts, Bell tests, uniqueness tests
+- **theory/** (12 docs) — Wave equation, Lagrangians, Regge gravity, GW echoes, cosmic birefringence, firewall resolution, ten great problems
+- **proofs/** (7 docs + 1 script) — Anchor uniqueness, Bell bound, Casimir selection, cosmological constant, hierarchy, three generations
 - **simulation/** (7 scripts) — 600-cell wave, fermion Dirac, Higgs, Regge EOM, GW echoes, LIGO templates
 - **quantum_vacuum_discovery/** — E₈ Hum (22.80σ), CHSH proofs (3 algebraic + brute force), Bell meta-analysis
 - **appendices/** (7 docs) — Formal proofs, formalization, Casimir proofs, uniqueness, alpha derivation, critic response, E₈→SM embedding

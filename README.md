@@ -475,7 +475,7 @@ Full analysis: [`theory/GSM_TEN_GREAT_PROBLEMS.md`](theory/GSM_TEN_GREAT_PROBLEM
 
 | Component | Files | Status |
 |-----------|-------|--------|
-| Theory (11 docs) | `theory/GSM_WAVE_EQUATION.md` through `GSM_TEN_GREAT_PROBLEMS.md` | Complete |
+| Theory (12 docs) | `theory/GSM_WAVE_EQUATION.md` through `GSM_TEN_GREAT_PROBLEMS.md` | Complete |
 | Simulations (7 scripts) | `simulation/gsm_wave_600cell.py` through `gsm_ligo_template_generator.py` | Runnable |
 | Evidence catalog | `evidence/EVIDENCE_SUMMARY.md` | Complete |
 | Predictions v2.0 | `predictions/GSM_PREDICTIONS_v2.0.md` | Complete |
@@ -495,6 +495,7 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 ```
 ├── requirements.txt                # Python dependencies (numpy, scipy, matplotlib, etc.)
 ├── gsm_solver.py                   # ★ Self-sustaining solver v4.0 (58 constants, full pipeline)
+├── CHANGELOG.md                    # Version history
 ├── EXPERIMENTAL_EVIDENCE.md        # ★ Wits F₄, Bell data, survey, convergence
 ├── PARTICLE_DYNAMICS.md            # ★ Particles as lattice defects
 ├── FALSIFIABLE_PREDICTIONS.md      # ★ All predictions compiled
@@ -521,8 +522,9 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── GSM_v1_Complete.tex
 │   ├── GSM_v1_Complete.md
 │   ├── GSM_Quantum_Entropy_Golden_Ratio.md
-│   └── RH_GSM_SYNTHESIS.md
-├── theory/                         # Complete theoretical framework
+│   ├── RH_GSM_SYNTHESIS.md
+│   └── The_Geometric_Standard_Model__.pdf
+├── theory/                         # Complete theoretical framework (12 docs + 2 subdirs)
 │   ├── GSM_COMPLETE_THEORY_v2.0.md # ★ Master unified theory document
 │   ├── GSM_WAVE_EQUATION.md        # + Lorentz recovery proof (§7.1)
 │   ├── GSM_FULL_LAGRANGIAN.md      # + EW corrections, QCD β-function, composites, cosmology
@@ -537,6 +539,14 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── GSM_COSMIC_BIREFRINGENCE_ANISOTROPIC.md
 │   ├── predictions/EXPERIMENTAL_PROPOSALS.md
 │   └── proofs/MATHEMATICAL_PROOFS.md
+├── proofs/                         # Rigorous mathematical proofs
+│   ├── anchor_uniqueness.md        # Why 137 is forced
+│   ├── anchor_uniqueness_computation.py  # Computational verification
+│   ├── bell_bound_verification.md  # S = 4 − φ proof verification
+│   ├── casimir_selection_rule.md   # Casimir selection rule proof
+│   ├── cosmological_constant.md   # Ω_Λ derivation proof
+│   ├── hierarchy_theorem.md        # Hierarchy φ^80 proof
+│   └── three_generations.md        # Why exactly 3 generations
 ├── appendices/                     # Formal proofs & derivations
 │   ├── GSM_v1_Appendix_A_Formal_Proofs.md
 │   ├── GSM_v1_Appendix_B_Complete_Formalization.md
@@ -545,13 +555,16 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── GSM_v1_Appendix_E_Alpha_Derivation.md
 │   ├── GSM_v1_Appendix_F_Critic_Response.md
 │   └── GSM_v1_Appendix_G_E8_SM_Embedding.md
-├── verification/                   # 24 Python derivation & validation scripts + audit
+├── verification/                   # 23 Python derivation & validation scripts + audit
 │   ├── audit/                     # 58-constant derivation audit (all FULLY_DERIVED or DERIVED)
+│   ├── results/                   # Cached validation results
 │   ├── DERIVATIONS_INDEX.md       # Complete script index with formulas
+│   ├── FORMULAS.md                # Verification formula reference
 │   ├── verify_all.py              # Run all 58 constants
 │   ├── gsm_verification.py        # Canonical formula reference
 │   ├── gsm_calculator.py          # Interactive calculator
 │   ├── gsm_metrics.py             # Spectral action convexity (requires sympy)
+│   ├── null_hypothesis.py         # Null hypothesis testing
 │   ├── firewall_validation.py     # Firewall paradox validation
 │   ├── ten_problems_validation.py # Ten great problems checks
 │   ├── alpha_derivation.py        # α⁻¹ from E₈/H₄ spectrum
