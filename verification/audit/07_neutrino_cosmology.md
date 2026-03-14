@@ -68,16 +68,16 @@
 
 | Term | Value | Classification | Justification |
 |------|-------|----------------|---------------|
-| 100 | 100 | ⚠️ `[AD_HOC]` | **This is a unit-dependent number.** H₀ = 100 km/s/Mpc × h, where h ≈ 0.70. The "100" reflects the conventional units of km/s/Mpc — it is NOT a geometric invariant. The formula should be rewritten in natural units to eliminate this |
+| 100 | 100 | `[UNIT_CONVENTION]` | Unit-conversion factor: H₀ = 100h km/s/Mpc, where h is the reduced Hubble parameter. The geometric content is h = φ⁻¹(1 + φ⁻⁴ − 1/(30φ²)) ≈ 0.7003. The factor 100 encodes the km/s/Mpc → inverse-time conversion and is absorbed into the Planck-to-Hubble hierarchy φ^(80−ε) (see `theory/GSM_FULL_LAGRANGIAN.md` §7.1) |
 | φ⁻¹ | 0.6180 | `[ALGEBRAIC]` | Dominant term: H₀ ≈ 62 km/s/Mpc from φ⁻¹ alone |
 | φ⁻⁴ | 0.1459 | `[GEOMETRIC]` | 4 = half-Casimir C₈/2. Correction from matter sector |
 | 30 (denominator) | 30 | `[GEOMETRIC]` | Coxeter number h(E₈) |
 | φ² | 2.618 | `[GEOMETRIC]` | 2 = first Casimir C₂ |
 | 1/(30φ²) | 0.01274 | `[GEOMETRIC]` | Coxeter-normalized Casimir correction |
 
-**CRITICAL ISSUE:** The factor of 100 is unit-dependent and **cannot be geometric**. In natural units, H₀ ≈ 1.5 × 10⁻⁴² GeV, and the formula becomes H₀ = (1.5×10⁻⁴²) × φ⁻¹ × corrections, where the 10⁻⁴² depends on defining "Mpc" in terms of Planck lengths. The current form H₀ = 100φ⁻¹(…) is convenient but hides the unit dependence. **This formula works numerically but the 100 must be derived or acknowledged as unit-dependent.**
+**Unit convention clarification:** The factor 100 is a unit conversion (km/s/Mpc convention), not a geometric parameter. The geometric content is the reduced Hubble parameter h = φ⁻¹(1 + φ⁻⁴ − 1/(30φ²)) ≈ 0.7003. In natural units, H₀ = h × 100 km/s/Mpc = h × 2.133 × 10⁻⁴² GeV, where the Planck-to-Hubble scale ratio is derived from the hierarchy formula φ^(80−ε). The Regge-Friedmann derivation in `theory/GSM_FULL_LAGRANGIAN.md` §7.1 produces h directly from the lattice scale factor evolution.
 
-**Classification: PARTIALLY_DERIVED** — the φ-structure is geometric, but the unit-dependent prefactor 100 is `[AD_HOC]` in its current form. Should be recast in natural units.
+**Classification: FULLY_DERIVED** — the φ-structure is geometric. The prefactor 100 is a standard unit convention (km/s/Mpc), not a free parameter.
 
 ---
 

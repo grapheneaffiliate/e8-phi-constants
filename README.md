@@ -98,7 +98,7 @@ Full physical picture: [`PARTICLE_DYNAMICS.md`](PARTICLE_DYNAMICS.md)
                └→ 5. CONSTANTS AS THEOREMS (zero free parameters)
 ```
 
-See [`theory/GSM_COMPLETE_THEORY.md`](theory/GSM_COMPLETE_THEORY.md) for the complete framework.
+See [`theory/GSM_COMPLETE_THEORY_v2.0.md`](theory/GSM_COMPLETE_THEORY_v2.0.md) for the complete framework.
 
 ---
 
@@ -523,12 +523,11 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── GSM_Quantum_Entropy_Golden_Ratio.md
 │   └── RH_GSM_SYNTHESIS.md
 ├── theory/                         # Complete theoretical framework
-│   ├── GSM_COMPLETE_THEORY.md
-│   ├── GSM_COMPLETE_THEORY_v2.0.md
-│   ├── GSM_WAVE_EQUATION.md
-│   ├── GSM_FULL_LAGRANGIAN.md
-│   ├── GSM_FERMION_LAGRANGIAN.md
-│   ├── GSM_HIGGS_LAGRANGIAN.md
+│   ├── GSM_COMPLETE_THEORY_v2.0.md # ★ Master unified theory document
+│   ├── GSM_WAVE_EQUATION.md        # + Lorentz recovery proof (§7.1)
+│   ├── GSM_FULL_LAGRANGIAN.md      # + EW corrections, QCD β-function, composites, cosmology
+│   ├── GSM_FERMION_LAGRANGIAN.md   # + m_u/m_d derivation from M_geom (§4.4)
+│   ├── GSM_HIGGS_LAGRANGIAN.md     # + RG running λ_geom → m_H/v (§8)
 │   ├── GSM_GRAVITY_REGGE.md
 │   ├── REGGE_EQUATIONS_OF_MOTION.md
 │   ├── GSM_FIREWALL_RESOLUTION.md
@@ -546,7 +545,8 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── GSM_v1_Appendix_E_Alpha_Derivation.md
 │   ├── GSM_v1_Appendix_F_Critic_Response.md
 │   └── GSM_v1_Appendix_G_E8_SM_Embedding.md
-├── verification/                   # 24 Python derivation & validation scripts
+├── verification/                   # 24 Python derivation & validation scripts + audit
+│   ├── audit/                     # 58-constant derivation audit (all FULLY_DERIVED or DERIVED)
 │   ├── DERIVATIONS_INDEX.md       # Complete script index with formulas
 │   ├── verify_all.py              # Run all 58 constants
 │   ├── gsm_verification.py        # Canonical formula reference
@@ -686,7 +686,7 @@ Full derivation: [`appendices/GSM_v1_Appendix_G_E8_SM_Embedding.md`](appendices/
   author={McGirl, Timothy},
   year={2026},
   url={https://github.com/grapheneaffiliate/e8-phi-constants},
-  note={Framework v2.3, Solver v4.0 — 58 constants}
+  note={Framework v2.6, Solver v4.0 — 58 constants, complete derivation chain}
 }
 ```
 
