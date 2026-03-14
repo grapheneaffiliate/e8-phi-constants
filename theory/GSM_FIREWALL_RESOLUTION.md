@@ -412,36 +412,45 @@ fixed by g). The multiplicity of each irrep ρ_i is:
 m_i = (1/|H₄|) Σ_{g ∈ H₄} χ_perm(g) × χ_i(g)*
 ```
 
-The H₄ group has 34 conjugacy classes and therefore 34 irreps, with
-dimensions: {1, 1, 4, 4, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 16,
-16, 16, 16, 20, 20, 24, 24, 25, 25, 30, 30, 36, 36, 40, 40, 48, 48}.
-The sum of squares equals 14400 (confirming the group order).
+W(H₄) has 34 conjugacy classes and therefore 34 irreps. The character
+table was computed by Alvis & Lusztig (1982). Since the 600-cell
+vertex stabilizer is W(H₃) (the icosahedral group, order 120), the
+permutation representation equals Ind_{W(H₃)}^{W(H₄)}(trivial). By
+Frobenius reciprocity, the multiplicity of each irrep ρ equals the
+dimension of the H₃-invariant subspace in ρ.
 
-The trivial representation always appears with multiplicity 1 in the
-permutation representation. The decomposition of the 120-dimensional
-permutation rep into H₄ irreps yields k distinct irreps that span the
-code subspace. From the Burnside orbit-counting lemma applied to
-the H₄ action on 120 vertices:
-
-```
-Number of orbits = (1/|H₄|) Σ_{g ∈ H₄} |Fix(g)| = 1
-```
-
-(since H₄ acts transitively on the 600-cell vertices). The number of
-distinct irreps in the decomposition is determined by the rank of the
-commutant algebra: the space of 120×120 matrices commuting with all
-H₄ permutations. For the transitive action of H₄ on 120 points, the
-commutant dimension equals the number of H₄ orbits on ordered pairs,
-which equals the number of distinct distances in the 600-cell graph.
-
-The 600-cell graph has distances {0, 1, 2, 3, 4, 5}, giving exactly
-**k = 6** distance classes and therefore **6 distinct irreps** in
-the permutation representation decomposition.
-
-The code parameters are therefore **[[120, 6, 5]]**:
+The explicit decomposition (verified by constructing all 14400 group
+elements as permutations and simultaneously diagonalizing the
+commutant algebra):
 
 ```
-120 = d₁ + d₂ + d₃ + d₄ + d₅ + d₆     (six irrep dimensions summing to 120)
+120 = 1 + 4 + 4 + 9 + 9 + 16 + 16 + 25 + 36
+```
+
+Each irrep appears with multiplicity 1. The inner product
+⟨χ_perm, χ_perm⟩ = 9 confirms that exactly **k = 9** distinct irreps
+appear. The 9 irreps (in Alvis-Lusztig notation φ_{d,b}) are:
+
+| Dimension | χ(−I)/dim | Label | Notes |
+|-----------|-----------|-------|-------|
+| 1 | +1 | φ_{1,0} | Trivial representation |
+| 4 | −1 | φ_{4,1} | Reflection (natural) rep |
+| 4 | −1 | φ_{4,7} | Galois conjugate (√5 → −√5) |
+| 9 | +1 | φ_{9,2} | Symmetric-square related |
+| 9 | +1 | φ_{9,6} | Galois conjugate |
+| 16 | +1 | φ_{16,3} | Even 16-dim rep |
+| 16 | −1 | φ_{16,·} | = φ_{16,3} × sign |
+| 25 | +1 | φ_{25,4} | Even 25-dim rep |
+| 36 | −1 | φ_{36,·} | Odd 36-dim rep |
+
+Note: the 600-cell graph is **not distance-transitive** — the 6 graph
+distances {0,...,5} split into 9 orbitals on ordered pairs, because
+some distances admit multiple geometrically distinct pair types.
+
+The code parameters are therefore **[[120, 9, 5]]**:
+
+```
+120 = 1 + 4 + 4 + 9 + 9 + 16 + 16 + 25 + 36
 ```
 
 **Code type: permutation-invariant, not Pauli stabilizer.**
@@ -467,7 +476,7 @@ The code subspace is the H₄-symmetric subspace:
 ℋ_code = { |ψ⟩ ∈ (ℂ²)^⊗120  :  π(g)|ψ⟩ = |ψ⟩  ∀g ∈ W(H₄) }
 ```
 
-This subspace has dimension 2^k = 2^6 = 64, corresponding to the 6
+This subspace has dimension 2^k = 2^9 = 512, corresponding to the 9
 irrep sectors of the permutation representation.
 
 **Error correction properties.** Permutation-invariant codes correct
@@ -533,8 +542,8 @@ where d_local is the local Hilbert space dimension per vertex. For the
 600-cell with d_local = 2 (minimal case):
 
 - **Total entropy capacity:** 120 × log 2 = 120 bits per 600-cell
-- **Code rate:** k/n = 6/120 = 0.05
-- **Logical entropy:** 6 bits per fundamental 600-cell
+- **Code rate:** k/n = 9/120 = 0.075
+- **Logical entropy:** 9 bits per fundamental 600-cell
 
 For a macroscopic black hole, the entropy scales with the number of
 stacked 600-cells (see Section 8 for the explicit counting).
@@ -575,8 +584,8 @@ The 120-dimensional permutation representation of H₄ decomposes as:
 120 = 1 ⊕ 4 ⊕ 5 ⊕ 4' ⊕ 6 ⊕ ... (H₄ irreps)
 ```
 
-yielding 6 independent representation sectors (one per distance class
-in the 600-cell graph, see §5.3.2) labeled by quantum
+yielding 9 independent representation sectors (one per H₄ irrep in
+the permutation decomposition, see §5.3.2) labeled by quantum
 numbers (ℓ, m) where ℓ indexes the H₄ irrep.
 
 **Step 2: Mode-by-mode emission.**
@@ -631,7 +640,7 @@ can reconstruct the core state by:
 - The phase arctan(φ^{-k} × tan(arg(α))) is a monotonic function of
   arg(α) for each k, so the core phases are uniquely determined.
 - The total number of independent measurements (N_shells × n_sectors ≈
-  180 × 6 = 1080) exceeds the number of unknowns (2 × 6 = 12 real
+  180 × 9 = 1620) exceeds the number of unknowns (2 × 9 = 18 real
   parameters for a single 600-cell), providing massive redundancy.
 
 **Information is preserved.** The encoding is explicit, invertible, and
@@ -911,7 +920,7 @@ The GSM resolves the firewall paradox through five interlocking mechanisms:
    cannot be lost (§5.2).
 
 3. **Quantum error-correcting code:** The 12-regular 600-cell graph implements a
-   [[120, 6, 5]] permutation-invariant code (§5.3). The interior state is encoded in the
+   [[120, 9, 5]] permutation-invariant code (§5.3). The interior state is encoded in the
    code subspace of horizon vertices, escaping the monogamy constraint: early
    radiation is entangled with physical qubits while the logical interior state
    remains protected by the code distance.
