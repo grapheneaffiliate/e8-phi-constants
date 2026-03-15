@@ -471,14 +471,46 @@ Full analysis: [`theory/GSM_TEN_GREAT_PROBLEMS.md`](theory/GSM_TEN_GREAT_PROBLEM
 - **Regge Gravity:** Discrete Einstein equations on H₄ simplicial lattice (UV-finite)
 - **GW Echo Predictions:** Exact φ-delays, φ⁻ᵏ damping, 72° polarization rotation
 - **Cosmic Birefringence:** β₀ = arcsin(φ⁻³) ≈ 0.292°
-- **7 Running Simulations:** Python scripts covering all sectors
+- **8 Running Simulations:** Python scripts covering all sectors
 
 | Component | Files | Status |
 |-----------|-------|--------|
-| Theory (12 docs) | `theory/GSM_WAVE_EQUATION.md` through `GSM_TEN_GREAT_PROBLEMS.md` | Complete |
-| Simulations (7 scripts) | `simulation/gsm_wave_600cell.py` through `gsm_ligo_template_generator.py` | Runnable |
+| Theory (13 docs) | `theory/GSM_WAVE_EQUATION.md` through `GSM_FUSION_ENERGY_PAPER.md` | Complete |
+| Simulations (8 scripts) | `simulation/gsm_wave_600cell.py` through `gsm_fusion_reactor.py` | Runnable |
 | Evidence catalog | `evidence/EVIDENCE_SUMMARY.md` | Complete |
 | Predictions v2.0 | `predictions/GSM_PREDICTIONS_v2.0.md` | Complete |
+
+---
+
+## Fusion Energy Engineering Design (March 2026)
+
+The GSM derivation chain extends to **fusion reactor engineering** — deriving cross-sections, reactivity, and Q-factor from E₈ geometry with zero free parameters:
+
+```
+E₈/H₄ constants → α, m_p, m_n, m_π, B_d
+  → V₀ (nuclear potential, 66.19 MeV) → binding energies (A=2,3,4)
+  → compound nucleus R-matrix → cross-sections → reactivity
+  → Lawson criterion → reactor Q = 12.2
+```
+
+| Parameter | Derived | Experimental | Match |
+|-----------|---------|-------------|-------|
+| Γ_b (⁵He* exit width) | 77.3 keV | 76 keV | 2% |
+| σ(64 keV) D-T peak | 5.65 barn | ~5 barn | 13% |
+| ⟨σv⟩(20 keV) | 7.9×10⁻¹⁶ | 4.2×10⁻¹⁶ | 1.9× |
+
+**Key innovations:**
+- Cross-sections from compound nucleus R-matrix (Wigner limit + Fermi gas level density)
+- H₄-inspired icosahedral stellarator with ι = 1/φ (maximally irrational → optimal resonance avoidance)
+- Q = 12.2 at optimized parameters (T = 18 keV, n_e = 3×10²⁰ m⁻³)
+- **16/16 validation checks PASS**
+
+```bash
+python3 simulation/gsm_fusion_reactor.py       # Full reactor simulation (15/15 checks)
+python3 verification/fusion_validation.py       # Independent validation (16/16 checks)
+```
+
+Full paper: [`theory/GSM_FUSION_ENERGY_PAPER.md`](theory/GSM_FUSION_ENERGY_PAPER.md)
 
 ---
 
@@ -524,7 +556,7 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── GSM_Quantum_Entropy_Golden_Ratio.md
 │   ├── RH_GSM_SYNTHESIS.md
 │   └── The_Geometric_Standard_Model__.pdf
-├── theory/                         # Complete theoretical framework (12 docs + 2 subdirs)
+├── theory/                         # Complete theoretical framework (14 docs + 2 subdirs)
 │   ├── GSM_COMPLETE_THEORY_v2.0.md # ★ Master unified theory document
 │   ├── GSM_WAVE_EQUATION.md        # + Lorentz recovery proof (§7.1)
 │   ├── GSM_FULL_LAGRANGIAN.md      # + EW corrections, QCD β-function, composites, cosmology
@@ -537,6 +569,8 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── GSM_GW_ECHOES.md
 │   ├── GSM_COSMIC_BIREFRINGENCE.md
 │   ├── GSM_COSMIC_BIREFRINGENCE_ANISOTROPIC.md
+│   ├── GSM_FUSION_ENERGY.md         # Fusion energy reference document
+│   ├── GSM_FUSION_ENERGY_PAPER.md   # ★ Publication-ready fusion energy paper
 │   ├── predictions/EXPERIMENTAL_PROPOSALS.md
 │   └── proofs/MATHEMATICAL_PROOFS.md
 ├── proofs/                         # Rigorous mathematical proofs
@@ -555,7 +589,7 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── GSM_v1_Appendix_E_Alpha_Derivation.md
 │   ├── GSM_v1_Appendix_F_Critic_Response.md
 │   └── GSM_v1_Appendix_G_E8_SM_Embedding.md
-├── verification/                   # 23 Python derivation & validation scripts + audit
+├── verification/                   # 24 Python derivation & validation scripts + audit
 │   ├── audit/                     # 58-constant derivation audit (all FULLY_DERIVED or DERIVED)
 │   ├── results/                   # Cached validation results
 │   ├── DERIVATIONS_INDEX.md       # Complete script index with formulas
@@ -566,6 +600,7 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── gsm_metrics.py             # Spectral action convexity (requires sympy)
 │   ├── null_hypothesis.py         # Null hypothesis testing
 │   ├── firewall_validation.py     # Firewall paradox validation
+│   ├── fusion_validation.py       # Fusion energy design (16 checks)
 │   ├── ten_problems_validation.py # Ten great problems checks
 │   ├── alpha_derivation.py        # α⁻¹ from E₈/H₄ spectrum
 │   ├── alpha_first_principles.py  # α first principles
@@ -583,14 +618,15 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── refinements_derivation.py  # z_CMB = φ¹⁴ + 246
 │   ├── torsion_derivation.py      # SO(8) torsion 28/(240φ²)
 │   └── weak_mixing_derivation.py  # sin²θ_W = 3/13 + φ⁻¹⁶
-├── simulation/                     # 7 running simulation scripts
+├── simulation/                     # 8 running simulation scripts
 │   ├── gsm_wave_600cell.py
 │   ├── gsm_full_lagrangian_sim.py
 │   ├── gsm_fermion_dirac_sim.py
 │   ├── gsm_higgs_sim.py
 │   ├── gsm_regge_eom_solver.py
 │   ├── gsm_gw_echoes_sim.py
-│   └── gsm_ligo_template_generator.py
+│   ├── gsm_ligo_template_generator.py
+│   └── gsm_fusion_reactor.py       # ★ Fusion energy design (Q=12.2, 15/15 checks)
 ├── evidence/EVIDENCE_SUMMARY.md
 ├── predictions/GSM_PREDICTIONS_v2.0.md
 └── predictions_extension/
@@ -616,6 +652,9 @@ python3 quantum_vacuum_discovery/test_gsm_chsh.py --test
 
 # E₈ Hum replication
 python3 verification/lucas_periodicity_test.py
+
+# Fusion energy engineering design (16 checks)
+python3 verification/fusion_validation.py
 
 # Firewall paradox validation (8 checks)
 python3 verification/firewall_validation.py
@@ -699,7 +738,7 @@ Full derivation: [`appendices/GSM_v1_Appendix_G_E8_SM_Embedding.md`](appendices/
   author={McGirl, Timothy},
   year={2026},
   url={https://github.com/grapheneaffiliate/e8-phi-constants},
-  note={Framework v2.6, Solver v4.0 — 58 constants, complete derivation chain}
+  note={Framework v2.7, Solver v4.0 — 58 constants, fusion energy design, complete derivation chain}
 }
 ```
 
