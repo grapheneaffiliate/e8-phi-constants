@@ -384,7 +384,7 @@ The Hilbert space factorizes not as ℋ_in ⊗ ℋ_out but as:
 where ℋ_horizon is a **code subspace** — a quantum error-correcting code on the
 12-regular graph.
 
-#### 5.3.2 The [[120, k, d]] Lattice Code
+#### 5.3.2 The [[120, 9, 5]] Lattice Code
 
 The 600-cell's 120 vertices define a graph code with parameters [[n, k, d]].
 
@@ -738,7 +738,7 @@ Each level is connected by the same φ-scaling:
 | **Horizon type** | Sharp causal boundary | Tension iso-surface (gradient) |
 | **Energy at horizon** | Planck-scale wall (E ~ E_Pl) | Smooth sech² profile (no divergence) |
 | **Infalling observer** | Burns at horizon | Smooth passage through gradient |
-| **Entanglement** | Monogamy violation forced | Distributed across 12-vertex graph |
+| **Entanglement** | Monogamy violation forced | QEC code on 12-regular graph |
 | **Unitarity** | Requires firewall to enforce | Automatic (Hermitian Hamiltonian) |
 | **Equivalence principle** | Violated | Preserved |
 | **Information** | Destroyed or behind wall | Encoded in φ-phases of radiation |
@@ -926,7 +926,7 @@ This is in contrast to the standard thermal (uncorrelated) prediction.
 
 ## 10. Summary of the Resolution
 
-The GSM resolves the firewall paradox through five interlocking mechanisms:
+The GSM resolves the firewall paradox through six interlocking mechanisms:
 
 1. **No sharp boundary:** The horizon is a tension iso-surface with smooth sech²
    profile derived from the nonlinear lattice equation (§5.1), not a causal wall.
@@ -964,9 +964,14 @@ by the inherent unitarity of discrete lattice dynamics.
 ## 11. References
 
 - Almheiri, A., Marolf, D., Polchinski, J., Sully, J. "Black Holes: Complementarity vs. Firewalls." JHEP 02 (2013) 062. [arXiv:1207.3123]
+- Almheiri, A., Dong, X., Harlow, D. "Bulk locality and quantum error correction in AdS/CFT." JHEP 04 (2015) 163. [arXiv:1411.7041]
+- Ouyang, Y. "Permutation-invariant quantum codes." Physical Review A 90 (2014) 062317.
+- Alvis, D., Lusztig, G. "The representations and generic degrees of the Hecke algebra of type H₄." Journal of Reine und Angewandte Mathematik 336 (1982) 201-212.
 - Regge, T. "General Relativity without Coordinates." Nuovo Cimento 19 (1961) 558-571.
 - Viazovska, M. "The sphere packing problem in dimension 8." Annals of Mathematics 185 (2017) 991-1015.
 - Bekenstein, J. "Black holes and entropy." Physical Review D 7 (1973) 2333.
 - Hawking, S. "Particle creation by black holes." Communications in Mathematical Physics 43 (1975) 199-220.
 - Page, D. "Information in black hole radiation." Physical Review Letters 71 (1993) 3743.
+- Knill, E., Laflamme, R. "Theory of quantum error-correcting codes." Physical Review A 55 (1997) 900.
 - Abedi, J. et al. "Echoes from the Abyss." Physical Review D 96 (2017) 082004.
+- Brouwer, A., Cohen, A., Neumaier, A. "Distance-Regular Graphs." Springer (1989).
