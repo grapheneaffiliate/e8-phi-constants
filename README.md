@@ -448,7 +448,7 @@ The GSM addresses physics' ten greatest unsolved problems through a single princ
 
 | Problem | GSM Status | Key Result |
 |---------|-----------|------------|
-| Information paradox | **Resolved** | Unitary lattice dynamics, φ-phase Hawking encoding |
+| Information paradox | **Resolved** | Unitary lattice dynamics, [[120,9,5]] QEC code, φ-phase encoding |
 | Black hole singularity | **Resolved** | Minimum length ℓ_p/φ, packed H₄ core replaces point |
 | Cosmological constant | **Derived** | Ω_Λ = 0.6889 (0.002%), UV cutoff avoids 10¹²⁰ |
 | Arrow of time | Framework | Golden Flow φ⁻¹/⁴ < 1 breaks time symmetry |
@@ -532,7 +532,7 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── GSM_HIGGS_LAGRANGIAN.md     # + RG running λ_geom → m_H/v (§8)
 │   ├── GSM_GRAVITY_REGGE.md
 │   ├── REGGE_EQUATIONS_OF_MOTION.md
-│   ├── GSM_FIREWALL_RESOLUTION.md
+│   ├── GSM_FIREWALL_RESOLUTION.md  # Closed version: sech² derivation, [[120,9,5]] QEC code
 │   ├── GSM_TEN_GREAT_PROBLEMS.md
 │   ├── GSM_GW_ECHOES.md
 │   ├── GSM_COSMIC_BIREFRINGENCE.md
@@ -565,7 +565,7 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── gsm_calculator.py          # Interactive calculator
 │   ├── gsm_metrics.py             # Spectral action convexity (requires sympy)
 │   ├── null_hypothesis.py         # Null hypothesis testing
-│   ├── firewall_validation.py     # Firewall paradox validation
+│   ├── firewall_validation.py     # Firewall paradox validation (14 checks, 600-cell computation)
 │   ├── ten_problems_validation.py # Ten great problems checks
 │   ├── alpha_derivation.py        # α⁻¹ from E₈/H₄ spectrum
 │   ├── alpha_first_principles.py  # α first principles
@@ -617,7 +617,7 @@ python3 quantum_vacuum_discovery/test_gsm_chsh.py --test
 # E₈ Hum replication
 python3 verification/lucas_periodicity_test.py
 
-# Firewall paradox validation (8 checks)
+# Firewall paradox validation (14 checks incl. 600-cell orbital computation)
 python3 verification/firewall_validation.py
 
 # Ten great problems validation (25 checks)
