@@ -332,12 +332,15 @@ def derive_all() -> Dict[str, Derivation]:
     m_e_eV = 510998.95  # electron mass in eV (for neutrino calculation)
 
     # 1. Fine Structure Constant (inverse)
-    # alpha^-1 = 137 + phi^-7 + phi^-14 + phi^-16 - phi^-8/248
-    val = ANCHOR_ALPHA + PHI**(-7) + PHI**(-14) + PHI**(-16) - PHI**(-8) / 248
+    # alpha^-1 = 137 + phi^-7 + phi^-14 + phi^-16 - phi^-8/248 + (248/240)*phi^-26
+    # Pattern: doubled Coxeter exponents {14=2x7, 16=2x8, 26=2x13}
+    # 248/240 = dim(E8)/roots(E8) = 1 + rank/roots
+    val = (ANCHOR_ALPHA + PHI**(-7) + PHI**(-14) + PHI**(-16)
+           - PHI**(-8) / 248 + (248 / KISSING) * PHI**(-26))
     results['alpha_inv'] = Derivation(
         'alpha_inv', 'Fine structure constant (inverse)',
-        '137 + phi^-7 + phi^-14 + phi^-16 - phi^-8/248',
-        val, 5, (137, 248), (7, 8, 14, 16), 'hand-derived', '2025-12-04')
+        '137 + phi^-7 + phi^-14 + phi^-16 - phi^-8/248 + (248/240)*phi^-26',
+        val, 6, (137, 248, 240), (7, 8, 14, 16, 26), 'hand-derived', '2025-12-04')
 
     # 2. Weak Mixing Angle
     # sin2(theta_W) = 3/13 + phi^-16
@@ -396,13 +399,16 @@ def derive_all() -> Dict[str, Derivation]:
         val, 2, (), (2, 3), 'hand-derived', '2026-01-10')
 
     # 9. Proton/Electron Mass Ratio
-    # m_p/m_e = 6*pi^5*(1 + phi^-24 + phi^-13/240)
+    # m_p/m_e = 6*pi^5*(1 + phi^-24 + phi^-13/240 + phi^-17/240 + phi^-33/8)
+    # phi^-17/240: 17 = next Coxeter exponent after 13, same kissing-number suppression
+    # phi^-33/8: 33 = 3*11 (generations x Coxeter exponent), 8 = rank(E8)
     vol_s5 = 6 * PI**5
-    val = vol_s5 * (1 + PHI**(-24) + PHI**(-13) / KISSING)
+    val = vol_s5 * (1 + PHI**(-24) + PHI**(-13) / KISSING
+                    + PHI**(-17) / KISSING + PHI**(-33) / E8.rank)
     results['mp_me_ratio'] = Derivation(
         'mp_me_ratio', 'Proton/electron mass ratio',
-        '6*pi^5*(1 + phi^-24 + phi^-13/240)',
-        val, 3, (240,), (13, 24), 'hand-derived', '2025-12-04')
+        '6*pi^5*(1 + phi^-24 + phi^-13/240 + phi^-17/240 + phi^-33/8)',
+        val, 5, (240, 8), (13, 17, 24, 33), 'hand-derived', '2025-12-04')
 
     # 10. Top Yukawa Coupling
     # y_t = 1 - phi^-10

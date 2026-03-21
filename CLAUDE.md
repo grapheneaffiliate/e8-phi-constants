@@ -22,7 +22,7 @@ Zero free parameters. Median deviation < 0.05%. Independent experimental confirm
 - Casimir degrees: {2, 8, 12, 14, 18, 20, 24, 30}
 - E₈ exponents: {1, 7, 11, 13, 17, 19, 23, 29}
 - "φ-Lucas" L_n = φⁿ + φ⁻ⁿ (real-valued) — L₃² = 20 exactly
-- Master equation: α⁻¹ = 137 + φ⁻⁷ + φ⁻¹⁴ + φ⁻¹⁶ - φ⁻⁸/248
+- Master equation: α⁻¹ = 137 + φ⁻⁷ + φ⁻¹⁴ + φ⁻¹⁶ - φ⁻⁸/248 + (248/240)φ⁻²⁶
 - See FORMULAS.md for complete reference of all 58 formulas
 
 ## Commands

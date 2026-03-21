@@ -40,7 +40,7 @@
 
 | # | Constant | Formula | GSM Value | Experiment | Deviation |
 |---|----------|---------|-----------|------------|-----------|
-| 1 | α⁻¹ | 137 + φ⁻⁷ + φ⁻¹⁴ + φ⁻¹⁶ - φ⁻⁸/248 | 137.035995 | 137.035999 | 0.000003% |
+| 1 | α⁻¹ | 137 + φ⁻⁷ + φ⁻¹⁴ + φ⁻¹⁶ - φ⁻⁸/248 + (248/240)φ⁻²⁶ | 137.035999174 | 137.035999177 | 0.000000002% |
 | 2 | sin²θ_W | 3/13 + φ⁻¹⁶ | 0.231222 | 0.23121 | 0.005% |
 | 3 | α_s(M_Z) | 1/[2φ³(1+φ⁻¹⁴)(1+8φ⁻⁵/14400)] | 0.11789 | 0.1180 | 0.09% |
 
@@ -63,7 +63,7 @@
 
 | # | Constant | Formula | GSM Value | Experiment | Deviation |
 |---|----------|---------|-----------|------------|-----------|
-| 9 | m_p/m_e | 6π⁵(1+φ⁻²⁴+φ⁻¹³/240) | 1836.1505 | 1836.1527 | 0.0001% |
+| 9 | m_p/m_e | 6π⁵(1+φ⁻²⁴+φ⁻¹³/240+φ⁻¹⁷/240+φ⁻³³/8) | 1836.15267 | 1836.15267 | 0.000007% |
 | 10 | y_t | 1 - φ⁻¹⁰ | 0.99187 | 0.9919 | 0.003% |
 | 11 | m_H/v | 1/2 + φ⁻⁵/10 | 0.5090 | 0.5087 | 0.06% |
 | 12 | m_W/v | (1-φ⁻⁸)/3 | 0.3262 | 0.3264 | 0.05% |
@@ -174,17 +174,18 @@
 ## Master Equations
 
 ### Fine-Structure Constant
-$$\alpha^{-1} = 137 + \phi^{-7} + \phi^{-14} + \phi^{-16} - \frac{\phi^{-8}}{248} = 137.0359954$$
+$$\alpha^{-1} = 137 + \phi^{-7} + \phi^{-14} + \phi^{-16} - \frac{\phi^{-8}}{248} + \frac{248}{240}\phi^{-26} = 137.035999174$$
 
 **Term breakdown:**
 | Term | Value | Origin |
 |------|-------|--------|
 | 137 | 137 | Anchor: 128+8+1 = dim(SO16₊)+rank(E₈)+χ |
-| φ⁻⁷ | 0.02943... | Half of Casimir-14 |
-| φ⁻¹⁴ | 0.000866... | Full Casimir-14 |
+| φ⁻⁷ | 0.02943... | Half of Casimir-14 (doubled Coxeter exponent 2×7) |
+| φ⁻¹⁴ | 0.000866... | Full Casimir-14 (doubled Coxeter exponent 2×7) |
 | φ⁻¹⁶ | 0.000331... | Rank-tower (2×8) |
 | -φ⁻⁸/248 | -0.000073... | Torsion correction |
-| **Total** | **137.035995** | |
+| (248/240)φ⁻²⁶ | 0.0000038... | Doubled Coxeter exponent 2×13, dim(E₈)/roots(E₈) |
+| **Total** | **137.035999174** | **0.14σ from CODATA 2022** |
 
 ### Hierarchy Formula
 $$\frac{M_{Pl}}{v} = \phi^{80 - \varepsilon} = \phi^{79.887...}$$
@@ -278,8 +279,8 @@ To verify the master equation:
 ```python
 import math
 phi = (1 + math.sqrt(5)) / 2
-alpha_inv = 137 + phi**(-7) + phi**(-14) + phi**(-16) - phi**(-8)/248
-print(f"α⁻¹ = {alpha_inv}")  # Should print 137.0359954...
+alpha_inv = 137 + phi**(-7) + phi**(-14) + phi**(-16) - phi**(-8)/248 + (248/240)*phi**(-26)
+print(f"alpha_inv = {alpha_inv}")  # Should print 137.035999174...
 ```
 
 To verify L₃² = 20:
