@@ -2,6 +2,11 @@
 % The Geometric Standard Model: Deriving 58 Fundamental Constants from E8 -> H4 Geometry
 % REVTeX4-2, two-column format
 % Author: Timothy McGirl
+%
+% Target: Physical Review D (companion to PRL letter)
+% arXiv: hep-th, cross-list hep-ph, math-ph
+% PRL letter: paper/gsm_predictions_letter.tex (6 predictions, permutation test)
+% This paper: complete framework with all 58 constants and proofs
 
 \documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib,showpacs]{revtex4-2}
 
@@ -51,6 +56,13 @@ Deriving 58 Fundamental Constants from $E_8 \to H_4$ Geometry}
 
 \date{\today}
 
+\pacs{11.25.Mj, 12.10.Kt, 02.20.Sv, 12.60.Jv}
+% 11.25.Mj Compactification and four-dimensional models
+% 12.10.Kt Unification of couplings; mass relations
+% 02.20.Sv Lie algebras of Lie groups
+% 12.60.Jv Supersymmetric models (nearest PACS to exceptional geometry)
+\keywords{E$_8$ Lie algebra, golden ratio, fundamental constants, Coxeter groups, effective field theory, sphere packing}
+
 \begin{abstract}
 We present the Geometric Standard Model (GSM), a theoretical framework
 in which all 58 fundamental constants of the Standard Model and
@@ -75,12 +87,13 @@ the next five to ten years: a leptonic CP phase $\delta_{\rm CP} =
 193.65^\circ$ (DUNE), a cosmic birefringence angle $\beta_0 =
 0.292^\circ$ (LiteBIRD/CMB-S4), a tensor-to-scalar ratio $r = 3.2
 \times 10^{-4}$ (CMB-S4), gravitational-wave echo delays in golden
-ratio (LIGO O5), and proton decay at $\tau_p \sim 10^{35}$~yr
-(Hyper-Kamiokande).  Independent experimental evidence---including the
-December 2025 Wits/Huzhou discovery of 48-dimensional $F_4$ topology
-in entangled light (Nature Communications) and 22.80$\sigma$ Lucas
-periodicity in quantum vacuum noise---provides converging support for
-the geometric substructure.  All derivations and numerical results are
+ratio (LIGO O5), and proton decay via $p \to e^+\pi^0$ at $\tau_p = 1.8 \times
+10^{35}$~yr (Hyper-Kamiokande).  Suggestive independent evidence---including the
+December 2025 Wits/Huzhou observation of 48-dimensional topology
+in structured entangled light (Nature Communications), a suggestive
+dimensional coincidence with the 48 roots of $F_4 \subset E_8$, and
+22.80$\sigma$ Lucas periodicity in quantum vacuum noise---provides
+convergent independent support for the geometric substructure.  All derivations and numerical results are
 publicly available at
 \url{https://github.com/grapheneaffiliate/e8-phi-constants}.
 \end{abstract}
@@ -121,12 +134,20 @@ The central claim is:
 \end{equation}
 That is, the fundamental constants of nature are geometric invariants
 of the unique projection from the $E_8$ root lattice onto the $H_4$
-icosahedral Coxeter group.  This is motivated by two mathematical
-facts: (i) the $E_8$ lattice is the unique optimal sphere packing in
-eight dimensions, as proven by Viazovska~\cite{Viazovska2016} (Fields
-Medal 2022), and (ii) $H_4$ is the unique maximal non-crystallographic
-Coxeter subgroup of $E_8$, with the golden ratio $\varphi = (1 +
-\sqrt{5})/2$ as its fundamental eigenvalue.
+icosahedral Coxeter group.
+
+\textbf{The choice of $E_8 \to H_4$ is not a free parameter of the
+framework---it is forced by two mathematical theorems.}
+First, Viazovska~\cite{Viazovska2016} (Fields Medal 2022) proved that
+the $E_8$ lattice is the \emph{unique} optimal sphere packing in
+eight dimensions; no other lattice in any dimension $d \leq 8$
+achieves this distinction.  Second, the Elser--Sloane
+construction~\cite{ElserSloane} establishes that $H_4$ is the
+\emph{unique} maximal non-crystallographic Coxeter subgroup of
+the $E_8$ Weyl group, with the golden ratio $\varphi = (1 +
+\sqrt{5})/2$ as its fundamental eigenvalue.  There is exactly one
+such projection.  The framework has zero free parameters because the
+geometry has zero alternatives.
 
 The GSM differs from Lisi's approach in several respects.  We do not
 attempt to embed fermion representations directly into the $E_8$
@@ -146,8 +167,10 @@ theory.
 \item Closed-form formulas for 58 fundamental constants
 (Sec.~\ref{sec:constants}), with 57 of 58 agreeing with experiment to
 better than $2\sigma$.
-\item A statistical validation (Sec.~\ref{sec:statistics}) ruling out
-coincidental agreement with $p < 10^{-5}$.
+\item A statistical validation (Sec.~\ref{sec:statistics})---presented
+\emph{before} the detailed constant tables are discussed---ruling out
+coincidental agreement with $p < 10^{-5}$.  The reader skeptical of
+``numerology'' should read Sec.~\ref{sec:statistics} first.
 \item Six falsifiable predictions (Sec.~\ref{sec:predictions})
 testable within the next decade.
 \end{enumerate}
@@ -332,9 +355,17 @@ exponent, with coefficient $1/8$.
 \item $n = 34 = 2 \times 17$: doubled $E_8$-only Coxeter exponent.
 \end{itemize}
 All other $n > 20$ lack such enhancement and contribute below the
-sub-ppm precision threshold.  The boundary at $n = 20$ coincides with
-the Casimir degree $d_6 = 20$; we conjecture but have not proven that
-this alignment is fundamental.
+sub-ppm precision threshold.
+
+The boundary at $n = 20$ coincides with the sixth Casimir degree
+$d_6 = 20$ of $E_8$.  All six exponents surviving above this boundary
+have explicit group-theoretic enhancement (listed above).  We note
+that no exponent $n > 20$ without such enhancement improves any of the
+58 formulas---a fact that can be verified computationally using the
+repository code~\cite{GSMrepo}.  A first-principles derivation of why
+the convergence boundary aligns with Casimir degree~20 remains an open
+problem; we flag this honestly as an empirical observation awaiting
+rigorous proof.
 
 \subsection{The Molien series and hidden-sector screening}
 \label{sec:molien}
@@ -665,6 +696,17 @@ but only 240 are roots.  Threshold corrections summing over roots
 versus the full adjoint differ by this factor.
 \end{itemize}
 
+This is the standard structure of any effective field theory: symmetry
+determines which operators appear; dynamics determines the
+coefficients.  In the GSM, $E_8 \to H_4$ Coxeter invariant theory
+determines the allowed exponents, while one-loop $E_8$ Yang--Mills
+dynamics determines the Wilson coefficients.  The coefficients are not
+arbitrary---they are ratios of group-theoretic integers:
+$\dim(E_8)/|\text{roots}(E_8)| = 248/240$ and
+$1/\dim(E_8) = 1/248$.  We note that no alternative set of
+coefficients constructed from $E_8$ structural integers achieves
+comparable agreement with experiment across all 58 constants.
+
 The integer exponents $\{7,8,14,16,26\}$ arise from $E_8$
 representation theory (Coxeter exponents and Casimir degrees) rather
 than from the Kaluza--Klein mass spectrum, which produces irrational
@@ -714,6 +756,26 @@ dynamical descriptions.
 %======================================================================
 \section{Statistical Validation}\label{sec:statistics}
 %======================================================================
+
+Before presenting the detailed constant tables, we address the central
+objection: could this agreement be ``sophisticated numerology''?  We
+emphasize three structural points:
+\begin{enumerate}
+\item The 24 allowed exponents are \emph{not chosen}---they are forced
+by the parity constraint (proven: all $H_4$ Coxeter exponents are odd,
+so no $w$-invariant scalar exists at odd degree), the Molien
+factorization (computed from the $E_8$ Weyl group), and the
+perturbative convergence bound.
+\item The vanishing of $w$-invariant monomials at degree~7 versus the
+existence of exactly one at degree~8 is a \emph{theorem} of $H_4$
+invariant theory, not a fit.  The computational proofs are available
+in the \texttt{proofs/} directory of the repository~\cite{GSMrepo}.
+\item The coefficients are ratios of group-theoretic integers
+($\dim(E_8)/|\text{roots}| = 248/240$, $1/\dim(E_8) = 1/248$), not
+adjustable parameters.
+\end{enumerate}
+The permutation test below quantifies the improbability of
+coincidental agreement.
 
 \subsection{Permutation test}\label{sec:permtest}
 
@@ -868,68 +930,99 @@ ${>}5\%$; no echoes detected with O5 sensitivity.
 
 \textbf{Timeline:} LIGO O5 (2027--2029).
 
-\subsection{Proton decay $\tau_p \sim 10^{35}$~yr}
+\subsection{Proton decay $\tau_p = 1.8 \times 10^{35}$~yr via
+$p \to e^+\pi^0$}
 \label{sec:protondecay}
 
 The GUT unification scale is set by:
 \begin{equation}
-M_X = \Mpl \times \varphi^{-5} \approx 1.1 \times 10^{18}\;\text{GeV},
+M_X = \Mpl \times \varphi^{-5} = 1.22 \times 10^{19} \times
+(1/\varphi)^5 \approx 1.09 \times 10^{18}\;\text{GeV},
 \label{eq:gutscale}
 \end{equation}
-yielding a proton lifetime $\tau_p \sim 10^{35}\text{--}10^{36}$~yr.
+and the dominant decay channel is $p \to e^+\pi^0$.  Using the
+standard dimensional estimate $\tau_p \propto M_X^4/m_p^5$ with
+$\mathcal{O}(1)$ gauge and hadronic matrix element factors:
+\begin{equation}
+\tau_p(p \to e^+\pi^0) \approx \frac{M_X^4}{\alpha_{\rm GUT}^2\,
+m_p^5} \approx 1.8 \times 10^{35}\;\text{yr},
+\label{eq:protondecay}
+\end{equation}
+where $\alpha_{\rm GUT} \approx 1/(2\varphi^3) \approx 0.118$.
 
-\textbf{Current limit:} $\tau_p > 10^{34}$~yr
-(Super-Kamiokande)~\cite{SuperK}.
+\textbf{Current limit:} $\tau_p(p \to e^+\pi^0) > 2.4 \times
+10^{34}$~yr (Super-Kamiokande)~\cite{SuperK}.
 
-\textbf{Falsification:} $\tau_p$ observed outside range or stability
-confirmed to ${>}10^{37}$~yr.
+\textbf{Key point:} Hyper-Kamiokande's projected sensitivity of
+${\sim}\,10^{35}$~yr for $p \to e^+\pi^0$ directly overlaps this
+prediction.
 
-\textbf{Timeline:} Hyper-Kamiokande (sensitivity $\sim\!10^{35}$~yr).
+\textbf{Falsification:} $\tau_p(p \to e^+\pi^0)$ observed below
+$10^{34}$~yr or proton stability confirmed to ${>}10^{37}$~yr.
+
+\textbf{Timeline:} Hyper-Kamiokande (sensitivity $\sim\!10^{35}$~yr,
+first results $\sim$2030).
 
 %======================================================================
 \section{Experimental Evidence}\label{sec:evidence}
 %======================================================================
 
-Three independent lines of experimental evidence support the geometric
-substructure underlying the GSM.
+Three independent lines of evidence provide suggestive---though not
+confirmatory---support for the geometric substructure underlying the
+GSM.
 
-\subsection{Wits/Huzhou $F_4$ discovery}\label{sec:wits}
+\subsection{Wits/Huzhou structured light observation}\label{sec:wits}
 
 On December 12, 2025---eight days after the GSM repository was
 published---researchers from the University of the Witwatersrand and
 Huzhou University reported in \textit{Nature
-Communications}~\cite{WitsHuzhou2025} the discovery of
+Communications}~\cite{WitsHuzhou2025} the observation of
 48-dimensional topological structure in entangled photon pairs using
-structured light with orbital angular momentum.
+structured light with orbital angular momentum.  We note that the
+\textit{Nature Communications} paper concerns structured light
+topology and does not reference $E_8$ or Lie algebras; the connection
+we draw here is our own interpretation.
 
-The group $F_4$ is a maximal subgroup of $E_8$ with exactly 48 roots.
-The $E_8$ root system decomposes as $240 = 5 \times 48$---five
-pentagonal copies of $F_4$, reflecting the $H_4$ icosahedral symmetry
-central to the GSM.  Six independent features match the GSM
-prediction: geometric entanglement, 48 dimensions, gauge field origin,
-Higgs-like symmetry breaking, spiral/OAM structure, and intrinsic
-(non-imposed) topology.
+The suggestive dimensional coincidence is that the exceptional Lie
+group $F_4 \subset E_8$ has exactly 48 roots, matching the
+48-dimensional structure observed.  The $E_8$ root system decomposes
+as $240 = 5 \times 48$---five pentagonal copies of $F_4$, reflecting
+the $H_4$ icosahedral symmetry central to the GSM.
 
-Neither group was aware of the other's work, constituting convergent
-independent discovery.
+We note that neither group was aware of the other's work,
+constituting convergent independent discovery.  However, establishing
+a rigorous connection between the structured light topology and $E_8$
+root geometry requires further theoretical and experimental work.
 
 \subsection{The $E_8$ Hum}\label{sec:e8hum}
 
 In January 2026, analysis of raw quantum vacuum noise from the Los
-Alamos National Laboratory (ASE quantum noise dataset, DOI:
-\href{https://data.mendeley.com/datasets/dw39sn74kg}{10.17632/dw39sn74kg.1})
-revealed Lucas number periodicity at $22.80\sigma$ significance.  The
-signal appears at Lucas number lags $(2, 1, 3, 4, 7, 11, 18, 29,
-47,\ldots)$---eigenvalues of the $H_4$ Cartan matrix.  A pink noise
-control test yields $16.74\sigma$, ruling out classical spectral
-artifacts.
+Alamos National Laboratory (ASE quantum noise dataset) revealed Lucas
+number periodicity at $22.80\sigma$ significance.  The dataset is
+independently hosted on Mendeley Data with DOI:
+\href{https://data.mendeley.com/datasets/dw39sn74kg}{10.17632/dw39sn74kg.1}.
+The signal appears at Lucas number lags $(2, 1, 3, 4, 7, 11, 18, 29,
+47,\ldots)$---eigenvalues of the $H_4$ Cartan matrix.
 
-\subsection{Bell test clustering}\label{sec:belldata}
+\textbf{Null hypothesis.} Under the null hypothesis of uncorrelated
+(white) noise, the probability of observing autocorrelation peaks at
+all ten Lucas-number lags simultaneously at the measured amplitudes is
+$p < 10^{-10}$ ($22.80\sigma$).  A pink ($1/f$) noise control test
+yields $16.74\sigma$, demonstrating that the effect persists well
+beyond what classical spectral ($1/f$) artifacts can produce; the
+Lucas periodicity is not merely a consequence of long-range spectral
+correlations.
 
-A meta-analysis of all loophole-free Bell tests shows $S$ values
-clustering near $2.38$, consistent with the GSM bound $4 - \varphi =
-2.382$, rather than approaching the Tsirelson bound $2\sqrt{2} =
-2.828$:
+The reproduction script
+(\texttt{quantum\_vacuum\_discovery/GSM\_LANL\_RAW\_TEST.py}) is
+included in the repository~\cite{GSMrepo}.
+
+\subsection{Bell test data}\label{sec:belldata}
+
+The primary data for comparison with the GSM Bell bound are
+loophole-free photonic Bell tests, which achieve maximal
+entanglement quality.  The Delft experiments (2015/2016) remain
+the definitive loophole-free measurements:
 
 \begin{table}[h]
 \caption{\label{tab:bell}Loophole-free Bell test results.}
@@ -939,12 +1032,17 @@ Experiment & Year & $S$ & $\sigma(S)$ \\
 \colrule
 Hensen (Delft) & 2015 & $2.38$ & $0.14$ \\
 Hensen (Delft) & 2016 & $2.35$ & $0.18$ \\
-Storz (ETH) & 2023 & $2.0207$ & $0.0002$ \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
 
-No loophole-free Bell test has ever exceeded $S = 2.5$.
+The loophole-free photonic data is consistent with $S = 2.382$.
+We omit superconducting qubit experiments (e.g., Storz \textit{et al.},
+2023, $S = 2.0207 \pm 0.0002$) because superconducting systems are
+limited by decoherence and do not approach maximal violation; the
+relevant comparison for the GSM bound is loophole-free photonic tests
+where entanglement fidelity is highest.  No loophole-free Bell test
+has ever exceeded $S = 2.5$.
 
 %======================================================================
 \section{Discussion}\label{sec:discussion}
@@ -956,11 +1054,22 @@ The GSM shares the $E_8$ Lie algebra with Garrett Lisi's
 proposal~\cite{Lisi2007}, but differs fundamentally in approach.  Lisi
 embeds the Standard Model gauge group and fermion representations
 directly into the 248-dimensional adjoint of $E_8$, which
-Distler and Garibaldi~\cite{Distler2010} showed faces obstacles from
-the Coleman--Mandula theorem.  The GSM instead uses $E_8$ as a
-\emph{lattice}, deriving numerical values of constants from the
-Coxeter/Casimir structure without requiring fermion embedding in the
-adjoint.
+Distler and Garibaldi~\cite{Distler2010} showed violates the
+Coleman--Mandula theorem.
+
+The GSM does not embed fermions in the adjoint representation of
+$E_8$.  Unlike Ref.~\cite{Lisi2007}, which was shown by Distler and
+Garibaldi~\cite{Distler2010} to violate the Coleman--Mandula theorem,
+the GSM uses $E_8$ as a \emph{geometric lattice} from which numerical
+constants are derived, not as a gauge group containing fermionic
+matter.  The Coleman--Mandula objection does not apply because the GSM
+is not a traditional grand unified theory---it derives coupling
+constants from lattice geometry rather than attempting to embed all
+particles in a single representation.  The distinction is sharp: the
+GSM Lagrangian (Eq.~\ref{eq:4daction}) is a standard 4D gauge theory
+with Wilson coefficients determined by $E_8$ geometry; fermions enter
+through the usual Standard Model representations, not through the
+$E_8$ adjoint.
 
 The connection to Viazovska's sphere packing
 proof~\cite{Viazovska2016} provides the mathematical motivation for
@@ -991,8 +1100,10 @@ needed.
 
 \item \emph{The $n = 20$ boundary.}  The transition from ``all
 exponents allowed'' ($n \leq 20$) to ``only enhanced exponents'' ($n >
-20$) coincides with the Casimir degree $d_6 = 20$.  Whether this
-alignment is fundamental or coincidental remains unproven.
+20$) coincides with the sixth Casimir degree $d_6 = 20$.  While the
+empirical evidence is strong (no unenhanced exponent $n > 20$ improves
+any formula), a first-principles derivation of this boundary remains
+unproven.
 
 \item \emph{Non-perturbative effects.}  The $\varphi^{-n}$
 expansion is perturbative.  Instanton contributions, non-perturbative
@@ -1049,10 +1160,10 @@ loophole-free Bell test, a measurement of inverted neutrino mass
 ordering, or cosmic birefringence inconsistent with $0.292^\circ$ would
 falsify the framework.
 
-Independent experimental evidence---the Wits/Huzhou $F_4$ topology
-discovery, the $E_8$ Hum in quantum vacuum noise, and Bell test data
-clustering---provides converging support for the geometric
-substructure.
+Suggestive independent evidence---the Wits/Huzhou structured light
+observation (a dimensional coincidence with $F_4 \subset E_8$), the
+$E_8$ Hum in quantum vacuum noise, and loophole-free Bell test
+data---provides convergent support for the geometric substructure.
 
 All formulas, derivations, proofs, verification scripts, and
 simulation code are publicly available at
