@@ -1,0 +1,6 @@
+eig_idx,eigenvalue,multiplicity,coherent_weight,n_ratio_max,n_ratio_min,n_max_int,n_min_int,in_gsm,in_casimir,in_coxeter
+0,0.000000,1,1.00000000,N/A,N/A,,,False,False,False
+1,28.000000,8,8.00000000,1.5838,0.0000,2,0,True,True,False
+2,48.000000,35,35.00000000,0.4637,1.1201,0,1,True,False,True
+3,58.000000,112,112.00000000,0.0705,1.5133,0,2,True,True,False
+4,60.000000,84,84.00000000,-0.0000,1.5838,0,2,True,True,False
