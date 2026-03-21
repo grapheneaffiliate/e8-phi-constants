@@ -555,7 +555,7 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── GSM_v1_Appendix_E_Alpha_Derivation.md
 │   ├── GSM_v1_Appendix_F_Critic_Response.md
 │   └── GSM_v1_Appendix_G_E8_SM_Embedding.md
-├── verification/                   # 23 Python derivation & validation scripts + audit
+├── verification/                   # 24 Python derivation & validation scripts + audit
 │   ├── audit/                     # 58-constant derivation audit (all FULLY_DERIVED or DERIVED)
 │   ├── results/                   # Cached validation results
 │   ├── DERIVATIONS_INDEX.md       # Complete script index with formulas
@@ -582,7 +582,8 @@ See [`predictions_extension/leptonic_cp_phase_derivation.md`](predictions_extens
 │   ├── pink_noise_trap_test.py    # Lucas periodicity control
 │   ├── refinements_derivation.py  # z_CMB = φ¹⁴ + 246
 │   ├── torsion_derivation.py      # SO(8) torsion 28/(240φ²)
-│   └── weak_mixing_derivation.py  # sin²θ_W = 3/13 + φ⁻¹⁶
+│   ├── weak_mixing_derivation.py  # sin²θ_W = 3/13 + φ⁻¹⁶
+│   └── evaluate_sphere_packing.py # ★ 3-tier E8→H4 pipeline verification (20 tests)
 ├── simulation/                     # 7 running simulation scripts
 │   ├── gsm_wave_600cell.py
 │   ├── gsm_full_lagrangian_sim.py
@@ -622,6 +623,9 @@ python3 verification/firewall_validation.py
 
 # Ten great problems validation (25 checks)
 python3 verification/ten_problems_validation.py
+
+# E8→H4 pipeline verification (3 tiers, 20 tests, pre-Lean ground truth)
+python3 verification/evaluate_sphere_packing.py
 
 # Individual derivations
 python3 verification/alpha_first_principles.py
