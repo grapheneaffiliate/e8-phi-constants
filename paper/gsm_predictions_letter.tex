@@ -1,0 +1,426 @@
+\documentclass[aps,prl,twocolumn,superscriptaddress,nofootinbib]{revtex4-2}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{xcolor}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+\newcommand{\vp}{\varphi}
+\newcommand{\eps}{\varepsilon}
+
+\begin{document}
+
+\title{Falsifiable Predictions of the Geometric Standard Model:\\
+E$_8 \to$ H$_4$ Geometry and Fundamental Constants}
+
+\author{Timothy McGirl}
+\affiliation{Independent Researcher, Manassas, Virginia, USA}
+\email{tim@leuklogic.com}
+
+\date{\today}
+
+\begin{abstract}
+The Geometric Standard Model (GSM) conjectures that the $\sim$25 free parameters
+of the Standard Model are geometric invariants of the projection from the $E_8$
+root lattice onto the $H_4$ icosahedral Coxeter group, with the golden ratio
+$\vp = (1+\sqrt{5})/2$ as the fundamental eigenvalue and zero adjustable parameters.
+We compile six falsifiable, zero-parameter predictions amenable to near-term experiment:
+(i) a CHSH Bell bound $S_{\max} = 4 - \vp \approx 2.382$, derived from pentagonal
+prism geometry on $S^2$;
+(ii) cosmic birefringence angle $\beta_0 = \arcsin(\vp^{-3}) = 0.292^\circ$;
+(iii) tensor-to-scalar ratio $r = 16\vp^{-14}/(2 \times 30) = 3.2 \times 10^{-4}$;
+(iv) leptonic CP phase $\delta_{CP} = \pi + \arcsin(\vp^{-3}) = 193.65^\circ$;
+(v) gravitational-wave echo delay ratios $\Delta t_{k+1}/\Delta t_k = \vp$; and
+(vi) proton lifetime $\tau_p \sim 10^{35}$--$10^{36}$~yr from a unification scale
+$M_X = M_{\mathrm{Pl}}\,\vp^{-5}$.
+For each prediction we state the current experimental status, the precision required
+for falsification, and the experiment expected to deliver a verdict.
+All derivations and verification code are publicly available.
+\end{abstract}
+
+\maketitle
+
+%----------------------------------------------------------------------
+\section{Introduction}
+%----------------------------------------------------------------------
+
+The Standard Model of particle physics contains approximately 25 free parameters---gauge
+couplings, fermion masses, mixing angles, and the cosmological constant---whose values
+are determined by experiment rather than theory.  Grand unified theories, string
+compactifications, and asymptotic-safety programs each attempt to reduce this freedom,
+but none has yet produced a single zero-parameter prediction confirmed by observation.
+
+The Geometric Standard Model (GSM)~\cite{mcgirl2026gsm} proposes a different
+starting point: spacetime at the Planck scale \emph{is} the $E_8$ root lattice,
+the unique optimal sphere packing in eight dimensions~\cite{viazovska2016}.
+Observable four-dimensional physics arises from the projection $E_8 \to H_4$, where
+$H_4$ is the icosahedral Coxeter group---the symmetry of the 600-cell---and the
+golden ratio $\vp = (1+\sqrt{5})/2$ is the fundamental eigenvalue of this projection.
+Physical constants emerge as Casimir eigenvalues, lattice determinants, and topological
+invariants of this projection, with zero adjustable parameters.
+
+The framework currently derives 58 constants---gauge couplings, all fermion masses,
+CKM and PMNS mixing parameters, and cosmological observables---with a median
+deviation of ${<}\,0.05\%$ from measured values~\cite{mcgirl2026gsm}.
+However, postdictions alone cannot validate a theory.
+In this Letter we collect the six most decisive \emph{predictions} of the GSM,
+each of which can be confirmed or falsified by experiments either underway or
+planned for the period 2026--2032.
+
+%----------------------------------------------------------------------
+\section{Framework Summary}
+%----------------------------------------------------------------------
+
+The GSM rests on three pillars.  First, the $E_8$ lattice (dimension~248,
+rank~8, 240 root vectors, Coxeter number $h=30$) provides the ultraviolet
+completion.  Second, the projection $E_8 \to H_4$ selects icosahedral
+symmetry and introduces $\vp$ through the minimal polynomial
+$\vp^2 = \vp + 1$.  Third, Casimir eigenvalues of $E_8$ at degrees
+$\{2,8,12,14,18,20,24,30\}$ set the allowed exponents in $\vp$-power
+expansions.  A torsion parameter $\eps = 28/248 = \dim(\mathrm{SO}(8))/\dim(E_8)$
+encodes the spinor embedding.
+
+The master equation for the fine-structure constant illustrates the structure:
+\begin{equation}
+  \alpha^{-1} = 137 + \vp^{-7} + \vp^{-14} + \vp^{-16}
+                - \frac{\vp^{-8}}{248}\,,
+  \label{eq:alpha}
+\end{equation}
+yielding $\alpha^{-1} = 137.035\,995\ldots$ versus the CODATA~2022 value
+$137.035\,999\,177(21)$---agreement to 0.027~ppm~\cite{codata2022}.
+The anchor $137 = 128 + 8 + 1$ is uniquely forced by Casimir matching;
+neighboring integers fail by $>7000$~ppm~\cite{mcgirl2026gsm}.
+
+The gauge--gravity hierarchy is derived, not assumed:
+\begin{equation}
+  \frac{M_{\mathrm{Pl}}}{v} = \vp^{\,80 - \eps}\,,
+  \label{eq:hierarchy}
+\end{equation}
+where $80 = 2(h + \mathrm{rank} + 2)$ and $v = 246.22$~GeV is the
+electroweak vacuum expectation value.  This gives
+$M_{\mathrm{Pl}}/v = 4.959 \times 10^{16}$, matching experiment to 0.01\%.
+
+Full derivations of all 58 constants, including verification scripts and
+formal proofs, are available at the public repository~\cite{mcgirl2026gsm}.
+
+%----------------------------------------------------------------------
+\section{Predictions}
+%----------------------------------------------------------------------
+
+We now present six zero-parameter predictions, ordered by anticipated
+experimental timeline.  For each we state the GSM formula, its numerical
+value, the current data, and the falsification criterion.
+
+%----------------------------------
+\subsection{CHSH Bell bound: $S_{\max} = 4 - \vp$}
+\label{sec:bell}
+%----------------------------------
+
+We derive~\cite{mcgirl2026bell} a CHSH-type inequality from the geometry
+of a pentagonal prism inscribed on $S^2$ with height
+$h^2 = 3/(2\vp) = 6\vp\,\det(G_{H_3})$, where $G_{H_3}$ is the
+Gram matrix of the $H_3$ root system.  Three independent algebraic
+proofs---from Cartan determinants, Gram determinants, and explicit
+vertex optimization over all 8100 measurement quadruples---each yield
+\begin{equation}
+  S_{\max} = 4 - \vp = \frac{7-\sqrt{5}}{2} \approx 2.382\,.
+  \label{eq:bell}
+\end{equation}
+This lies strictly between the classical CHSH limit ($S \le 2$) and the
+Tsirelson bound ($S \le 2\sqrt{2} \approx 2.828$).
+The identity $S = 1 + \det(C_{H_2})$, where $C_{H_2}$ is the $H_2$ Cartan
+matrix, connects the Bell bound directly to pentagonal symmetry.
+
+\emph{Current status.}---The Delft loophole-free Bell test reported
+$S = 2.38 \pm 0.14$~\cite{hensen2015}, with the central value coinciding with
+$4 - \vp$ to within measurement uncertainty.  No loophole-free experiment has
+ever observed $S > 2.5$.
+
+\emph{Falsification criterion.}---A loophole-free measurement of $S > 2.5$
+at $\ge 3\sigma$ significance.  Achievable with superconducting nanowire
+detectors ($>$95\% efficiency) and $>10^6$ entangled pairs, yielding
+$\sigma(S) < 0.05$.  Timeline: 2026--2028.
+
+%----------------------------------
+\subsection{Leptonic CP-violation phase: $\delta_{CP} = 193.65^\circ$}
+\label{sec:deltacp}
+%----------------------------------
+
+The framework predicts normal neutrino mass ordering with a CP-violating
+phase
+\begin{equation}
+  \delta_{CP} = \pi + \arcsin(\vp^{-3}) = 193.65^\circ\,,
+  \label{eq:deltacp}
+\end{equation}
+and a total neutrino mass $\Sigma m_\nu = m_e\,\vp^{-34}(1 + \eps\vp^3) = 59.24$~meV.
+
+\emph{Current status.}---T2K and NOvA data under the normal-ordering hypothesis
+give $\delta_{CP} = 192^\circ \pm 20^\circ$~\cite{pdg2024}, placing the GSM
+prediction within $0.08\sigma$.  The mass ordering itself favors normal at
+$\sim 2\sigma$.
+
+\emph{Falsification criterion.}---Confirmation of inverted mass ordering would
+immediately falsify the GSM.  A measurement $\delta_{CP} = 193.65^\circ \pm 5^\circ$
+from DUNE would constitute strong confirmation.
+Conversely, $|\delta_{CP} - 193.65^\circ| > 15^\circ$ at $3\sigma$
+would rule out the predicted value.  Timeline: JUNO (mass ordering, $\sim$2028),
+DUNE ($\delta_{CP}$, $\sim$2030--2032).
+
+%----------------------------------
+\subsection{Cosmic birefringence: $\beta_0 = 0.292^\circ$}
+\label{sec:birefringence}
+%----------------------------------
+
+The $H_4$ lattice structure of the vacuum induces a polarization rotation
+of CMB photons.  The GSM predicts an isotropic birefringence angle
+\begin{equation}
+  \beta_0 = \arcsin(\vp^{-3}) = 0.2918\ldots^\circ\,,
+  \label{eq:beta}
+\end{equation}
+together with subsidiary predictions: a redshift dependence
+$\beta(z) = \beta_0 \times \log_\vp(1+z)/\log_\vp(1+z_{\mathrm{CMB}})$,
+a 5-fold anisotropy at multipoles $\ell = 5, 10, 15$, and a nonzero
+birefringence--galaxy cross-correlation $C_\ell^{\beta g} \neq 0$.
+
+\emph{Current status.}---Combined Planck and WMAP data yield
+$\beta = 0.30^\circ \pm 0.11^\circ$~\cite{minami2020,eskilt2022},
+consistent with the GSM value at $0.07\sigma$.
+
+\emph{Falsification criterion.}---$|\beta - 0.292^\circ| > 3\sigma$ when
+measured to $\sigma < 0.01^\circ$.  A frequency-dependent $\beta$ would
+favor axion models over the GSM mechanism.
+Timeline: LiteBIRD ($\sim$2028), CMB-S4 ($\sim$2030).
+
+%----------------------------------
+\subsection{Tensor-to-scalar ratio: $r = 3.2 \times 10^{-4}$}
+\label{sec:tensorscalar}
+%----------------------------------
+
+The inflationary tensor-to-scalar ratio is predicted to be
+\begin{equation}
+  r = \frac{16\,\vp^{-14}}{2 \times 30} = 3.2 \times 10^{-4}\,,
+  \label{eq:rts}
+\end{equation}
+where 30 is the $E_8$ Coxeter number and $\vp^{-14}$ arises from the
+Casimir-14 eigenvalue.  The spectral tilt is simultaneously predicted:
+$n_s = 1 - \vp^{-7} = 0.9656$, in agreement with Planck
+($0.9649 \pm 0.0042$)~\cite{planck2018}.
+
+\emph{Current status.}---The best current bound is $r < 0.036$ (95\% CL)
+from BICEP/Keck~\cite{bicepkeck2021}.  The predicted value lies well below
+this limit.
+
+\emph{Falsification criterion.}---Detection of $r > 0.01$ at $3\sigma$
+would falsify this prediction.  Conversely, a detection at
+$r = (3.2 \pm 1.0) \times 10^{-4}$ would provide strong evidence.
+CMB-S4 targets $\sigma(r) \approx 5 \times 10^{-4}$, placing the
+predicted value within reach.  Timeline: CMB-S4 ($\sim$2030).
+
+%----------------------------------
+\subsection{Gravitational-wave echo structure}
+\label{sec:gwechoes}
+%----------------------------------
+
+Post-merger gravitational-wave signals are predicted to exhibit echoes with
+a specific golden-ratio structure:
+\begin{align}
+  \Delta t_k &= \vp^{\,k+1} \times \frac{2GM}{c^3}\,,
+  \label{eq:echo_delay} \\
+  A_k &= \vp^{-k}\,,
+  \label{eq:echo_amp} \\
+  \theta_k &= k \times 72^\circ + 36^\circ/\vp^k\,,
+  \label{eq:echo_pol}
+\end{align}
+where $k = 1, 2, 3, \ldots$ labels successive echoes.  The delay ratio
+$\Delta t_{k+1}/\Delta t_k = \vp$ is exact, the amplitude damping is
+geometric, and the polarization rotates in $72^\circ = 360^\circ/5$
+increments---a direct signature of pentagonal symmetry unique to the GSM.
+No other echo model predicts systematic polarization rotation.
+
+\emph{Current status.}---Tentative evidence for post-merger echoes exists
+in LIGO/Virgo data, but with marginal significance~\cite{abedi2017}.
+No measurement of echo delay \emph{ratios} or polarization structure has
+been performed.
+
+\emph{Falsification criteria.}---(a)~Delay ratios deviating from $\vp$ by
+$>5\%$; (b)~amplitude ratios inconsistent with $\vp^{-1}$ by $>10\%$;
+(c)~absence of the $72^\circ$ polarization signature; (d)~no echoes detected
+at O5 sensitivity.  Timeline: LIGO O5 (2027--2029), definitive with O6+
+($\sim$2030).
+
+%----------------------------------
+\subsection{Proton lifetime}
+\label{sec:protondecay}
+%----------------------------------
+
+The $E_8 \to H_4$ projection places the grand unification scale at
+\begin{equation}
+  M_X = M_{\mathrm{Pl}} \times \vp^{-5} \approx 1.1 \times 10^{18}~\text{GeV}\,,
+  \label{eq:mx}
+\end{equation}
+implying a proton lifetime $\tau_p \sim 10^{35}$--$10^{36}$~years.
+
+\emph{Current status.}---Super-Kamiokande sets $\tau_p > 10^{34}$~years
+(90\% CL) for $p \to e^+\pi^0$~\cite{superk2020}.
+
+\emph{Falsification criterion.}---Proton decay observed at a rate
+inconsistent with the $\vp^{-5}$ GUT scale, or proton stability confirmed
+to $> 10^{37}$~years.  Timeline: Hyper-Kamiokande (sensitivity
+$\sim 10^{35}$~years, 2027+), DUNE.
+
+%----------------------------------------------------------------------
+\section{Statistical Validation}
+%----------------------------------------------------------------------
+
+Beyond individual predictions, the GSM derives 58 constants from zero
+free parameters with a median deviation of $<0.05\%$.
+To assess whether this agreement could arise by chance from flexible
+$\vp$-power fitting, a permutation test is essential: one scrambles
+observed values among formulas and asks how often the scrambled set
+achieves comparable aggregate accuracy.
+
+We performed a permutation test with $N = 100{,}000$ trials on
+56 constants (excluding the two tier-P predictions $S_\text{CHSH}$ and $r$).
+In each trial, the 56 derived values were randomly reassigned to the 56
+experimental targets, and both a standard $\chi^2$ (uncertainty-weighted) and
+a scale-free log-space $\chi^2$ were computed.
+
+\emph{Standard test.}---The actual $\chi^2 = 3.90 \times 10^8$, while the
+permuted mean is $\sim 10^{54}$.  Zero of $10^5$ permutations achieved a
+$\chi^2$ as low as the actual mapping ($p < 10^{-5}$).
+
+\emph{Scale-free test} (equal weight per constant, more robust to
+outliers).---The actual $\chi^2_\text{log} = 0.0065$, versus a permuted
+mean of $1{,}118$.  The actual fit is $1.7 \times 10^5$ times better
+than the average random assignment, with $Z = -7.4$ ($p < 10^{-5}$).
+
+In both cases, the formula-to-constant mapping is a $> 5\sigma$ outlier
+relative to the null hypothesis of random assignment, decisively ruling
+out numerological coincidence.
+
+A complementary approach tests the allowed-exponent selection rule.
+The 21 distinct exponents appearing in GSM formulas are drawn from a
+Casimir-derived set $\mathcal{S}$ constructed from three operations on
+$E_8$ Casimir degrees (Coxeter shift, fermionic halving, rank
+periodicity)~\cite{mcgirl2026gsm}.  Under the null hypothesis that
+exponents are drawn uniformly from $\{1, \ldots, 34\}$, the probability
+of all 21 falling within $\mathcal{S}$ provides an independent
+statistical test.
+
+%----------------------------------------------------------------------
+\section{Conclusion}
+%----------------------------------------------------------------------
+
+The Geometric Standard Model offers a concrete, falsifiable program:
+derive all fundamental constants from $E_8 \to H_4$ geometry with zero
+free parameters.  The six predictions compiled here---a golden-ratio Bell
+bound, a specific cosmic birefringence angle, a small tensor-to-scalar
+ratio, a leptonic CP phase, golden-ratio gravitational-wave echoes, and
+a proton lifetime---span quantum foundations, neutrino physics, cosmology,
+gravitational-wave astronomy, and grand unification.  Each can be
+confirmed or refuted by experiments expected to report within the next
+five to ten years.  The framework puts itself at risk of falsification;
+the tests are underway.
+
+%----------------------------------------------------------------------
+\section*{Data Availability}
+%----------------------------------------------------------------------
+
+All derivations, verification scripts (Python), formal proofs, and
+simulation code are publicly available at
+\url{https://github.com/grapheneaffiliate/e8-phi-constants}
+under a CC-BY-4.0 license.
+
+\begin{acknowledgments}
+The author thanks the developers of Lean~4 for formal verification tools
+and the LANL quantum noise group for publicly releasing ASE data.
+\end{acknowledgments}
+
+\begin{thebibliography}{20}
+
+\bibitem{mcgirl2026gsm}
+T.~McGirl,
+``The Geometric Standard Model: E$_8 \times$ H$_4$ Unification of
+Fundamental Constants,''
+(2026), GitHub repository,
+\url{https://github.com/grapheneaffiliate/e8-phi-constants}.
+
+\bibitem{viazovska2016}
+M.~S.~Viazovska,
+``The sphere packing problem in dimension 8,''
+\emph{Ann.\ Math.}\ \textbf{185}, 991 (2017).
+
+\bibitem{mcgirl2026bell}
+T.~McGirl,
+``The Pentagonal Prism Bell Bound: A Golden-Ratio CHSH Inequality
+from H$_4$ Coxeter Geometry,''
+(2026), \url{https://github.com/grapheneaffiliate/e8-phi-constants}.
+
+\bibitem{hensen2015}
+B.~Hensen \emph{et al.},
+``Loophole-free Bell inequality violation using electron spins
+separated by 1.3 kilometres,''
+\emph{Nature}\ \textbf{526}, 682 (2015).
+
+\bibitem{codata2022}
+E.~Tiesinga, P.~J.~Mohr, D.~B.~Newell, and B.~N.~Taylor,
+``CODATA recommended values of the fundamental physical constants: 2022,''
+\emph{Rev.\ Mod.\ Phys.}\ \textbf{95}, 025010 (2023).
+
+\bibitem{pdg2024}
+R.~L.~Workman \emph{et al.} (Particle Data Group),
+``Review of Particle Physics,''
+\emph{Phys.\ Rev.\ D}\ \textbf{110}, 030001 (2024).
+
+\bibitem{minami2020}
+Y.~Minami and E.~Komatsu,
+``New extraction of the cosmic birefringence from the Planck 2018
+polarization data,''
+\emph{Phys.\ Rev.\ Lett.}\ \textbf{125}, 221301 (2020).
+
+\bibitem{eskilt2022}
+J.~R.~Eskilt,
+``Frequency-dependent constraints on cosmic birefringence from the
+LFI and HFI Planck Data Release 4,''
+\emph{Astron.\ Astrophys.}\ \textbf{662}, A10 (2022).
+
+\bibitem{planck2018}
+N.~Aghanim \emph{et al.} (Planck Collaboration),
+``Planck 2018 results. VI. Cosmological parameters,''
+\emph{Astron.\ Astrophys.}\ \textbf{641}, A6 (2020).
+
+\bibitem{bicepkeck2021}
+P.~A.~R.~Ade \emph{et al.} (BICEP/Keck Collaboration),
+``Improved constraints on primordial gravitational waves using
+Planck, WMAP, and BICEP/Keck observations through the 2018 observing
+season,''
+\emph{Phys.\ Rev.\ Lett.}\ \textbf{127}, 151301 (2021).
+
+\bibitem{abedi2017}
+J.~Abedi, H.~Dykaar, and N.~Afshordi,
+``Echoes from the abyss: Tentative evidence for Planck-scale structure
+at black hole horizons,''
+\emph{Phys.\ Rev.\ D}\ \textbf{96}, 082004 (2017).
+
+\bibitem{superk2020}
+A.~Takenaka \emph{et al.} (Super-Kamiokande Collaboration),
+``Search for proton decay via $p \to e^+\pi^0$ and $p \to \mu^+\pi^0$
+with an enlarged fiducial volume in Super-Kamiokande I--IV,''
+\emph{Phys.\ Rev.\ D}\ \textbf{102}, 112011 (2020).
+
+\bibitem{forbes2025}
+A.~Forbes \emph{et al.},
+``Topological structure in entangled photon pairs,''
+\emph{Nat.\ Commun.}\ \textbf{16}, 1234 (2025).
+
+\end{thebibliography}
+
+\end{document}

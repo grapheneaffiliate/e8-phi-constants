@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-GSM PHYSICS SOLVER v4.0 — COMPLETE PHYSICS FROM GEOMETRY
+GSM PHYSICS SOLVER v4.0 -- COMPLETE PHYSICS FROM GEOMETRY
 ==========================================================
 The world's first algorithmic physics solver based on the
 Geometric Standard Model: Physics = Geometry(E8 -> H4)
@@ -173,7 +173,7 @@ H2 = CoxeterGroup('H2', 2, 10, 5, 5)
 
 EXPERIMENT = {
     # Gauge couplings
-    'alpha_inv':    {'value': 137.035999084, 'unc': 0.000000021, 'name': 'Fine structure constant (inverse)',   'tier': 'A'},
+    'alpha_inv':    {'value': 137.035999177, 'unc': 0.000000021, 'name': 'Fine structure constant (inverse)',   'tier': 'A'},
     'sin2_theta_w': {'value': 0.23121,       'unc': 0.00004,     'name': 'Weak mixing angle sin2(theta_W)',     'tier': 'B'},
     'alpha_s':      {'value': 0.1180,        'unc': 0.0009,      'name': 'Strong coupling alpha_s(M_Z)',        'tier': 'B'},
     # Lepton masses
@@ -541,9 +541,9 @@ def derive_all() -> Dict[str, Derivation]:
         '4 - phi = 2 + phi^-2',
         val, 2, (), (1, 2), 'hand-derived', '2025-12-04')
 
-    # ─────────────────────────────────────────────────────────────────────────
+    # -------------------------------------------------------------------------
     # PROMOTED DISCOVERIES
-    # ─────────────────────────────────────────────────────────────────────────
+    # -------------------------------------------------------------------------
 
     # 27. Top/VEV Mass Ratio (PROMOTED: 4 ppm, 2 terms)
     # m_t/v = dim(F4)/roots(F4) - phi^-2 = 52/48 - phi^-2
@@ -653,9 +653,9 @@ def derive_all() -> Dict[str, Derivation]:
         '(3/13) * phi^-34 * phi^-7 * (1 - phi^-8)',
         val, 4, (3, 13), (7, 8, 34), 'machine-discovered', '2026-03-13')
 
-    # ─────────────────────────────────────────────────────────────────────────
+    # -------------------------------------------------------------------------
     # v4.0 CONSTANTS: ABSOLUTE MASS SCALE, HIERARCHY, AND NEW DERIVATIONS
-    # ─────────────────────────────────────────────────────────────────────────
+    # -------------------------------------------------------------------------
 
     # === THE HIERARCHY FORMULA (bridges Planck scale to electroweak) ===
     # M_Pl / v = phi^(80 - epsilon) where 80 = 2(h + rank + 2) = 2(30+8+2)
@@ -897,7 +897,7 @@ def derive_all() -> Dict[str, Derivation]:
 
     # === W/Z MASS RATIO (independent cross-check) ===
     # 39. m_W/m_Z = cos(theta_W) = sqrt(1 - sin2_theta_W)
-    # This is NOT an independent derivation — it follows from sin2_theta_W.
+    # This is NOT an independent derivation -- it follows from sin2_theta_W.
     # But it's an important cross-check against the separate mW_v and mZ_v formulas.
     mW_mZ_val = results['m_W_GeV'].value / results['m_Z_GeV'].value
     results['mW_mZ'] = Derivation(
@@ -906,7 +906,7 @@ def derive_all() -> Dict[str, Derivation]:
         mW_mZ_val, 3, (3, 78, 248), (6, 8), 'hand-derived', '2026-03-13')
 
     # === FERMI CONSTANT (derived, not independent) ===
-    # G_F = 1 / (sqrt(2) * v^2) — this tests the VEV derivation
+    # G_F = 1 / (sqrt(2) * v^2) -- this tests the VEV derivation
     G_F_val = 1.0 / (np.sqrt(2) * v**2)
     results['G_F_GeV2'] = Derivation(
         'G_F_GeV2', 'Fermi constant (GeV^-2)',
@@ -966,7 +966,7 @@ def derive_all() -> Dict[str, Derivation]:
     # === PROTON CHARGE RADIUS ===
     # r_p = (rank(E8)/2) * hbar*c / m_p = 4 * Compton wavelength of proton
     # Structural: 4 = rank(E8)/2 = half the E8 rank
-    # The proton's charge radius is 4 Compton wavelengths — a pure integer
+    # The proton's charge radius is 4 Compton wavelengths -- a pure integer
     # from E8 geometry. Result: 0.8412 fm (exp: 0.8414, 0.02% error!)
     hbar_c_fm = 0.197327  # GeV * fm
     m_p_GeV = m_e_val * results['mp_me_ratio'].value
@@ -1037,7 +1037,7 @@ def derive_all() -> Dict[str, Derivation]:
 
 
 # ==============================================================================
-# SECTION 5: ANALYSIS — ERROR CORRELATION, PCA, PHI-DECOMPOSITION
+# SECTION 5: ANALYSIS -- ERROR CORRELATION, PCA, PHI-DECOMPOSITION
 # ==============================================================================
 
 def simplicity_score(error_ppm, n_terms, lam=2.0):
@@ -1245,7 +1245,7 @@ def validate(derivations):
     tier_results = {'A': [], 'B': [], 'C': [], 'P': [], 'Q': []}
     gate_thresholds = {'A': 0.01, 'B': 1.0, 'C': 2.0, 'P': None, 'Q': None}
 
-    print("\n  [CONSTANTS — TIERED VALIDATION]")
+    print("\n  [CONSTANTS -- TIERED VALIDATION]")
     all_ppm = []
     all_sigma = []
     all_percent = []
@@ -1343,7 +1343,7 @@ def validate(derivations):
     # Tier Q summary
     if tier_results.get('Q'):
         n_q = len(tier_results['Q'])
-        print(f"  Tier Q (pole-chain quarks): {n_q} [informational — mass ratios are the predictions,")
+        print(f"  Tier Q (pole-chain quarks): {n_q} [informational -- mass ratios are the predictions,")
         print(f"    absolute masses accumulate pole-to-MS-bar scheme shift of ~15-30%]")
 
     # Tier A sigma note
@@ -1358,7 +1358,7 @@ def validate(derivations):
         for key, pct, sig, _ in failed_list:
             print(f"    {key}: {pct:.4f}%, {sig:.2f} sigma")
     else:
-        print(f"\n  ALL TIERS PASSED — Framework validated.")
+        print(f"\n  ALL TIERS PASSED -- Framework validated.")
 
     gate_passed = n_fail == 0
     return gate_passed, n_pass, n_total, failed_list, {
@@ -1929,15 +1929,15 @@ def compute_health(val_stats):
 
 
 # ==============================================================================
-# SECTION 12: FORCE UNIFICATION — E8 → SM BREAKING CHAIN
+# SECTION 12: FORCE UNIFICATION -- E8 -> SM BREAKING CHAIN
 # ==============================================================================
 
 def force_unification(derivations):
     """Complete force unification analysis from E8 geometry.
 
     The breaking chain:
-        E8 → E6 × SU(3) → SO(10) × SU(3) → SU(5) × U(1) × SU(3)
-          → SU(3)_C × SU(2)_L × U(1)_Y  (Standard Model)
+        E8 -> E6 x SU(3) -> SO(10) x SU(3) -> SU(5) x U(1) x SU(3)
+          -> SU(3)_C x SU(2)_L x U(1)_Y  (Standard Model)
 
     All coupling constants at M_Z are derived. This module:
     1. Runs them up to GUT scale using SM beta functions
@@ -1946,7 +1946,7 @@ def force_unification(derivations):
     4. Computes proton lifetime prediction
     """
     print("\n" + "=" * 72)
-    print("  FORCE UNIFICATION: E8 → STANDARD MODEL")
+    print("  FORCE UNIFICATION: E8 -> STANDARD MODEL")
     print("=" * 72)
 
     alpha_em = 1.0 / derivations['alpha_inv'].value
@@ -2017,19 +2017,19 @@ def force_unification(derivations):
         print(f"    {name:>12}  {ia1:>10.2f}  {ia2:>10.2f}  {ia3:>10.2f}  {gap:>8.2f}")
 
     # E8 breaking chain
-    print(f"\n  [E8 → STANDARD MODEL BREAKING CHAIN]")
+    print(f"\n  [E8 -> STANDARD MODEL BREAKING CHAIN]")
     print(f"    E8 (248-dim)")
-    print(f"     ├─ E6 × SU(3) : 248 = (27,3) + (27*,3*) + (78,1) + (1,8)")
-    print(f"     ├─ E6 contains SO(10) : 27 = 16 + 10 + 1 (one generation)")
-    print(f"     ├─ SO(10) → SU(5) × U(1) : 16 = 10 + 5* + 1")
-    print(f"     └─ SU(5) → SU(3)_C × SU(2)_L × U(1)_Y (Standard Model)")
+    print(f"     |- E6 x SU(3) : 248 = (27,3) + (27*,3*) + (78,1) + (1,8)")
+    print(f"     |- E6 contains SO(10) : 27 = 16 + 10 + 1 (one generation)")
+    print(f"     |- SO(10) -> SU(5) x U(1) : 16 = 10 + 5* + 1")
+    print(f"     \- SU(5) -> SU(3)_C x SU(2)_L x U(1)_Y (Standard Model)")
     print(f"")
     print(f"    Three generations from SO(8) triality (28-dim, torsion sector)")
     print(f"    Generations = rank(E8) / (D4 triality order) = 8/3 ~ 3 (exact)")
     print(f"")
     print(f"    Key dimensional chain:")
-    print(f"      248 = 78 + 3×(27 + 27*) + 8 = E6 + 3 generations + SU(3)")
-    print(f"      248 - 78 - 8 = 162 = 3 × 54 = 3 × (27 + 27*)")
+    print(f"      248 = 78 + 3x(27 + 27*) + 8 = E6 + 3 generations + SU(3)")
+    print(f"      248 - 78 - 8 = 162 = 3 x 54 = 3 x (27 + 27*)")
 
     # Proton lifetime prediction
     print(f"\n  [PROTON LIFETIME PREDICTION]")
@@ -2065,7 +2065,7 @@ def force_unification(derivations):
     print(f"    The gap at M_X: ~1.7 in 1/alpha.")
     print(f"    GSM resolution: phi-tower threshold corrections at each Casimir scale.")
     print(f"    Each F4 copy contributes delta(1/alpha) = phi^(-n)/48 at scale M_Z * phi^n.")
-    print(f"    With 5 F4 copies (240 = 5 × 48), the corrections accumulate to close")
+    print(f"    With 5 F4 copies (240 = 5 x 48), the corrections accumulate to close")
     print(f"    the gap at the E8 unification scale.")
     print(f"")
     print(f"    This is NOT traditional GUT unification (no proton decay mediators).")
@@ -2076,7 +2076,7 @@ def force_unification(derivations):
 
 
 # ==============================================================================
-# SECTION 13: DYNAMICS — WAVE EQUATION ON THE 600-CELL
+# SECTION 13: DYNAMICS -- WAVE EQUATION ON THE 600-CELL
 # ==============================================================================
 
 def dynamics_600cell(derivations):
@@ -2118,14 +2118,14 @@ def dynamics_600cell(derivations):
     # The 120 vertices of the 600-cell in 4D are the unit quaternions
     # from the binary icosahedral group (order 120).
     # Their coordinates are (up to normalization and permutations):
-    #   8 vertices: (±1, 0, 0, 0) and permutations
-    #   16 vertices: (±1/2, ±1/2, ±1/2, ±1/2)
-    #   96 vertices: even permutations of (0, ±1/2, ±phi/2, ±1/(2*phi))
+    #   8 vertices: (+-1, 0, 0, 0) and permutations
+    #   16 vertices: (+-1/2, +-1/2, +-1/2, +-1/2)
+    #   96 vertices: even permutations of (0, +-1/2, +-phi/2, +-1/(2*phi))
 
     print(f"\n  [VERTEX COORDINATES]")
-    print(f"    Type A (8):  Permutations of (±1, 0, 0, 0)")
-    print(f"    Type B (16): All (±1/2, ±1/2, ±1/2, ±1/2)")
-    print(f"    Type C (96): Even perms of (0, ±1/2, ±phi/2, ±1/(2phi))")
+    print(f"    Type A (8):  Permutations of (+-1, 0, 0, 0)")
+    print(f"    Type B (16): All (+-1/2, +-1/2, +-1/2, +-1/2)")
+    print(f"    Type C (96): Even perms of (0, +-1/2, +-phi/2, +-1/(2phi))")
     print(f"    Total: 8 + 16 + 96 = {8 + 16 + 96}")
 
     # Build a representative set of vertices
@@ -2142,7 +2142,7 @@ def dynamics_600cell(derivations):
             for s2 in [0.5, -0.5]:
                 for s3 in [0.5, -0.5]:
                     vertices.append((s0, s1, s2, s3))
-    # Type C: 96 vertices (even permutations of (0, ±1/2, ±phi/2, ±1/(2*phi)))
+    # Type C: 96 vertices (even permutations of (0, +-1/2, +-phi/2, +-1/(2*phi)))
     half = 0.5
     phi_half = PHI / 2
     phi_inv_half = 1 / (2 * PHI)
@@ -2248,12 +2248,12 @@ def dynamics_600cell(derivations):
 
     # Defect spectrum (particles)
     print(f"\n  [TOPOLOGICAL DEFECTS = PARTICLES]")
-    print(f"    Point defects (missing/extra vertex) → Fermions")
-    print(f"    Line defects (edge dislocation)      → Gauge bosons")
-    print(f"    Volume defects (cell vacancy)         → Higgs field")
+    print(f"    Point defects (missing/extra vertex) -> Fermions")
+    print(f"    Line defects (edge dislocation)      -> Gauge bosons")
+    print(f"    Volume defects (cell vacancy)         -> Higgs field")
     print(f"")
     print(f"    Defect energy = Casimir eigenvalue of surrounding lattice")
-    print(f"    → Mass is NOT a free parameter; it is determined by")
+    print(f"    -> Mass is NOT a free parameter; it is determined by")
     print(f"      the lattice topology around the defect.")
 
     return eigenvalues
@@ -2267,7 +2267,7 @@ def absolute_mass_table(derivations):
     """Print the complete table of all particle masses in GeV,
     derived from E8 geometry with zero free parameters."""
     print("\n" + "=" * 72)
-    print("  ABSOLUTE MASS TABLE (all from E8 → H4 geometry)")
+    print("  ABSOLUTE MASS TABLE (all from E8 -> H4 geometry)")
     print("  VEV anchor: v = M_Pl / phi^(80-eps)")
     print("=" * 72)
 
@@ -2361,7 +2361,7 @@ def gravity_device():
 
 
 # ==============================================================================
-# SECTION 16: MAIN — SELF-SUSTAINING PIPELINE
+# SECTION 16: MAIN -- SELF-SUSTAINING PIPELINE
 # ==============================================================================
 
 def main():
@@ -2373,7 +2373,7 @@ def main():
     show_all = '--all' in sys.argv
 
     print("=" * 72)
-    print("  GSM PHYSICS SOLVER v4.0 — COMPLETE PHYSICS FROM GEOMETRY")
+    print("  GSM PHYSICS SOLVER v4.0 -- COMPLETE PHYSICS FROM GEOMETRY")
     print("  Physics = Geometry(E8 -> H4)")
     print("  58 constants | Unification | Dynamics | Absolute masses")
     print("  Pipeline: derive -> analyze -> validate -> discover ->")
