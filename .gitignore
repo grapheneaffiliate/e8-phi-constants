@@ -48,6 +48,9 @@ env/
 .DS_Store
 Thumbs.db
 
+# Lean 4 build artifacts
+.lake/
+
 # Private research files - do not push
 PRIVATE_*.md
 PRIVATE_*.html
