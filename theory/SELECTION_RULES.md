@@ -34,20 +34,28 @@ where O_n are gauge-invariant operators and c_n are coefficients determined by E
 
 The allowed exponents are determined by three independent mechanisms:
 
-### Rule 1: H₄ Coxeter Cancellation (forbids {11, 19, 29})
+### Rule 1: H₄ Coxeter Invariant-Theoretic Vanishing (forbids {11, 19, 29})
 
 The E₈ Coxeter exponents are {1, 7, 11, 13, 17, 19, 23, 29}. These split under the H₄ projection:
 
-| Sector | Exponents | Role |
-|--------|-----------|------|
-| H₄-parallel (observable) | {1, 11, 19, 29} | Couple to observed 4D physics |
-| E₈-perpendicular (hidden) | {7, 13, 17, 23} | Integrate out in dimensional reduction |
+| Sector | Exponents | Galois coset |
+|--------|-----------|--------------|
+| H₄-parallel (observable) | {1, 11, 19, 29} | Subgroup of (ℤ/30ℤ)* |
+| E₈-perpendicular (hidden) | {7, 13, 17, 23} | Complementary coset |
 
-The H₄-parallel exponents {11, 19, 29} label eigenmodes of the Coxeter element that transform trivially under the H₄ projection (they permute among themselves under multiplication by any unit mod 30). In the dimensional reduction, their contributions cancel exactly between the observable and hidden sectors.
+**The mechanism** (rigorously proven in `proofs/h4_cancellation_proof.md`):
 
-**Physical interpretation**: The Coxeter element has eigenvalues exp(2πim/30). For m ∈ {11, 19, 29}, the corresponding eigenmodes have equal amplitude in both 4D subspaces. When integrating out the hidden sector, the contribution at these orders cancels, giving c₁₁ = c₁₉ = c₂₉ = 0.
+The Coxeter element w acts on the 4D observable space V_∥ with eigenvalues ζ^m for m ∈ {1, 11, 19, 29}, where ζ = exp(2πi/30). A degree-n scalar correction requires a w-invariant degree-n monomial, i.e., a monomial x₁^a₁ x₂^a₂ x₃^a₃ x₄^a₄ satisfying:
 
-**Exception**: m = 1 is also H₄-parallel but IS allowed, because the n = 1 term enters at the lowest perturbative order where the cancellation is broken by the boundary condition (the integer anchor).
+a₁ + 11a₂ + 19a₃ + 29a₄ ≡ 0 (mod 30), with a₁+a₂+a₃+a₄ = n
+
+**Computed result**: Zero such monomials exist at degrees n = 11, 19, or 29 (or any odd degree). Therefore no gauge-invariant scalar operator can be constructed at these orders, and c₁₁ = c₁₉ = c₂₉ = 0.
+
+**Why n = 1 survives**: The gauge field is a **vector covariant** (transforms with phase ζ¹ under w), not a scalar invariant. The four eigendirections {ζ¹, ζ¹¹, ζ¹⁹, ζ²⁹} together form a single 4D vector field — the photon. Vector covariants at degree 1 exist; scalar invariants at degree 1 do not.
+
+**The first scalar invariants** appear at degree 2: x₁x₄ and x₂x₃ (since 1+29 ≡ 11+19 ≡ 0 mod 30). This is why n = 2 is allowed.
+
+**Algebraic root**: {1, 11, 19, 29} is an index-2 subgroup of (ℤ/30ℤ)*, the Galois group of ℚ(ζ₃₀). This Galois structure forces the invariant-theoretic vanishing. The golden ratio structure Tr_∥(w) = 1/φ, Tr_⊥(w) = −φ, with Γ = √5 = φ + 1/φ, confirms the φ-dependence of the parallel sector.
 
 ### Rule 2: Perturbative Convergence Bound (forbids {21, 22, 23, 25, 28, 31, 32})
 
