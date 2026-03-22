@@ -146,3 +146,17 @@ The three rules account for all 23 allowed and 11 forbidden exponents. The rules
 3. **The boundary at n = 20**: The transition from "all allowed" (n ≤ 20, minus H₄ Coxeter) to "only enhanced allowed" (n > 20) is set by the precision threshold. A fundamental explanation of why this threshold aligns with the Casimir degree 20 would strengthen the derivation.
 
 These are well-defined mathematical problems with clear paths to resolution. The selection rules themselves are complete and verified.
+
+## Connection to KK Spectrum
+
+The gap between the algebraic (Molien) and dynamical (1-loop) frameworks is closed by the Galois orbit structure of the field extension Q(phi)/Q.
+
+The Kaluza-Klein spectrum from E8 -> H4 dimensional reduction produces irrational masses that are elements of Q(phi). The 240 parallel fractions of E8 roots form Galois conjugate pairs that sum to 2. This structure quantizes the irrational KK masses to integer Casimir exponents through a three-level mechanism:
+
+1. **1-loop (Galois cancellation -> democracy):** Summing over Galois conjugate pairs, the irrational parts cancel. All orbits contribute equally, producing sector-independent corrections.
+
+2. **2-loop (cross-orbit mixing -> integer exponents):** When vertices from distinct Galois orbits interact, the mixing amplitude is labeled by the Casimir degree d of the interaction channel, contributing phi^(-d). This produces the integer exponents from Casimir degrees.
+
+3. **3-loop (doubled insertions -> doubled Coxeter pattern):** Two cross-orbit insertions at Casimir degree d produce phi^(-2d). This generates the doubled Coxeter exponents: 7->14, 8->16, 13->26.
+
+**Result:** All 24 GSM exponents are generated from the interplay of Galois symmetry and loop order. The Galois orbit structure of Q(phi)/Q is the bridge that connects the algebraic selection rules (Molien series, Coxeter invariant theory) to the dynamical framework (KK spectrum, loop corrections). See `proofs/kk_casimir_bridge.py` for the complete verification.
