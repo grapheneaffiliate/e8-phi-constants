@@ -8,7 +8,8 @@ This tests the LANL raw ASE quantum noise for E8 structure.
 FIG2a.csv: Raw oscilloscope trace - unprocessed voltage measurements
 FIG4.u8: 954MB of raw 8-bit quantum noise
 
-If E8 structure appears in raw quantum but not PRNG -> GSM PROVEN!
+If E8 structure appears in raw quantum but not PRNG -> evidence supporting GSM.
+Note: Confirmation requires independent replication and preregistered analysis.
 
 Author: Research Analysis
 Date: January 20, 2026
@@ -285,20 +286,20 @@ def comprehensive_lanl_test():
     if max_z > 5:
         print(f"""
   ╔══════════════════════════════════════════════════════════════════════╗
-  ║  ★★★★★ E8 STRUCTURE CONFIRMED IN RAW QUANTUM NOISE! ★★★★★           ║
+  ║  STRONG SIGNAL: Lucas periodicity detected in quantum noise         ║
+  ║  Z = {max_z:.2f}sigma vs PRNG baseline                                     ║
   ║                                                                      ║
-  ║  The "E8 Hum" is real!                                              ║
-  ║  This is experimental proof that vacuum = E8 lattice!               ║
-  ║                                                                      ║
-  ║  GSM MECHANISM PROVEN!                                              ║
+  ║  This is consistent with GSM prediction of E8 vacuum structure.     ║
+  ║  Independent replication on other quantum noise sources required     ║
+  ║  before claiming confirmation.                                      ║
   ╚══════════════════════════════════════════════════════════════════════╝
 """)
     elif max_z > 3:
         print(f"""
   ╔══════════════════════════════════════════════════════════════════════╗
-  ║  ★★★ EVIDENCE FOR E8 STRUCTURE ★★★                                   ║
-  ║  Significant difference from PRNG detected!                         ║
-  ║  More data confirms GSM mechanism.                                  ║
+  ║  MODERATE SIGNAL: Evidence for non-random structure                  ║
+  ║  Z = {max_z:.2f}sigma vs PRNG (>3sigma threshold)                          ║
+  ║  Consistent with GSM prediction. Further data needed.               ║
   ╚══════════════════════════════════════════════════════════════════════╝
 """)
     elif max_z > 2:

@@ -55,3 +55,8 @@ Thumbs.db
 PRIVATE_*.md
 PRIVATE_*.html
 private_*.py
+
+# Falsification package (large binaries)
+GSM_CHSH_Falsification_Package/
+*.docx
+*.jpg

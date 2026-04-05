@@ -52,7 +52,15 @@ def main():
     print(f"\nsin²θ_W = 3/13 + φ⁻¹⁶")
     print(f"        = {sin2_theta_w:.10f}")
     print(f"        Exp: {sin2_theta_w_exp:.10f}")
-    
+
+    # Strong coupling
+    alpha_s = 1 / (2 * PHI**3 * (1 + PHI**(-14)) * (1 + 8*PHI**(-5)/14400))
+    alpha_s_exp = 0.1179
+    results.append(("α_s(M_Z)", alpha_s, alpha_s_exp))
+    print(f"\nα_s(M_Z) = 1/[2φ³(1+φ⁻¹⁴)(1+8φ⁻⁵/14400)]")
+    print(f"         = {alpha_s:.6f}")
+    print(f"         Exp: {alpha_s_exp}")
+
     # ==========================================================================
     # LEPTON MASSES
     # ==========================================================================
@@ -113,6 +121,31 @@ def main():
     print(f"        = {m_p_m_e:.10f}")
     print(f"        Exp: {m_p_m_e_exp:.10f}")
     
+    # ==========================================================================
+    # ELECTROWEAK SECTOR
+    # ==========================================================================
+    print("\n" + "=" * 80)
+    print("ELECTROWEAK SECTOR")
+    print("=" * 80)
+
+    # Top Yukawa
+    y_t = 1 - PHI**(-10)
+    y_t_exp = 0.9919
+    results.append(("y_t", y_t, y_t_exp))
+    print(f"\ny_t = 1 - φ⁻¹⁰ = {y_t:.6f} (exp: {y_t_exp})")
+
+    # Higgs mass ratio
+    m_H_v = 0.5 + PHI**(-5)/10
+    m_H_v_exp = 0.5087  # 125.25 GeV / 246.22 GeV
+    results.append(("m_H/v", m_H_v, m_H_v_exp))
+    print(f"\nm_H/v = 1/2 + φ⁻⁵/10 = {m_H_v:.6f} (exp: {m_H_v_exp})")
+
+    # W mass ratio
+    m_W_v = (1 - PHI**(-8))/3
+    m_W_v_exp = 0.3264  # 80.377 GeV / 246.22 GeV
+    results.append(("m_W/v", m_W_v, m_W_v_exp))
+    print(f"\nm_W/v = (1-φ⁻⁸)/3 = {m_W_v:.6f} (exp: {m_W_v_exp})")
+
     # ==========================================================================
     # CKM MATRIX
     # ==========================================================================
@@ -192,6 +225,28 @@ def main():
     print(f"\nn_s = 1 - φ⁻⁷ = {n_s:.6f} (exp: {n_s_exp})")
     
     # ==========================================================================
+    # PMNS MATRIX
+    # ==========================================================================
+    print("\n" + "=" * 80)
+    print("PMNS MATRIX (NEUTRINO MIXING)")
+    print("=" * 80)
+
+    theta_12 = np.degrees(np.arctan(PHI**(-1) + 2*PHI**(-8)))
+    theta_12_exp = 33.44
+    results.append(("θ₁₂", theta_12, theta_12_exp))
+    print(f"\nθ₁₂ = arctan(φ⁻¹ + 2φ⁻⁸) = {theta_12:.4f}° (exp: {theta_12_exp}°)")
+
+    theta_23 = np.degrees(np.arcsin(np.sqrt((1 + PHI**(-4))/2)))
+    theta_23_exp = 49.2
+    results.append(("θ₂₃", theta_23, theta_23_exp))
+    print(f"\nθ₂₃ = arcsin√((1+φ⁻⁴)/2) = {theta_23:.4f}° (exp: {theta_23_exp}°)")
+
+    theta_13 = np.degrees(np.arcsin(PHI**(-4) + PHI**(-12)))
+    theta_13_exp = 8.57
+    results.append(("θ₁₃", theta_13, theta_13_exp))
+    print(f"\nθ₁₃ = arcsin(φ⁻⁴ + φ⁻¹²) = {theta_13:.4f}° (exp: {theta_13_exp}°)")
+
+    # ==========================================================================
     # PMNS EXTENDED - Leptonic CP-Violating Phase
     # ==========================================================================
     print("\n" + "=" * 80)
@@ -222,6 +277,34 @@ def main():
     print(f"\nNote: This is the triality-based derivation from predictions_extension/")
     print(f"See: predictions_extension/leptonic_cp_phase_derivation.md for details")
     
+    # ==========================================================================
+    # NEUTRINO MASS
+    # ==========================================================================
+    print("\n" + "=" * 80)
+    print("NEUTRINO MASS")
+    print("=" * 80)
+
+    m_e_eV = 510998.95  # electron mass in eV
+    sigma_m_nu = m_e_eV * PHI**(-34) * (1 + EPSILON * PHI**3) * 1000  # convert to meV
+    sigma_m_nu_exp = 59.0  # meV
+    results.append(("Σm_ν (meV)", sigma_m_nu, sigma_m_nu_exp))
+    print(f"\nΣm_ν = m_e·φ⁻³⁴(1+εφ³) = {sigma_m_nu:.2f} meV (exp: {sigma_m_nu_exp} meV)")
+
+    # ==========================================================================
+    # GRAVITY / HIERARCHY
+    # ==========================================================================
+    print("\n" + "=" * 80)
+    print("GRAVITY / HIERARCHY")
+    print("=" * 80)
+
+    M_Pl_v = PHI**(80 - EPSILON)
+    M_Pl_v_exp = 4.959e16
+    results.append(("M_Pl/v", M_Pl_v, M_Pl_v_exp))
+    print(f"\nM_Pl/v = φ^(80-ε) where 80=2(h+rank+2)=2(30+8+2)")
+    print(f"       = φ^{80-EPSILON:.6f}")
+    print(f"       = {M_Pl_v:.6e}")
+    print(f"       Exp: {M_Pl_v_exp:.6e}")
+
     # ==========================================================================
     # PREDICTIONS
     # ==========================================================================
