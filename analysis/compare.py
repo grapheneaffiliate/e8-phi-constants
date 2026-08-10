@@ -168,7 +168,18 @@ def chi2_test(partitions_list, p, u):
     p_other = 1.0 - sum(probs[c] for c in keep)
     observed = np.array([obs[c] for c in keep] + [other], dtype=float)
     expected = np.array([n * probs[c] for c in keep] + [n * p_other], dtype=float)
-    if (expected < 5).any() or len(observed) < 2:
+    # Completion of the preregistered merge rule for the case the preregistration
+    # did not name: if the catch-all ITSELF has expected count < 5 (it does for
+    # large p, where essentially all mass sits on groups of order <= p^3), fold it
+    # into the kept cell of smallest expectation. Deterministic, and a function of
+    # (n, null) only -- never of the observed counts.
+    if len(expected) >= 2 and expected[-1] < 5:
+        j = int(np.argmin(expected[:-1]))
+        observed[j] += observed[-1]
+        expected[j] += expected[-1]
+        observed, expected = observed[:-1], expected[:-1]
+        keep = list(keep)
+    if len(observed) < 2 or (expected < 5).any():
         return float("nan"), float("nan"), 0, keep, observed, expected
     chi2 = float(((observed - expected) ** 2 / expected).sum())
     df = len(observed) - 1
@@ -206,9 +217,9 @@ def analyse(label, snaps, bounds, writer):
               f"max D = {int(s['D'].max()):,}   "
               f"mean h = {s['h'].mean():.4g}   "
               f"median R = {np.median(s['R']):.4g}")
-        print(f"   {'p':>3} {'M_p':>10} {'SE':>10} {'bootSE':>10} "
-              f"{'z(H_real)':>11} {'z(H_imag)':>11} "
-              f"{'chi2p(real)':>12} {'chi2p(imag)':>12}  verdict")
+        print(f"   {'p':>3} {'M_p':>9} {'(real)':>8} {'(imag)':>8} "
+              f"{'z_real':>10} {'z_imag':>10} | "
+              f"{'P(triv)':>8} {'(real)':>8} {'(imag)':>8} | verdict")
         for p in PRIMES:
             pl = s["parts"][p]
             m, se, bse, nn = moment_test(pl, p, rng)
@@ -218,9 +229,9 @@ def analyse(label, snaps, bounds, writer):
             c_i, pv_i, df_i, keep_i, ob_i, ex_i = chi2_test(pl, p, 0)
             rd, _ = rank_dist(pl)
             v = verdict(z_real, z_imag, pv_r, pv_i)
-            print(f"   {p:>3} {m:>10.5f} {se:>10.5f} {bse:>10.5f} "
-                  f"{z_real:>11.2f} {z_imag:>11.2f} "
-                  f"{pv_r:>12.3e} {pv_i:>12.3e}  {v}")
+            print(f"   {p:>3} {m:>9.5f} {1.0/p:>8.5f} {1.0:>8.5f} "
+                  f"{z_real:>10.1f} {z_imag:>10.1f} | "
+                  f"{rd[0]:>8.5f} {cl.eta(p,2):>8.5f} {cl.eta(p,1):>8.5f} | {v}")
             writer.writerow({
                 "ordering": label, "bound": b, "n": n, "p": p,
                 "M_p": f"{m:.8f}", "SE": f"{se:.8f}", "bootSE": f"{bse:.8f}",
@@ -364,6 +375,14 @@ def main():
         "SELECT name FROM sqlite_master WHERE type='table'")}
     con.close()
 
+    which = sys.argv[1] if len(sys.argv) > 1 else "all"
+    if which not in ("all", "disc", "reg"):
+        raise SystemExit("usage: compare.py [all|disc|reg]")
+    if which == "disc":
+        tables.discard("reg_ordered")
+    if which == "reg":
+        tables.discard("disc_ordered")
+
     if "disc_ordered" in tables:
         snaps = load("disc_ordered", "D", DISC_BOUNDS)
         analyse("disc", snaps, DISC_BOUNDS, w)
@@ -382,6 +401,34 @@ def main():
 
     f.close()
     print(f"\nwrote {os.path.join(OUT, 'moments.csv')}")
+    convergence()
+
+
+def convergence():
+    """preregistration.md section 5, novelty condition 2: does the discrepancy
+    shrink as the truncation bound grows?  A shrinking discrepancy is a
+    truncation artefact, not a finding."""
+    rows = list(csv.DictReader(open(os.path.join(OUT, "moments.csv"))))
+    print(f"\n{'='*94}\nCONVERGENCE OF M_p WITH TRUNCATION BOUND\n{'='*94}")
+    print("dev = M_p - prediction.  ratio = |dev(previous bound)| / |dev(this bound)|;")
+    print("ratio > 1 means the discrepancy is shrinking. For reference, if the")
+    print("discrepancy behaves like X^(-1/6), one decade of X gives ratio 10^(1/6) = 1.468.")
+    for ordering in dict.fromkeys(r["ordering"] for r in rows):
+        print(f"\n-- {ordering}")
+        for hyp, key in (("H_real", "pred_real"), ("H_imag", "pred_imag")):
+            print(f"   vs {hyp}")
+            for p in PRIMES:
+                rs = [r for r in rows if r["ordering"] == ordering and int(r["p"]) == p]
+                rs.sort(key=lambda r: int(r["bound"]))
+                cells, prev = [], None
+                for r in rs:
+                    dev = float(r["M_p"]) - float(r[key])
+                    rat = (abs(prev / dev) if prev is not None and dev != 0
+                           else float("nan"))
+                    cells.append(f"{dev:+.5f}({rat:.2f})" if prev is not None
+                                 else f"{dev:+.5f}(   -)")
+                    prev = dev
+                print(f"      p={p:<3} " + "  ".join(cells))
 
 
 if __name__ == "__main__":
