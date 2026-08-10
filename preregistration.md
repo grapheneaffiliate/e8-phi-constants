@@ -17,7 +17,8 @@ Nothing below is conditioned on an observed p-rank frequency.
 
 ## 1. Question
 
-Sarnak (J. Number Theory 14 (1982), 342–378) proved that the **average** class
+Sarnak (J. Number Theory 15 (1982), 229–247 — see erratum at the end of this
+file) proved that the **average** class
 number obeys a clean asymptotic law when indefinite binary quadratic forms are
 ordered by the size of the fundamental unit rather than by discriminant:
 
@@ -210,3 +211,19 @@ ordering must clear this scale by a wide margin.
   is reported as the headline exactly as plainly as any other outcome.
 * If a computation contradicts a claim in this file, this file is wrong and the
   contradiction is reported.
+
+---
+
+## Erratum (recorded, not silently edited)
+
+**2026-08-10, after commit a25ac66, before any comparison was run.** The Sarnak
+citation in §1 was given as "J. Number Theory 14 (1982), 342–378". That volume
+and page range were wrong. The correct reference is
+
+> P. Sarnak, *Class numbers of indefinite binary quadratic forms*,
+> J. Number Theory **15** (1982), no. 2, 229–247.
+
+confirmed against the author's own bibliography (Institute for Advanced Study).
+No hypothesis, test statistic, truncation bound, bootstrap seed, or decision
+threshold in this file was changed. The original committed version is
+recoverable at `git show a25ac66:preregistration.md`.
