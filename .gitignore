@@ -60,3 +60,6 @@ private_*.py
 GSM_CHSH_Falsification_Package/
 *.docx
 *.jpg
+data/*.csv
+data/*.log
+data/quadratic_fields.sqlite
