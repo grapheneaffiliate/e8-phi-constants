@@ -50,7 +50,7 @@ p = 3, 5, 7, 11, against the imaginary Cohen–Lenstra values 0.43987, 0.23967,
 monotonically as the bound grows (roughly like `T^{-1/2}`), while the residuals
 against the real-quadratic measure grow. Five controls survive, including the
 decisive one: a discriminant-ordered sample of 250 000 fields at the *same*
-`D ≈ 10¹²` scale reproduces the **real** measure to within 1%, so the effect is
+`D ≈ 10¹²` scale reproduces the **real** measure to within about 2%, so the effect is
 caused by the regulator condition and not by the size of D. I found no statement
 of this in the literature, but it is not deep: it follows in a few lines from an
 analogy that Cohen and Lenstra themselves record, credited to Gross. It is not
@@ -412,8 +412,8 @@ regulator condition — the same D-scale as the regulator-ordered population.
 | `μ_CL` (imaginary) | 1 | 1 | 1 | 1 |
 
 At the same D-scale where the regulator ordering gives ≈ 1, the discriminant
-ordering gives the real-quadratic prediction to within 0.7%, 1.1%, 1.7% and 0.1%
-respectively. The formal verdict is `H_real` for p = 5, 7, 11 and "undecided" for
+ordering gives the real-quadratic prediction to within 2.1%, 1.1%, 1.7% and 0.1%
+respectively (residual as a fraction of the prediction). The formal verdict is `H_real` for p = 5, 7, 11 and "undecided" for
 p = 3 at z = −4.4 — and the p = 3 residual, −0.00702, is −2.1% relative, which is
 what the `X^{-1/6}` Davenport–Heilbronn secondary term predicts at `X = 10¹²`
 (`10^{-2}` times the O(1) constant ≈ 2.4 fitted from §4.1, giving ≈ 2.4%).
@@ -488,8 +488,8 @@ proportion of the sample with `p ∣ h`, against three nulls:
 and for the `D ≈ 10¹²` discriminant-ordered control: 0.15675, 0.04916, 0.02415,
 0.00906 — matching the *real* column.
 
-The naive value is off by 30% at p = 3 and 19% at p = 5; the imaginary
-Cohen–Lenstra value is off by 1.1% and 0.8%. **Q4 is FALSE.** It is specifically
+The observation exceeds the naive value by 30% at p = 3 and by 19% at p = 5,
+whereas it differs from the imaginary Cohen–Lenstra value by 1.1% and 0.8%. **Q4 is FALSE.** It is specifically
 Cohen–Lenstra, not divisibility of a large random integer.
 
 There is a pleasing way to say this. Ellenberg's survey opens by quoting
