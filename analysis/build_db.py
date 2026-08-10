@@ -70,7 +70,9 @@ def load_disc(con, path, table="disc_ordered"):
                 prod *= x
             if prod != h:
                 raise SystemExit(f"{table}: h != prod(cyc) at D={D}")
-            if s not in (1, -1) or h < 1 or R <= 0:
+            # s = 0 means "norm of the fundamental unit not computed"; used only
+            # by disc_window, where it is irrelevant (odd p only).
+            if s not in (1, -1, 0) or h < 1 or R <= 0:
                 raise SystemExit(f"{table}: bad row at D={D}")
             rows.append((D, h, s, R, cyc))
             n += 1

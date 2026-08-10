@@ -32,10 +32,14 @@ joinbar(v) = {
   r;
 };
 
+/* N(eps_D) is deliberately NOT computed here and is written as 0 ("not
+ * computed").  quadunit at D ~ 10^12 with a generic (hence huge) regulator walks
+ * a continued fraction of period ~10^6 and costs far more than the class group
+ * itself; the norm sign plays no role in this control, which needs only the
+ * odd-p parts of Cl. */
 row(D) = {
-  my(v = quadclassunit(D), h = v[1], cyc = Vec(v[2]), R = v[4],
-     s = norm(quadunit(D)));
-  Str(D, ",", h, ",", s, ",", Strprintf("%.12f", R), ",", joinbar(cyc));
+  my(v = quadclassunit(D), h = v[1], cyc = Vec(v[2]), R = v[4]);
+  Str(D, ",", h, ",0,", Strprintf("%.12f", R), ",", joinbar(cyc));
 };
 
 export(joinbar, row);
