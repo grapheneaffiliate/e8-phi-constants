@@ -200,6 +200,116 @@ It is not: the paper is about sums and averages. The related
 an asymptotic law "as the bound on the regulators tends to infinity", again for
 sums, not distributions.
 
+### Ellenberg, *Recent progress around Cohen–Lenstra heuristics* — **the decisive context** `[READ, relevant sections]`
+
+> J. Ellenberg, Séminaire Bourbaki, 78e année, n° 1251, March 2026;
+> arXiv:2606.06024v1. Obtained as PDF and read.
+
+Found late, by searching `abs:"Pell" AND abs:"Cohen-Lenstra"`. It is the most
+important secondary source for this study — not for a result, but because it
+settles three things that the earlier searches left open.
+
+**(a) The number-field form of the mechanism, credited to Gross.** §"Even taking
+this into account…", verbatim:
+
+> "Numerical evidence suggests that, as K ranges over real quadratic extensions
+> of Q, the probability that Cl_K[ℓ^∞] is isomorphic to A is proportional, not to
+> |Aut(A)|^{−1}, but to |A|^{−1}|Aut(A)|^{−1}. … (Cohen and Lenstra, 1983)
+> records the observation, credited to Gross, that when K is a real quadratic
+> field, the ring O_K is in some sense analogous to the ring O_L[1/π], where L is
+> a quadratic imaginary field and π is a factor of a prime p split in L. Both
+> rings have two "missing" places: the two archimedean places in the case of O_K,
+> and ∞ and π in the case of O_L[1/π]. The class group of O_L[1/π] is simply
+> Cl_L/⟨π⟩. This suggests that Cl_K should be seen, not as a random abelian
+> ℓ-group, but as the quotient of a random abelian ℓ-group (like Cl_L) modulo a
+> random element (like π)."
+
+This matters because the alternative hypothesis registered in
+`preregistration.md` §3 was motivated by the *function field* picture
+(`Cl(O_K) = Pic⁰/⟨∞₁−∞₂⟩`). The Gross analogy is the same mechanism stated
+directly for number fields, and it goes back to Cohen–Lenstra themselves. Under
+it, the element quotiented by is the class of π, and the quantity playing the
+role of the regulator is the **order of that class**. So "condition on a small
+regulator" reads as "condition on the quotiented element having small order",
+and in the limit the quotient disappears and the imaginary measure is recovered.
+This is recorded here rather than in `preregistration.md` because it was found
+after that file was committed; it changes no hypothesis, only the strength of
+the motivation for one already registered.
+
+**(b) It is already known that the ordering matters for Cohen–Lenstra-type
+conjectures, and the known mechanism is subfields.** §"Another change is the
+order in which the K are counted", verbatim: *"it has come to be seen that this
+ordering [by discriminant] is problematic for Cohen-Lenstra heuristics. Roughly
+speaking, the problem is subfields. If one counts Z/4Z-extensions K of Q in order
+of discriminant, for example, and L is a fixed quadratic field, then a positive
+proportion of K contain L, and so any unexpected behavior of a single Cl_L can
+bias the distribution of Cl_K over all K. (Bartel and Lenstra, 2020, §6) shows
+that indeed this phenomenon produces counterexamples to the original
+[Cohen–Lenstra–Martinet] conjectures."*
+
+So "ordering changes the answer" is not itself new. The known mechanism requires
+intermediate subfields, which do not exist for quadratic K/ℚ.
+
+**(c) The survey does not treat regulator-ordered distributions.** Its only
+mention of the regulator is a footnote: *"it is the combination of h_K and the
+regulator which has an analytic meaning; it is natural to consider these
+together, and there is another line of work in which one considers not only the
+class group but an 'Arakelov class group' whose component group is Cl_K and whose
+identity component manifests the regulator; **we will not explore this further
+here**, but see e.g. (Bartel, Johnston, and Lenstra, 2024)."*
+
+### Sawin & Wood, *Conjectures for distributions of class groups …* — **NEAR MISS on the ordering question** `[READ, Remark 1.3]`
+
+> W. Sawin and M. M. Wood, *Conjectures for distributions of class groups of
+> extensions of number fields containing roots of unity*, arXiv:2301.00791.
+
+Remark 1.3, verbatim (line breaks normalised):
+
+> "Conjecture 1.1 is not precise, in that it does not specify an ordering on E so
+> that the distribution of class groups is well-defined. Cohen and Martinet
+> [CM90] order fields by Nm Disc K, but this is known to not work in general,
+> even when there are not relevant roots of unity in the base field [BL20,
+> p. 929]. One possible ordering, as suggested by Bartel and Lenstra in [BL20]
+> and also by Theorem 3.1, is by Nm √Disc(K/K₀), where √ denotes the radical. We
+> certainly imagine the conjecture only holding for orderings such that the
+> proportion of fields in E containing any fixed field K₁ ⊄ K₀ is 0."
+
+**Read the last sentence carefully.** It states a *necessary* condition — "only
+holding for orderings such that…" — not a sufficient one. Ellenberg's survey
+paraphrases it as *"any natural ordering on extensions K/F will do as long as no
+intermediate subfield occurs a positive proportion of the time"*, which is the
+converse and is stronger than what Sawin–Wood wrote. The distinction is load
+bearing for how the present result may be stated, and is handled in `REPORT.md`
+§4.6: under the paraphrase the regulator ordering would be a counterexample;
+under the actual remark it is only evidence that the subfield condition is not
+sufficient. Note also that Conjecture 1.1 concerns extensions containing roots of
+unity, a different family from real quadratic fields over ℚ.
+
+### Bartel, Johnston & Lenstra, *Arakelov class groups of random number fields* `[READ, introduction]`
+
+> A. Bartel, H. Johnston, H. W. Lenstra Jr., arXiv:2005.11533v3 (27 March 2024).
+
+The reference Ellenberg points to for treating `Cl_F` and the units together.
+Introduction, verbatim: *"we make the case that, in this context, Cl_F and O_F^×
+are most naturally studied in combination, since their distributions need, by all
+appearances, not be independent. Their dependence is best expressed by means of
+the Arakelov class group. … **For number fields it plays the rôle that the
+Jacobian of a curve plays for function fields over finite fields.** It can be
+broken up into two pieces, one being Cl_F and the other coming from O_F^×."*
+
+This supplies the correct number-field name for the object my heuristic treats as
+"the thing being quotiented": the Arakelov class group is the number-field
+analogue of `Pic⁰(C)`, with `Cl_F` as its component group and the regulator as
+the covolume of its identity component.
+
+**Why it is nevertheless not my result.** Their paper's subject is the *Galois
+module* structure of oriented Arakelov class groups, Chinburg's Ω(3) conjecture,
+and a new series of counterexamples to Cohen–Lenstra–Martinet with non-abelian
+Galois groups. Searching the text for "regulator", "ordering", "ordered by" and
+"by discriminant" returns nothing relevant: the paper does not order families by
+regulator and makes no statement about real quadratic fields ordered that way.
+It is the right conceptual framework for the question and does not answer it.
+
 ---
 
 ## 2. Sources located and used bibliographically
