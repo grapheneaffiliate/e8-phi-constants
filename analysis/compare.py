@@ -290,8 +290,6 @@ def confounders(snaps, bound):
     for p in PRIMES:
         pl = s["parts"][p]
         arr = np.array([len(t) for t in pl])
-        for name, mask in (("u1", u == 1), ("ug", u > 1)):
-            pass
         v1 = np.power(float(p), arr[u == 1]) - 1.0
         v2 = np.power(float(p), arr[u > 1]) - 1.0
         print(f"   {p:>3} {v1.mean():>11.5f} {len(v1):>10,} "
@@ -315,6 +313,27 @@ def confounders(snaps, bound):
             m = (h > lo) & (h <= hi)
             cells.append(vals[m].mean() if m.sum() else float("nan"))
         print(f"   {p:>3} " + " ".join(f"{c:>10.5f}" for c in cells))
+
+    print(f"\n[C4] POST-HOC, NOT PRE-REGISTERED -- mechanism probe.")
+    print("   rho := 2R/log D measures how small the regulator is relative to D.")
+    print("   eps_D >= (1+sqrt D)/2 forces R >= log(sqrt D) - log 2, i.e. rho >~ 1,")
+    print("   so rho = 1 is the extreme floor of the regulator range and larger rho")
+    print("   means a less extreme field.  If the effect is driven by the regulator")
+    print("   being extremally small, M_p should fall as rho rises.")
+    rho = 2.0 * R / np.log(D)
+    qs = np.quantile(rho, [0.25, 0.5, 0.75])
+    bands = [(-np.inf, qs[0]), (qs[0], qs[1]), (qs[1], qs[2]), (qs[2], np.inf)]
+    print(f"   rho quartile edges: {qs[0]:.4f} {qs[1]:.4f} {qs[2]:.4f}   "
+          f"(min {rho.min():.4f}, max {rho.max():.4f})")
+    print(f"   {'p':>3} " + " ".join(f"{'M_p[rho q%d]'%(i+1):>13}" for i in range(4)))
+    for p in PRIMES:
+        arr = np.array([len(t) for t in s["parts"][p]])
+        vals = np.power(float(p), arr) - 1.0
+        cells = []
+        for lo, hi in bands:
+            m = (rho > lo) & (rho <= hi)
+            cells.append(vals[m].mean() if m.sum() else float("nan"))
+        print(f"   {p:>3} " + " ".join(f"{c:>13.5f}" for c in cells))
 
     print(f"\n[C3] genus theory control: restrict to D prime "
           f"(genus group trivial, so no 2-part artefact)")
@@ -376,17 +395,26 @@ def main():
     con.close()
 
     which = sys.argv[1] if len(sys.argv) > 1 else "all"
-    if which not in ("all", "disc", "reg"):
-        raise SystemExit("usage: compare.py [all|disc|reg]")
+    if which not in ("all", "disc", "reg", "window"):
+        raise SystemExit("usage: compare.py [all|disc|reg|window]")
     if which == "disc":
-        tables.discard("reg_ordered")
+        tables -= {"reg_ordered", "disc_window"}
     if which == "reg":
-        tables.discard("disc_ordered")
+        tables -= {"disc_ordered", "disc_window"}
+    if which == "window":
+        tables -= {"disc_ordered", "reg_ordered"}
 
     if "disc_ordered" in tables:
         snaps = load("disc_ordered", "D", DISC_BOUNDS)
         analyse("disc", snaps, DISC_BOUNDS, w)
         dump_cells("disc", snaps, DISC_BOUNDS[-1])
+        del snaps
+    if "disc_window" in tables:
+        # Control: discriminant-ordered, but at the same D-scale (~10^12) as the
+        # regulator-ordered population, with no regulator condition imposed.
+        B = (10**14,)
+        snaps = load("disc_window", "D", B)
+        analyse("disc-window(D~1e12)", snaps, B, w)
         del snaps
     if "reg_ordered" in tables:
         snaps = load("reg_ordered", "eps", REG_BOUNDS)

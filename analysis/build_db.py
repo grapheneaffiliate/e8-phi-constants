@@ -51,10 +51,10 @@ def isqrt(n):
     return math.isqrt(n)
 
 
-def load_disc(con, path):
+def load_disc(con, path, table="disc_ordered"):
     cur = con.cursor()
-    cur.execute("DROP TABLE IF EXISTS disc_ordered")
-    cur.execute("CREATE TABLE disc_ordered "
+    cur.execute(f"DROP TABLE IF EXISTS {table}")
+    cur.execute(f"CREATE TABLE {table} "
                 "(D INTEGER PRIMARY KEY, h INTEGER, s INTEGER, R REAL, cyc TEXT)")
     n = 0
     rows = []
@@ -69,16 +69,16 @@ def load_disc(con, path):
             for x in iv:
                 prod *= x
             if prod != h:
-                raise SystemExit(f"disc_ordered: h != prod(cyc) at D={D}")
+                raise SystemExit(f"{table}: h != prod(cyc) at D={D}")
             if s not in (1, -1) or h < 1 or R <= 0:
-                raise SystemExit(f"disc_ordered: bad row at D={D}")
+                raise SystemExit(f"{table}: bad row at D={D}")
             rows.append((D, h, s, R, cyc))
             n += 1
             if len(rows) >= 200000:
-                cur.executemany("INSERT INTO disc_ordered VALUES (?,?,?,?,?)", rows)
+                cur.executemany(f"INSERT INTO {table} VALUES (?,?,?,?,?)", rows)
                 rows = []
     if rows:
-        cur.executemany("INSERT INTO disc_ordered VALUES (?,?,?,?,?)", rows)
+        cur.executemany(f"INSERT INTO {table} VALUES (?,?,?,?,?)", rows)
     con.commit()
     return n
 
@@ -140,6 +140,12 @@ def main():
         con.execute("CREATE INDEX idx_disc_D ON disc_ordered(D)")
     else:
         print("disc_ordered.csv missing", file=sys.stderr)
+
+    wpath = os.path.join(DATA, "disc_window.csv")
+    if os.path.exists(wpath):
+        n = load_disc(con, wpath, table="disc_window")
+        print(f"disc_window : {n} rows")
+        con.execute("CREATE INDEX idx_win_D ON disc_window(D)")
 
     if os.path.exists(rpath):
         n = load_reg(con, rpath)
