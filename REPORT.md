@@ -22,7 +22,10 @@ question) · `[UNVERIFIED]` (not checked; may not support any other claim).
 | H3 | `h(ℚ(√5)) = 1` is evidence beyond D = 5 being small | **FALSE** | `[COMPUTED]` | §3.3, = K1a |
 | H4 | Being the first term of Sarnak's regulator-ordered asymptotic is a distinguishing property | **FALSE** | argument, §3.4 | Sarnak, J. Number Theory 15 (1982), 229–247 |
 | H5 | Hurwitz-space topology (Landesman–Levy) and modular-surface geometry (Sarnak) constitute a mathematical link | **FALSE** | argument, §3.5 | §3.5 states what would be required and shows none of it holds |
-| Q | Under regulator ordering, does the p-part of `Cl` (odd p) follow Cohen–Lenstra? | *(see §4)* | `[COMPUTED]` | `analysis/compare.py`, `preregistration.md` |
+| Q1 | Under regulator ordering, the odd p-part of `Cl` follows the **real** quadratic Cohen–Lenstra measure `μ^r_CL` (the same as under discriminant ordering) | **FALSE** | `[COMPUTED]`, n = 3 996 897 | §4.2; `analysis/compare.py` |
+| Q2 | Under regulator ordering, it follows the **imaginary** quadratic measure `μ_CL` instead | **NOVEL** (empirical only — *not a theorem*, see §4.7) | `[COMPUTED]`, 4 primes × 4 bounds, 5 controls | §4.2–§4.6 |
+| Q3 | The difference is a D-size effect rather than a regulator effect | **FALSE** | `[COMPUTED]`, n = 250 000 at D ≈ 10¹² | §4.3 |
+| Q4 | The regulator-ordered behaviour is just "h is large, so `p ∣ h` with probability ≈ 1/p" | **FALSE** | `[COMPUTED]` | §4.5 |
 | S1 | Sarnak's asymptotic `Σ_{ε(D)<x} h(D) ~ li(x²)` | **KNOWN** (true, and stated for the **narrow** class number and **narrow** unit) | `[CLASSICAL]` | verbatim in Hashimoto arXiv:1003.3716 §1 eqns (1.2)–(1.3) |
 | S3 | Landesman–Levy does not reach ℚ(√5) | **KNOWN** (true) | `[CLASSICAL]` | §3.2 |
 
@@ -30,7 +33,28 @@ question) · `[UNVERIFIED]` (not checked; may not support any other claim).
 
 ## 2. Headline
 
-*(filled in §4)*
+**Nothing in the ℚ(√5) extremality cluster is novel — E1–E4 are entirely
+classical, the class-number argument that the sponsoring framework rests on is
+refuted outright, and all five hypotheses H1–H5 are false.** One thing that is
+not about ℚ(√5) did come out of the primary research question, and it is an
+empirical finding rather than a theorem: when real quadratic fields are ordered
+by regulator instead of by discriminant, the odd part of the class group appears
+to follow the Cohen–Lenstra measure for **imaginary** quadratic fields,
+`μ_CL(A) ∝ 1/|Aut A|`, and not the measure `μ^r_CL(A) ∝ 1/(|A||Aut A|)` that the
+same fields obey when ordered by discriminant. Over a complete enumeration of the
+3 996 897 real quadratic fields with `ε_D ≤ 2·10⁶` (reaching `D ≈ 4·10¹²`), the
+proportion with `p ∣ h` is 0.43497, 0.23787, 0.16178, 0.09807 for
+p = 3, 5, 7, 11, against the imaginary Cohen–Lenstra values 0.43987, 0.23967,
+0.16320, 0.09917 — and against the real-quadratic values 0.15981, 0.04958,
+0.02374, 0.00908, which are wrong by factors of 2.7 to 10.8. The residuals shrink
+monotonically as the bound grows (roughly like `T^{-1/2}`), while the residuals
+against the real-quadratic measure grow. Five controls survive, including the
+decisive one: a discriminant-ordered sample of 250 000 fields at the *same*
+`D ≈ 10¹²` scale reproduces the **real** measure to within 1%, so the effect is
+caused by the regulator condition and not by the size of D. I found no statement
+of this in the literature, but it is not deep: it follows in a few lines from an
+analogy that Cohen and Lenstra themselves record, credited to Gross. It is not
+proved here, and `THEOREM_STATEMENT.md` has deliberately not been created (§4.7).
 
 ---
 
@@ -245,8 +269,9 @@ the objects, and it transfers no statement from one setting to the other.
 
 The primary result (§4) is that the regulator-ordered p-part distribution
 follows the **imaginary** Cohen–Lenstra measure. Here is every attempt I made to
-destroy it. Outcomes are in §4.5; the attempts are listed here so that the list
-is visible independently of whether they succeeded.
+destroy it. Outcomes are in §4.1-§4.6; the attempts are listed here so that the list is
+visible independently of whether they succeeded. **None of the eight overturned
+the result**; attacks 1, 2 and 5 each had a clear chance to and did not.
 
 1. **"The pipeline is wrong."** Attack: run the same code on a family whose
    answer is a theorem. The discriminant-ordered channel must reproduce
@@ -285,7 +310,299 @@ is visible independently of whether they succeeded.
 
 ## 4. The primary question: regulator-ordered p-part distribution
 
-*(filled in below)*
+All numbers `[COMPUTED]` by `analysis/compare.py` from
+`data/quadratic_fields.sqlite`, built by `analysis/build_db.py` from the three
+enumerations in `data/`. Sizes, digests and bounds are pinned in
+`data/MANIFEST.md`; the summary tables every number here is read from are in
+`data/summary/`. The two hypotheses, the statistics, the truncation ladder, the
+bootstrap seed and the decision rules were all fixed in `preregistration.md`
+before any of this was computed.
+
+The datasets:
+
+| dataset | ordering | n | reaches |
+|---|---|---:|---|
+| `disc_ordered` | by discriminant, all `0 < D ≤ 10⁷` | 3 039 653 | `D = 10⁷` |
+| `reg_ordered` | by regulator, all `ε_D ≤ 2·10⁶` | 3 996 898 | `D ≈ 4·10¹²` |
+| `disc_window` | by discriminant, 250 000 consecutive `D` from `10¹²` | 250 000 | `D ≈ 1.0000008·10¹²` |
+
+### 4.1 Calibration: the pipeline reproduces Davenport–Heilbronn
+
+Mandatory before anything else (`preregistration.md` §6). In the discriminant
+ordering the answer is a theorem: the average of `#Surj(Cl, ℤ/3)` must tend to
+1/3. Observed `M_3` at bounds `10⁵, 10⁶, 10⁷`:
+
+    0.21846      0.25370      0.27960        →  1/3 = 0.33333
+
+The deficit is `−0.11487, −0.07963, −0.05374`, shrinking by factors 1.44 and 1.48
+per decade. The pre-registered expectation, written down before the computation,
+was that the `X^{5/6}` secondary term in cubic field counts (Roberts;
+Bhargava–Shankar–Tsimerman; Taniguchi–Thorne) makes the residual decay like
+`X^{-1/6}`, i.e. by a factor `10^{1/6} = 1.468` per decade. Observed 1.44 and
+1.48. The same holds for p = 5, 7, 11 (ratios 1.70–2.04). Against the imaginary
+measure the residual is instead flat (ratios 1.02–1.05) at a value near −0.72 to
+−0.96.
+
+**The pipeline is correct, and the discriminant ordering converges to `μ^r_CL`,
+as it must.**
+
+### 4.2 The result
+
+Regulator ordering (`reg-wide`, ordering by `ε_D`), at the four pre-registered
+bounds. `P(triv)` is the observed proportion with trivial Sylow p-subgroup:
+
+| bound on ε | n | `M_3` | `M_5` | `M_7` | `M_11` |
+|---:|---:|---:|---:|---:|---:|
+| 10⁴ | 19 752 | 0.83465 | 0.87161 | 0.86574 | 0.77461 |
+| 10⁵ | 199 262 | 0.92700 | 0.96000 | 0.95241 | 0.93982 |
+| 10⁶ | 1 997 783 | 0.97259 | 0.98608 | 0.98548 | 0.98099 |
+| 2·10⁶ | 3 996 897 | **0.98127** | **0.99091** | **0.99032** | **0.98860** |
+| *predicted, `μ_CL` (imaginary)* | | *1* | *1* | *1* | *1* |
+| *predicted, `μ^r_CL` (real)* | | *0.33333* | *0.20000* | *0.14286* | *0.09091* |
+
+The pre-registered novelty test is condition 2 of `preregistration.md` §5: a
+discrepancy that shrinks with the bound is a truncation artefact, not a finding.
+Applying it to both hypotheses:
+
+| | p=3 | p=5 | p=7 | p=11 |
+|---|---|---|---|---|
+| residual vs `μ_CL`, shrink factor per step | 2.27, 2.66, 1.46 | 3.21, 2.87, 1.53 | 2.82, 3.28, 1.50 | 3.75, 3.17, 1.67 |
+| residual vs `μ^r_CL`, shrink factor per step | 0.84, 0.93, 0.99 | 0.88, 0.97, 0.99 | 0.89, 0.96, 0.99 | 0.81, 0.95, 0.99 |
+
+The first three bounds differ by a decade each and the last by a factor 2; the
+observed shrink factors against `μ_CL` are consistent with a `T^{-1/2}` law
+(`10^{1/2} = 3.16`, `2^{1/2} = 1.41`). Against `μ^r_CL` every factor is `< 1`:
+the discrepancy **grows**, saturating at the largest gap the statistic allows.
+
+So by the pre-registered rule: the deviation from `μ_CL` is a truncation
+artefact and may not be claimed; the deviation from `μ^r_CL` is not, and `μ^r_CL`
+is excluded. **Q1 is FALSE; the data are consistent with `μ_CL`.**
+
+**Sarnak's actual ordering gives the same answer.** Sarnak's theorem is stated
+for the narrow fundamental unit (§3.0(b)), so `reg-narrow` orders by
+`ε⁺_D`. At the largest bound (n = 1 998 450): `M_p = 0.96828, 0.98614, 0.98619,
+0.98173`, with residuals against `μ_CL` again shrinking (factors 2.03–3.57 per
+decade) and residuals against `μ^r_CL` again growing. The conclusion does not
+depend on which of the two regulator orderings is used.
+
+**A note on the literal verdict column.** The pre-registered z-test rejects *both*
+hypotheses at every regulator bound and at every discriminant bound, printing
+"neither" throughout, because at n ∈ [10⁶, 4·10⁶] a residual of 1% is still
+tens of sigma. That rule is uninformative at these sample sizes — which is
+exactly why the calibration channel was mandated, and it is why the calibration
+channel prints "neither" too, at a bound where the answer is a *theorem*. The
+informative pre-registered criterion is the convergence test above. Where n is
+moderate enough for the z-test to be meaningful, it behaves correctly: at
+n = 250 000 the `disc-window` control returns the verdict `H_real` outright for
+p = 5, 7, 11 (§4.3).
+
+### 4.3 The decisive control: it is not a D-size effect
+
+The regulator dataset reaches `D ≈ 4·10¹²`; the discriminant dataset stops at
+`10⁷`. The obvious objection is that the two differ in the size of D, not only in
+the ordering. `data/gen_disc_window.gp` removes it: 250 000 consecutive
+fundamental discriminants starting at `10¹²`, ordered by discriminant, with no
+regulator condition — the same D-scale as the regulator-ordered population.
+
+| | `M_3` | `M_5` | `M_7` | `M_11` |
+|---|---:|---:|---:|---:|
+| observed at `D ≈ 10¹²`, discriminant-ordered | 0.32631 | 0.19790 | 0.14522 | 0.09100 |
+| `μ^r_CL` (real) | 0.33333 | 0.20000 | 0.14286 | 0.09091 |
+| residual | −0.00702 | −0.00210 | **+0.00237** | **+0.00009** |
+| `μ_CL` (imaginary) | 1 | 1 | 1 | 1 |
+
+At the same D-scale where the regulator ordering gives ≈ 1, the discriminant
+ordering gives the real-quadratic prediction to within 0.7%, 1.1%, 1.7% and 0.1%
+respectively. The formal verdict is `H_real` for p = 5, 7, 11 and "undecided" for
+p = 3 at z = −4.4 — and the p = 3 residual, −0.00702, is −2.1% relative, which is
+what the `X^{-1/6}` Davenport–Heilbronn secondary term predicts at `X = 10¹²`
+(`10^{-2}` times the O(1) constant ≈ 2.4 fitted from §4.1, giving ≈ 2.4%).
+
+**Q3 is FALSE.** D-size is not the operative variable; the regulator condition is.
+
+### 4.4 GRH and computational correctness
+
+`quadclassunit` uses Bach's bound and is conditional on GRH. `data/grh_spotcheck.gp`
+recomputes samples with `bnfinit` + `bnfcertify`, which is unconditional:
+
+* 265 discriminants across `D ~ 10¹ … 10⁶` plus `D = t²−4` near `t = 10⁵`:
+  **0 mismatches, 0 certification failures**;
+* an extended check over the whole `t` range actually used — `t ~ 10², 10³, 10⁴,
+  10⁵, 5·10⁵, 10⁶, 2·10⁶`, 60 discriminants each, 420 total, with mean class
+  number rising from 9.5 to **51 027**: **0 mismatches, 0 certification failures**.
+
+This is a spot check, not a proof that all 7.3 million class groups are
+unconditional; certifying them all costs far more than computing them. The honest
+description of the datasets is *GRH-conditional, spot-checked unconditionally on
+420 fields spanning the full range, including the large-class-number regime where
+a failure would matter most*.
+
+Independently, `analysis/build_db.py` rejects any row where `h` differs from the
+product of the invariant factors, or where `t² − 4s` is not `D` times a perfect
+square. All 7 286 551 rows passed.
+
+### 4.5 Confounders
+
+All at the largest regulator bound, n = 3 996 897 (`preregistration.md` §6).
+
+**(1) Thinness / the algebraic family.** 57.80% of the sample has `u = 1`
+(i.e. `D = t² ± 4` exactly), 42.20% has `u > 1`.
+
+| | `M_3` | `M_5` | `M_7` | `M_11` | n |
+|---|---:|---:|---:|---:|---:|
+| `u = 1` | **1.00083** | 0.99519 | 0.99610 | 0.99656 | 2 310 188 |
+| `u > 1` | 0.95449 | 0.98504 | 0.98240 | 0.97769 | 1 686 709 |
+
+The two sub-populations do differ, which by the letter of my own pre-registered
+criterion means the effect cannot be cleanly attributed to "the regulator
+ordering as such" rather than to the family. But the difference is one of degree,
+not of kind: both are near 1 and neither is remotely near `1/p`. And the `u = 1`
+sub-population — 2.3 million fields — agrees with `μ_CL` to
+`M_3 = 1.00083` against a predicted 1, which at SE ≈ 0.0016 is **0.5σ**.
+See §4.6 for why the "family vs regulator" dichotomy is not a real one.
+
+**(2) The `hR = √D·L` bias.** Mean `h = 1.963·10⁴`, median `1.406·10⁴`; mean
+`L(1,χ_D) = 0.8396`. Split by class-number quartile, `M_3` = 0.94045, 0.98488,
+0.99972, 1.00004 — the agreement with `μ_CL` is *better* for larger h, i.e. the
+residual is concentrated in the small-h (less extremal) tail, not created by it.
+
+**(3) Genus theory.** Odd p only by construction. Restricting further to
+D prime (n = 183 386), where the genus group is trivial: `M_p` = 1.00783,
+1.00479, 0.99400, 0.99391 — all consistent with 1.
+
+**(4) Norm of the fundamental unit.** `N(ε_D) = −1` for 50.03% of the sample.
+`M_3` = 0.99409 (`N = −1`) versus 0.96844 (`N = +1`); both near 1.
+
+**(5) "It is just `P(p ∣ h) ≈ 1/p` because h is huge."** This is the sharpest
+alternative, and it is cleanly excluded, because Cohen–Lenstra's prediction is
+*not* the naive one — that was Cohen and Lenstra's original observation. Observed
+proportion of the sample with `p ∣ h`, against three nulls:
+
+| p | observed (reg) | `μ_CL` (imaginary) | `μ^r_CL` (real) | naive `1/p` |
+|---|---:|---:|---:|---:|
+| 3 | **0.43497** | 0.43987 | 0.15981 | 0.33333 |
+| 5 | **0.23787** | 0.23967 | 0.04958 | 0.20000 |
+| 7 | **0.16178** | 0.16320 | 0.02374 | 0.14286 |
+| 11 | **0.09807** | 0.09917 | 0.00908 | 0.09091 |
+
+and for the `D ≈ 10¹²` discriminant-ordered control: 0.15675, 0.04916, 0.02415,
+0.00906 — matching the *real* column.
+
+The naive value is off by 30% at p = 3 and 19% at p = 5; the imaginary
+Cohen–Lenstra value is off by 1.1% and 0.8%. **Q4 is FALSE.** It is specifically
+Cohen–Lenstra, not divisibility of a large random integer.
+
+There is a pleasing way to say this. Ellenberg's survey opens by quoting
+Cohen and Lenstra's own founding observation: *"If p is a small odd prime, the
+proportion of imaginary quadratic fields whose class number is divisible by p
+seems to be significantly greater than 1/p (for instance 43% for p = 3, 23.5% for
+p = 5)."* The regulator-ordered **real** quadratic fields give 43.50% and 23.79%.
+
+**(6) Post-hoc mechanism probe (not pre-registered, labelled as such).** Let
+`ρ := 2R/log D`. Since `ε_D ≥ (1+√D)/2` forces `R ≥ log√D − log 2`, `ρ ≈ 1` is
+the *floor* of the regulator range and larger `ρ` means a less extreme field.
+Split by `ρ` quartile (edges 1.0000, 1.0000, 1.0844; range 0.5980–5.2214):
+
+| p | `ρ` q1 (floor) | q2 | q3 | q4 (least extreme) |
+|---|---:|---:|---:|---:|
+| 3 | **1.00641** | 1.00185 | 0.98161 | 0.93521 |
+| 5 | 0.99721 | 0.99747 | 0.99086 | 0.97810 |
+| 7 | 0.99588 | 0.99731 | 0.99273 | 0.97534 |
+| 11 | 0.99887 | 0.99641 | 0.99270 | 0.96641 |
+
+`M_p` decreases monotonically as the regulator becomes less extremal, for every
+p, and at the floor it sits on `μ_CL` essentially exactly. This is the signature
+the mechanism of §4.7 predicts, and it also explains the `u = 1` vs `u > 1` gap
+in confounder (1): `u = 1` forces `ρ ≈ 1`, while `u > 1` gives
+`ρ = log t/(log t − log u) > 1`, so `u` is a proxy for `ρ`.
+
+### 4.6 Interpretation, and what this is not
+
+**"Small regulator" and "D near a square" are the same condition, not two.**
+`ε_D ≤ T` means `t² − Du² = ±4` with `t ≤ T + 1`, i.e. `u²D` lies within 4 of a
+perfect square. There is no way to separate "the regulator ordering" from "the
+family `D = (t² ∓ 4)/u²`", because they are logically equivalent — a real
+quadratic field whose maximal order is generated by a unit is precisely one of
+narrow Richaud–Degert type (arXiv:2512.11311, abstract). So confounder (1) above
+cannot be "ruled out" in the sense of separating two causes; there is one
+condition with two descriptions. What confounder (6) shows is that the operative
+variable within that family is *how extremal the regulator is*, which is the
+regulator-side description.
+
+**The ordering is extremely thin.** `#{D : ε_D ≤ T} ≈ 2T` `[COMPUTED]`: the ratio
+`#/T` is 1.9160, 1.9753, 1.9926, 1.9984 at `T = 10³, 10⁴, 10⁵, 2·10⁶`. Among
+discriminants up to `T²` this is a set of density `≈ 2/T → 0`. Any statement here
+is about a density-zero family, and carries no implication for the discriminant
+ordering.
+
+**Was it already known?** Two search rounds, the second run after the result was
+known and therefore searchable (`literature.md` §3). No source states, conjectures
+or tests this. The nearest work:
+
+* **Lamzouri** (arXiv:1609.01630) proves that in the regulator ordering the tail
+  of large `h(d)` "has the same shape as that of class numbers of imaginary
+  quadratic fields ordered by the size of their discriminants" — the same
+  imaginary-like behaviour, but for the *size* of `h`, not the structure of `Cl`.
+* **Dousselin** (arXiv:2408.01401), same delineation, for `ε_d ≤ d^{1/2+α}`.
+* **arXiv:2512.11311** studies exactly the discriminants `n² ∓ 4`, but the class
+  groups of the *orders* `ℤ[ε]`, and only class-number size and the 2-part.
+* **Bartel–Johnston–Lenstra** (arXiv:2005.11533) supply the right framework — the
+  Arakelov class group, "for number fields it plays the rôle that the Jacobian of
+  a curve plays for function fields", with `Cl` as component group and the
+  regulator as identity component — but do not order by regulator.
+
+**Relation to what is known about orderings.** That the ordering can change a
+Cohen–Lenstra answer is *not* new: Bartel–Lenstra (2020) produced counterexamples
+to Cohen–Lenstra–Martinet in the discriminant ordering, and the mechanism there is
+subfield contamination (Ellenberg, Bourbaki 1251). That mechanism is unavailable
+for quadratic `K/ℚ`, which has no intermediate field. Sawin–Wood
+(arXiv:2301.00791) Remark 1.3 writes: *"We certainly imagine the conjecture only
+holding for orderings such that the proportion of fields in E containing any
+fixed field K₁ ⊄ K₀ is 0."* **That is a necessary condition, not a sufficient
+one** — Ellenberg's survey paraphrases it as the stronger converse ("any natural
+ordering will do as long as…"). The regulator ordering satisfies the condition
+vacuously and still, numerically, changes the answer. So the present observation
+is evidence that a subfield criterion alone cannot characterise the good
+orderings; it is **not** a counterexample to Sawin–Wood as written, and their
+Conjecture 1.1 concerns a different family anyway.
+
+### 4.7 The conjecture, and why there is no `THEOREM_STATEMENT.md`
+
+`[CONJECTURAL]` — stated as a question, with no proof, per the anti-fabrication
+protocol:
+
+> **Question.** Let `p` be an odd prime. As `T → ∞`, does the Sylow p-subgroup of
+> `Cl(ℚ(√D))`, taken over the real quadratic fields with `ε_D ≤ T` ordered by
+> `ε_D`, become distributed according to the *imaginary* quadratic Cohen–Lenstra
+> measure `μ_CL(A) = |Aut A|^{-1} ∏_{k≥1}(1 − p^{-k})`, rather than the
+> real-quadratic `μ^r_CL`? The data above are consistent with yes, with residuals
+> decaying roughly like `T^{-1/2}`.
+
+`[CONJECTURAL]` **Why one should expect it, in a few lines.** Cohen and Lenstra
+record an observation credited to Gross (quoted in Ellenberg, Bourbaki 1251):
+for `K` real quadratic, `O_K` behaves like `O_L[1/π]` with `L` imaginary
+quadratic and `π` a prime above a split `p`, both rings having two "missing"
+places; and `Cl(O_L[1/π]) = Cl_L/⟨π⟩`. That is exactly why `Cl_K` is modelled as
+a random group **modulo a random element**, which is what produces the `1/|A|`
+factor. In that dictionary the regulator corresponds to the *order* of the
+element being quotiented by. Ordering by regulator and truncating conditions that
+element to have small order; in the limit the quotient does nothing and `μ_CL` is
+recovered. The function-field form is the same statement with
+`Cl(O_K) = Pic⁰(C_K)/⟨∞₁−∞₂⟩` and the regulator equal to the order of
+`[∞₁−∞₂]`.
+
+This is a heuristic, not a derivation, and it has a visible gap: the number-field
+regulator `log ε_D` is a real number with no p-part, so "the order of the
+quotiented element is prime to p" has no literal number-field meaning. Closing
+that gap is what a proof would have to do.
+
+**No `THEOREM_STATEMENT.md` is created.** The brief specifies that that file
+requires a full statement *and a full proof*. I have a numerical result over
+7.3 million fields with five controls, and a heuristic that predicts it. That is
+not a theorem, and writing it into a theorem environment is precisely the failure
+mode the brief warns against. Verdict `NOVEL` on row Q2 attaches to the empirical
+observation and to nothing more; my honest expectation is that it is folklore
+among people who think about Arakelov class groups, rather than new.
 
 ---
 
@@ -323,4 +640,34 @@ interpretation of ordering real quadratic function fields by the order of
 `[∞₁ − ∞₂]` in `Pic⁰`. (ii) is a well-posed and, as far as I can tell,
 unaddressed question; it is the one place in H5 where something could be built.
 
-**Q1 / Q2 (the primary question)** — see §4.6.
+**Q1, Q3, Q4** — settled numerically, with the controls in §4.3–§4.5. Q1 would
+change only if the residual against `μ^r_CL` began to shrink at larger bounds; it
+grows at every bound tested and is already within 3% of the largest gap the
+statistic permits.
+
+**Q2 — the only genuinely open item.** What would resolve it, in increasing order
+of difficulty:
+
+1. *Push the truncation.* `T = 10⁷` would give ≈ 2·10⁷ fields with `D ≈ 10¹⁴`
+   and, on the observed `T^{-1/2}` trend, a residual of about 0.008 for p = 3. If
+   the residual instead stalls, the limit is not `μ_CL` and Q2 is FALSE. This is
+   the cheapest decisive test: it is the same script with `TMAX` changed, and the
+   cost is roughly 15 core-hours.
+2. *Test a second moment.* This study tests `E[#Surj(Cl, ℤ/p)]` and the
+   isomorphism-type distribution up to order `p³`. The `H = (ℤ/p)²` moment
+   (predicted `1` under `μ_CL`, `p^{-3}`… under `μ^r_CL`) would discriminate
+   again and independently. Wood–Wood guarantees the moments determine the
+   distribution, so agreement across a range of `H` is the strongest available
+   numerical evidence short of proof.
+3. *Close the heuristic's gap.* Give the number-field regulator a p-adic
+   avatar — presumably via the Arakelov class group (Bartel–Johnston–Lenstra),
+   where `Cl_F` is the component group and the regulator the covolume of the
+   identity component — so that "the quotiented element has order prime to p"
+   becomes a statement one can condition on. This is what would turn the
+   heuristic of §4.7 into a conjecture with a mechanism.
+4. *Prove it in the function field setting*, where the regulator genuinely is
+   the integer `ord([∞₁−∞₂])` and "prime to p" is literal. The Landesman–Levy
+   machinery computes moments for `MH_{n,q}` ordered by degree; the question is
+   whether a Hurwitz-space model exists for the regulator ordering. That is also
+   the one place where H5 could become true (§5, H5), which is a reason to think
+   the two loose ends are the same loose end.

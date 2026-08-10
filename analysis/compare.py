@@ -80,7 +80,7 @@ def load(table, order_col, bounds):
 
     snaps = {}
     parts = {p: [] for p in PRIMES}
-    Ds, hs, keys, us, Rs = [], [], [], [], []
+    Ds, hs, us, Rs, ss = [], [], [], [], []
     bi = 0
     bounds = sorted(bounds)
 
@@ -92,6 +92,7 @@ def load(table, order_col, bounds):
             "h": np.array(hs, dtype=np.int64),
             "R": np.array(Rs, dtype=np.float64),
             "u": np.array(us, dtype=np.int64) if has_u else None,
+            "s": np.array(ss, dtype=np.int64) if has_u else None,
         }
 
     for row in cur:
@@ -114,6 +115,7 @@ def load(table, order_col, bounds):
         Rs.append(R)
         if has_u:
             us.append(u)
+            ss.append(s)
     while bi < len(bounds):
         snapshot(bounds[bi])
         bi += 1
@@ -294,6 +296,16 @@ def confounders(snaps, bound):
         v2 = np.power(float(p), arr[u > 1]) - 1.0
         print(f"   {p:>3} {v1.mean():>11.5f} {len(v1):>10,} "
               f"{(v2.mean() if len(v2) else float('nan')):>11.5f} {len(v2):>10,}")
+
+    print(f"\n[C1b] norm of the fundamental unit: N(eps_D) = -1 fraction is "
+          f"{float((s['s']==-1).sum())/len(s['s']):.4f}")
+    print(f"   {'p':>3} {'M_p(N=-1)':>11} {'n(N=-1)':>10} {'M_p(N=+1)':>11} {'n(N=+1)':>10}")
+    sgn = s["s"]
+    for p in PRIMES:
+        arr = np.array([len(t) for t in s["parts"][p]])
+        a = np.power(float(p), arr[sgn == -1]) - 1.0
+        b = np.power(float(p), arr[sgn == 1]) - 1.0
+        print(f"   {p:>3} {a.mean():>11.5f} {len(a):>10,} {b.mean():>11.5f} {len(b):>10,}")
 
     print(f"\n[C2] h R = sqrt(D) L bias: statistics by class-number band")
     h = s["h"].astype(float)
