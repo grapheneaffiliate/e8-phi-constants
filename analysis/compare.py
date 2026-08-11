@@ -34,7 +34,11 @@ ZACC, ZREJ = 3.0, 5.0          # preregistration.md section 5
 CHI2_REJECT = 1e-3
 
 DISC_BOUNDS = (10**5, 10**6, 10**7)
-REG_BOUNDS = (10**4, 10**5, 10**6, 2 * 10**6)
+# The first four are the pre-registered ladder (preregistration.md sec.2);
+# 5*10^6 was added afterwards, when the enumeration was extended.  It extends
+# the convergence test in the direction the pre-registration already fixed --
+# it is not a post-hoc choice of bound, and every earlier bound is unchanged.
+REG_BOUNDS = (10**4, 10**5, 10**6, 2 * 10**6, 5 * 10**6)
 
 HYPS = (("H_real", 1), ("H_imag", 0))
 

@@ -124,9 +124,9 @@ def main():
     if "disc_window" in tables:
         run("disc-window (D ~ 1e12)", "disc_window", "D", 10**14, f)
     if "reg_ordered" in tables:
-        for b in (10**5, 10**6, 2 * 10**6):
+        for b in (10**5, 10**6, 2 * 10**6, 5 * 10**6):
             run(f"reg-wide (eps <= {b:.0e})", "reg_ordered", "eps", b, f)
-        run("reg-narrow (eps+ <= 2e6)", "reg_ordered", "epsp", 2 * 10**6, f)
+        run("reg-narrow (eps+ <= 5e6)", "reg_ordered", "epsp", 5 * 10**6, f)
     f.close()
     print(f"\nwrote {OUT}")
 

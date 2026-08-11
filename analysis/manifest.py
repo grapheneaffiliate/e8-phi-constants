@@ -19,9 +19,10 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 
-FILES = ["disc_ordered.csv", "reg_ordered.csv", "disc_window.csv",
-         "quadratic_fields.sqlite"]
-SCRIPTS = ["gen_disc_ordered.gp", "gen_reg_ordered.gp", "gen_disc_window.gp",
+FILES = ["disc_ordered.csv", "reg_ordered.csv", "reg_ordered_ext.csv",
+         "disc_window.csv", "quadratic_fields.sqlite"]
+SCRIPTS = ["gen_disc_ordered.gp", "gen_reg_ordered.gp",
+           "gen_reg_ordered_ext.gp", "gen_disc_window.gp",
            "verify_extremality.gp", "grh_spotcheck.gp"]
 
 
@@ -77,6 +78,10 @@ def main():
     print("| `reg_ordered.csv` | `data/gen_reg_ordered.gp` | `TMAX = 2*10^6` | "
           "every fundamental discriminant with `Tr(eps_D) <= 2*10^6`, "
           "equivalently `eps_D <= 2*10^6`; reaches `D ~ 4*10^12` |")
+    print("| `reg_ordered_ext.csv` | `data/gen_reg_ordered_ext.gp` | "
+          "`TMIN = 2*10^6, TMAX = 5*10^6` | the fields with "
+          "`2*10^6 < Tr(eps_D) <= 5*10^6`; union with `reg_ordered.csv` is the "
+          "complete enumeration to `eps_D <= 5*10^6`, reaching `D ~ 2.5*10^13` |")
     print("| `disc_window.csv` | `data/gen_disc_window.gp` | "
           "`DSTART = 10^12`, `NWANT = 250000` | 250000 consecutive fundamental "
           "discriminants from `10^12` upward (control for D-scale) |")
@@ -110,7 +115,8 @@ def main():
     print("```bash")
     print("cd data")
     print("gp -q gen_disc_ordered.gp > disc_ordered.csv   # ~20 min, 4 threads")
-    print("gp -q gen_reg_ordered.gp  > reg_ordered.csv    # ~2 h,   4 threads")
+    print("gp -q gen_reg_ordered.gp     > reg_ordered.csv      # ~2.5 h, 4 threads")
+    print("gp -q gen_reg_ordered_ext.gp > reg_ordered_ext.csv  # ~1.5 h, 4 threads")
     print("gp -q gen_disc_window.gp  > disc_window.csv    # ~5 min, 4 threads")
     print("cd ..")
     print("python3 analysis/build_db.py                   # -> data/quadratic_fields.sqlite")

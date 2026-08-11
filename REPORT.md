@@ -23,7 +23,7 @@ question) · `[UNVERIFIED]` (not checked; may not support any other claim).
 | H4 | Being the first term of Sarnak's regulator-ordered asymptotic is a distinguishing property | **FALSE** | argument, §3.4 | Sarnak, J. Number Theory 15 (1982), 229–247 |
 | H5 | Hurwitz-space topology (Landesman–Levy) and modular-surface geometry (Sarnak) constitute a mathematical link | **FALSE** | argument, §3.5 | §3.5 states what would be required and shows none of it holds |
 | Q1 | Under regulator ordering, the odd p-part of `Cl` follows the **real** quadratic Cohen–Lenstra measure `μ^r_CL` (the same as under discriminant ordering) | **FALSE** | `[COMPUTED]`, n = 3 996 897 | §4.2; `analysis/compare.py` |
-| Q2 | Under regulator ordering, it follows the **imaginary** quadratic measure `μ_CL` instead | **NOVEL** (empirical only — *not a theorem*, see §4.7) | `[COMPUTED]`, 12 moments (4 primes × 3 groups) all converging, 4 bounds, 5 controls | §4.2–§4.6a |
+| Q2 | Under regulator ordering, it follows the **imaginary** quadratic measure `μ_CL` instead | **NOVEL** (empirical only — *not a theorem*, see §4.7) | `[COMPUTED]`, n = 9 995 157; 12 moments (4 primes × 3 groups), 11 shrinking; 5 bounds; 5 controls; z vs `μ_CL` falls as n grows | §4.2–§4.6a |
 | Q3 | The difference is a D-size effect rather than a regulator effect | **FALSE** | `[COMPUTED]`, n = 250 000 at D ≈ 10¹² | §4.3 |
 | Q4 | The regulator-ordered behaviour is just "h is large, so `p ∣ h` with probability ≈ 1/p" | **FALSE** | `[COMPUTED]` | §4.5 |
 | S1 | Sarnak's asymptotic `Σ_{ε(D)<x} h(D) ~ li(x²)` | **KNOWN** (true, and stated for the **narrow** class number and **narrow** unit) | `[CLASSICAL]` | verbatim in Hashimoto arXiv:1003.3716 §1 eqns (1.2)–(1.3) |
@@ -42,18 +42,23 @@ by regulator instead of by discriminant, the odd part of the class group appears
 to follow the Cohen–Lenstra measure for **imaginary** quadratic fields,
 `μ_CL(A) ∝ 1/|Aut A|`, and not the measure `μ^r_CL(A) ∝ 1/(|A||Aut A|)` that the
 same fields obey when ordered by discriminant. Over a complete enumeration of the
-3 996 897 real quadratic fields with `ε_D ≤ 2·10⁶` (reaching `D ≈ 4·10¹²`), the
-proportion with `p ∣ h` is 0.43497, 0.23787, 0.16178, 0.09807 for
+9 995 157 real quadratic fields with `ε_D ≤ 5·10⁶` (reaching `D ≈ 2.5·10¹³`), the
+proportion with `p ∣ h` is 0.43709, 0.23866, 0.16249, 0.09856 for
 p = 3, 5, 7, 11, against the imaginary Cohen–Lenstra values 0.43987, 0.23967,
-0.16320, 0.09917 — and against the real-quadratic values 0.15981, 0.04958,
-0.02374, 0.00908, which are wrong by factors of 2.7 to 10.8. The residuals shrink
+0.16320, 0.09917 — agreeing to 0.0028, 0.0010, 0.0007, 0.0006 — and against the
+real-quadratic values 0.15981, 0.04958, 0.02374, 0.00908, which are wrong by
+factors of 2.7 to 10.9. The residuals shrink
 monotonically as the bound grows (roughly like `T^{-1/2}`), while the residuals
 against the real-quadratic measure grow. Testing two further moments — `H = ℤ/p²`
 and `H = (ℤ/p)²`, where the two hypotheses differ by a factor `p²` rather than
-`p` — gives twelve independent statistics in all, and **all twelve converge
-monotonically to the imaginary prediction** while excluding the real one at z
-between 17 and 935 (§4.6a); since moments determine the distribution
-(Wood–Wood), that is qualitatively stronger than the single-moment test. Five controls survive, including the
+`p` — gives twelve independent statistics in all, and **eleven of the twelve
+shrink at every step of the truncation ladder** while the real measure is
+excluded at z between 26 and 1484 (§4.6a); since moments determine the
+distribution (Wood–Wood), that is qualitatively stronger than the single-moment
+test. The sharpest single indicator is in §4.6b: extending the enumeration from
+4·10⁶ to 10⁷ fields made the z-score *against* `μ_CL` **fall** for every prime,
+which is what a vanishing finite-size effect does and is the opposite of what a
+real deviation does. Five controls survive, including the
 decisive one: a discriminant-ordered sample of 250 000 fields at the *same*
 `D ≈ 10¹²` scale reproduces the **real** measure to within about 2%, so the effect is
 caused by the regulator condition and not by the size of D. I found no statement
@@ -361,7 +366,8 @@ bounds. `P(triv)` is the observed proportion with trivial Sylow p-subgroup:
 | 10⁴ | 19 752 | 0.83465 | 0.87161 | 0.86574 | 0.77461 |
 | 10⁵ | 199 262 | 0.92700 | 0.96000 | 0.95241 | 0.93982 |
 | 10⁶ | 1 997 783 | 0.97259 | 0.98608 | 0.98548 | 0.98099 |
-| 2·10⁶ | 3 996 897 | **0.98127** | **0.99091** | **0.99032** | **0.98860** |
+| 2·10⁶ | 3 996 897 | 0.98127 | 0.99091 | 0.99032 | 0.98860 |
+| 5·10⁶ | 9 995 157 | **0.98938** | **0.99500** | **0.99534** | **0.99338** |
 | *predicted, `μ_CL` (imaginary)* | | *1* | *1* | *1* | *1* |
 | *predicted, `μ^r_CL` (real)* | | *0.33333* | *0.20000* | *0.14286* | *0.09091* |
 
@@ -371,17 +377,43 @@ Applying it to both hypotheses:
 
 | | p=3 | p=5 | p=7 | p=11 |
 |---|---|---|---|---|
-| residual vs `μ_CL`, shrink factor per step | 2.27, 2.66, 1.46 | 3.21, 2.87, 1.53 | 2.82, 3.28, 1.50 | 3.75, 3.17, 1.67 |
-| residual vs `μ^r_CL`, shrink factor per step | 0.84, 0.93, 0.99 | 0.88, 0.97, 0.99 | 0.89, 0.96, 0.99 | 0.81, 0.95, 0.99 |
+| residual vs `μ_CL`, shrink factor per step | 2.27, 2.66, 1.46, 1.76 | 3.21, 2.87, 1.53, 1.82 | 2.82, 3.28, 1.50, 2.08 | 3.75, 3.17, 1.67, 1.72 |
+| residual vs `μ^r_CL`, shrink factor per step | 0.84, 0.93, 0.99, 0.99 | 0.88, 0.97, 0.99, 0.99 | 0.89, 0.96, 0.99, 0.99 | 0.81, 0.95, 0.99, 0.99 |
 
-The first three bounds differ by a decade each and the last by a factor 2; the
-observed shrink factors against `μ_CL` are consistent with a `T^{-1/2}` law
-(`10^{1/2} = 3.16`, `2^{1/2} = 1.41`). Against `μ^r_CL` every factor is `< 1`:
+The first three bounds differ by a decade each, then a factor 2, then a factor
+2.5; the observed shrink factors against `μ_CL` are consistent with a `T^{-1/2}`
+law (`10^{1/2} = 3.16`, `2^{1/2} = 1.41`, `2.5^{1/2} = 1.58`). Against `μ^r_CL` every factor is `< 1`:
 the discrepancy **grows**, saturating at the largest gap the statistic allows.
 
 So by the pre-registered rule: the deviation from `μ_CL` is a truncation
 artefact and may not be claimed; the deviation from `μ^r_CL` is not, and `μ^r_CL`
 is excluded. **Q1 is FALSE; the data are consistent with `μ_CL`.**
+
+### 4.6b The z-scores against `μ_CL` fall as the sample grows
+
+This is the sharpest single indicator in the study, and it only became visible on
+extending the enumeration from `ε_D ≤ 2·10⁶` (3 996 897 fields) to `ε_D ≤ 5·10⁶`
+(9 995 157 fields).
+
+For a hypothesis that is *wrong by a fixed amount*, the z-score grows like `√n`.
+Here `n` grew by a factor 2.5, so a fixed bias would have multiplied every
+z-score by `√2.5 = 1.58`. Observed, for the first moment:
+
+| p | \|z\| vs `μ_CL` @2·10⁶ | @5·10⁶ | | \|z\| vs `μ^r_CL` @2·10⁶ | @5·10⁶ |
+|---|---:|---:|---|---:|---:|
+| 3 | 27.0 | **24.0** | | 935.4 | 1484.0 |
+| 5 | 9.2 | **7.9** | | 797.2 | 1261.6 |
+| 7 | 8.0 | **6.0** | | 697.3 | 1104.0 |
+| 11 | 7.3 | **6.7** | | 571.6 | 907.4 |
+
+Against `μ_CL` the z-score **fell for every prime** while the sample grew 2.5×.
+That is only possible if the residual is shrinking faster than `1/√n` — the
+signature of a vanishing finite-size effect. Against `μ^r_CL` the z-score grew by
+almost exactly the `√n` factor a genuine fixed discrepancy predicts.
+
+This is the cleanest available separation of "small residual that is going away"
+from "small residual that is real", and it points the same way as the
+convergence-ratio test, independently of it.
 
 **Sarnak's actual ordering gives the same answer.** Sarnak's theorem is stated
 for the narrow fundamental unit (§3.0(b)), so `reg-narrow` orders by
@@ -535,43 +567,55 @@ several `H` is qualitatively stronger evidence than agreement on one; and for th
 two groups of order `p²` the two hypotheses differ by a factor `p²` rather than
 `p`, making them sharper discriminations as well as independent ones.
 
-Regulator ordering at the largest bound, n = 3 996 897:
+Regulator ordering at the largest bound, n = 9 995 157:
 
 | p | H | \|H\| | observed | `μ_CL` = 1 | `μ^r_CL` = 1/\|H\| | z vs `μ_CL` | z vs `μ^r_CL` |
 |---|---|---:|---:|---:|---:|---:|---:|
-| 3 | ℤ/3 | 3 | 0.98127 | 1 | 0.33333 | −27.0 | +935.4 |
-| 3 | ℤ/9 | 9 | 0.97740 | 1 | 0.11111 | −16.4 | +628.6 |
-| 3 | (ℤ/3)² | 9 | 0.91827 | 1 | 0.11111 | −20.1 | +198.2 |
-| 5 | ℤ/5 | 5 | 0.99091 | 1 | 0.20000 | −9.2 | +797.2 |
-| 5 | ℤ/25 | 25 | 0.97678 | 1 | 0.04000 | −9.6 | +386.6 |
-| 5 | (ℤ/5)² | 25 | 0.95246 | 1 | 0.04000 | −4.0 | +76.8 |
-| 7 | ℤ/7 | 7 | 0.99032 | 1 | 0.14286 | −8.0 | +697.3 |
-| 7 | ℤ/49 | 49 | 0.95974 | 1 | 0.02041 | −12.1 | +281.4 |
-| 7 | (ℤ/7)² | 49 | 0.94220 | 1 | 0.02041 | −2.7 | +42.3 |
-| 11 | ℤ/11 | 11 | 0.98860 | 1 | 0.09091 | −7.3 | +571.6 |
-| 11 | ℤ/121 | 121 | 0.91269 | 1 | 0.00826 | −17.1 | +176.8 |
-| 11 | (ℤ/11)² | 121 | 0.94784 | 1 | 0.00826 | −0.9 | +16.8 |
+| 3 | ℤ/3 | 3 | 0.98938 | 1 | 0.33333 | −24.0 | +1484.0 |
+| 3 | ℤ/9 | 9 | 0.98733 | 1 | 0.11111 | −14.4 | +992.5 |
+| 3 | (ℤ/3)² | 9 | 0.95347 | 1 | 0.11111 | −17.4 | +315.3 |
+| 5 | ℤ/5 | 5 | 0.99500 | 1 | 0.20000 | −7.9 | +1261.6 |
+| 5 | ℤ/25 | 25 | 0.98760 | 1 | 0.04000 | −8.0 | +613.6 |
+| 5 | (ℤ/5)² | 25 | 0.97915 | 1 | 0.04000 | −2.6 | +115.4 |
+| 7 | ℤ/7 | 7 | 0.99534 | 1 | 0.14286 | −6.0 | +1104.0 |
+| 7 | ℤ/49 | 49 | 0.97854 | 1 | 0.02041 | −10.0 | +445.5 |
+| 7 | (ℤ/7)² | 49 | 0.97884 | 1 | 0.02041 | −1.5 | +68.2 |
+| 11 | ℤ/11 | 11 | 0.99338 | 1 | 0.09091 | −6.7 | +907.4 |
+| 11 | ℤ/121 | 121 | 0.95297 | 1 | 0.00826 | −14.1 | +282.5 |
+| 11 | (ℤ/11)² | 121 | 0.93897 | 1 | 0.00826 | −1.7 | +26.4 |
 
 Every one of the twelve sits near 1 and nowhere near `1/|H|`; `μ^r_CL` is
-excluded at z between 17 and 935. And the pre-registered convergence criterion,
-applied to all twelve, gives the same answer as it did for the first moment —
-**all twelve residuals against `μ_CL` shrink monotonically** across bounds
-`10⁵ → 10⁶ → 2·10⁶`, with shrink factors 2.2–3.6 per decade and 1.46–1.90 per
-doubling, against the `T^{-1/2}` reference values 3.16 and 1.41:
+excluded at z between 26 and 1484. Applying the pre-registered convergence
+criterion to all twelve across the ladder `10⁵ → 10⁶ → 2·10⁶ → 5·10⁶`:
+**eleven of the twelve residuals against `μ_CL` shrink at every step**, with
+shrink factors 1.72–2.73 on the final step against the `T^{-1/2}` reference
+`2.5^{1/2} = 1.58`.
 
-| p | H | resid @10⁵ | @10⁶ | @2·10⁶ | ratios |
-|---|---|---:|---:|---:|---|
-| 3 | ℤ/9 | −0.10540 | −0.03461 | −0.02260 | 3.05, 1.53 |
-| 3 | (ℤ/3)² | −0.28769 | −0.11930 | −0.08173 | 2.41, 1.46 |
-| 5 | ℤ/25 | −0.13009 | −0.03626 | −0.02322 | 3.59, 1.56 |
-| 5 | (ℤ/5)² | −0.20266 | −0.09035 | −0.04754 | 2.24, 1.90 |
-| 7 | ℤ/49 | −0.20811 | −0.06478 | −0.04026 | 3.21, 1.61 |
-| 7 | (ℤ/7)² | −0.15014 | −0.10794 | −0.05780 | 1.39, 1.87 |
-| 11 | ℤ/121 | −0.36737 | −0.13070 | −0.08731 | 2.81, 1.50 |
-| 11 | (ℤ/11)² | −0.13882 | −0.09480 | −0.05216 | 1.46, 1.82 |
+**The twelfth is reported, not rounded up.** `p = 11, H = (ℤ/11)²` moved the
+wrong way on the last step, from −0.05216 to −0.06103. That is a move of
+**−0.25 SE** in the noisiest cell in the study: it has the largest standard error
+(0.0352), rests on the fewest rank-≥2 fields (711), and its z against `μ_CL` is
+only −1.7, i.e. already consistent with 1. It is noise, but it is a cell that did
+not shrink, and the claim is "eleven of twelve", not "all twelve".
 
-`reg-narrow` (Sarnak's own ordering, by `ε⁺_D`) gives the same twelve-for-twelve
-picture. The discriminant-ordered channel and the `D ≈ 10¹²` control both go the
+Residuals across the four bounds:
+
+| p | H | @10⁵ | @10⁶ | @2·10⁶ | @5·10⁶ | last ratio |
+|---|---|---:|---:|---:|---:|---:|
+| 3 | ℤ/3 | −0.07300 | −0.02741 | −0.01873 | −0.01062 | 1.76 |
+| 3 | ℤ/9 | −0.10540 | −0.03461 | −0.02260 | −0.01267 | 1.78 |
+| 3 | (ℤ/3)² | −0.28769 | −0.11930 | −0.08173 | −0.04653 | 1.76 |
+| 5 | ℤ/5 | −0.04000 | −0.01392 | −0.00909 | −0.00500 | 1.82 |
+| 5 | ℤ/25 | −0.13009 | −0.03626 | −0.02322 | −0.01240 | 1.87 |
+| 5 | (ℤ/5)² | −0.20266 | −0.09035 | −0.04754 | −0.02085 | 2.28 |
+| 7 | ℤ/7 | −0.04759 | −0.01452 | −0.00968 | −0.00466 | 2.08 |
+| 7 | ℤ/49 | −0.20811 | −0.06478 | −0.04026 | −0.02146 | 1.88 |
+| 7 | (ℤ/7)² | −0.15014 | −0.10794 | −0.05780 | −0.02116 | 2.73 |
+| 11 | ℤ/11 | −0.06018 | −0.01901 | −0.01140 | −0.00662 | 1.72 |
+| 11 | ℤ/121 | −0.36737 | −0.13070 | −0.08731 | −0.04703 | 1.86 |
+| 11 | (ℤ/11)² | −0.13882 | −0.09480 | −0.05216 | −0.06103 | **0.85** |
+
+`reg-narrow` (Sarnak's own ordering, by `ε⁺_D`) gives the same picture. The discriminant-ordered channel and the `D ≈ 10¹²` control both go the
 other way, to `1/|H|`, as they must.
 
 **Honest caveat.** `#Surj(A,H)` grows like `p^{2·rank}`, so these estimators have

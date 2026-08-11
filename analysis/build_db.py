@@ -85,12 +85,16 @@ def load_disc(con, path, table="disc_ordered"):
     return n
 
 
-def load_reg(con, path):
+def load_reg(con, path, fresh=True):
+    """Load a regulator-ordered CSV.  fresh=False appends, which is how the
+    incremental extension file (gen_reg_ordered_ext.gp) is merged: the two files
+    are disjoint by construction and their union is the complete enumeration."""
     cur = con.cursor()
-    cur.execute("DROP TABLE IF EXISTS reg_ordered")
-    cur.execute("CREATE TABLE reg_ordered "
-                "(D INTEGER PRIMARY KEY, h INTEGER, s INTEGER, t INTEGER, "
-                " u INTEGER, eps REAL, epsp REAL, cyc TEXT)")
+    if fresh:
+        cur.execute("DROP TABLE IF EXISTS reg_ordered")
+        cur.execute("CREATE TABLE reg_ordered "
+                    "(D INTEGER PRIMARY KEY, h INTEGER, s INTEGER, t INTEGER, "
+                    " u INTEGER, eps REAL, epsp REAL, cyc TEXT)")
     n = 0
     rows = []
     with open(path) as f:
@@ -152,6 +156,10 @@ def main():
     if os.path.exists(rpath):
         n = load_reg(con, rpath)
         print(f"reg_ordered : {n} rows")
+        epath = os.path.join(DATA, "reg_ordered_ext.csv")
+        if os.path.exists(epath):
+            ne = load_reg(con, epath, fresh=False)
+            print(f"reg_ordered : +{ne} rows from the extension  (total {n + ne})")
         con.execute("CREATE INDEX idx_reg_eps  ON reg_ordered(eps)")
         con.execute("CREATE INDEX idx_reg_epsp ON reg_ordered(epsp)")
     else:
