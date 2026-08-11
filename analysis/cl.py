@@ -107,6 +107,54 @@ def n_surj_to_Zp(lam, p):
     return p ** len(lam) - 1
 
 
+def n_hom_to_Zpk(lam, p, k):
+    """#Hom(A, Z/p^k) = prod_i p^{min(lam_i, k)}."""
+    e = 0
+    for x in lam:
+        e += min(x, k)
+    return p ** e
+
+
+def n_surj_to_Zpk(lam, p, k):
+    """#Surj(A, Z/p^k).
+
+    A homomorphism to Z/p^k fails to be surjective exactly when its image lies
+    in the unique index-p subgroup, which is isomorphic to Z/p^{k-1}.  Hence
+    #Surj = #Hom(A, Z/p^k) - #Hom(A, Z/p^{k-1}).
+    """
+    return n_hom_to_Zpk(lam, p, k) - n_hom_to_Zpk(lam, p, k - 1)
+
+
+def n_surj_to_ZpZp(lam, p):
+    """#Surj(A, (Z/p)^2).
+
+    (Z/p)^2 is elementary abelian, so every hom factors through A/pA = (Z/p)^r;
+    surjections correspond to rank-2 matrices in Hom(F_p^r, F_p^2), of which
+    there are (p^r - 1)(p^r - p).  This is 0 for r < 2, as it must be.
+    """
+    r = len(lam)
+    return (p ** r - 1) * (p ** r - p)
+
+
+def cl_moment(p, u, H, max_exp=None):
+    """Predicted E[#Surj(Cl, H)] under the CL measure of unit rank u.
+
+    H is one of 'Zp', 'Zp2', 'ZpZp'.  The Cohen-Lenstra moments are 1 for u = 0
+    and 1/|H| for u = 1 (Landesman-Levy arXiv:2410.22210 Thm 1.1.1 proves exactly
+    these over function fields, i = 1 and i = 0 respectively).
+    """
+    if max_exp is None:
+        max_exp = 34 if p == 3 else 22 if p == 5 else 18
+    m = cl_measure(p, u, max_exp)
+    f = {"Zp": lambda lam: n_surj_to_Zp(lam, p),
+         "Zp2": lambda lam: n_surj_to_Zpk(lam, p, 2),
+         "ZpZp": lambda lam: n_surj_to_ZpZp(lam, p)}[H]
+    return sum(pr * f(lam) for lam, pr in m.items())
+
+
+H_ORDER = {"Zp": lambda p: p, "Zp2": lambda p: p * p, "ZpZp": lambda p: p * p}
+
+
 # ------------------------------------------------------------- the measures
 
 def eta(p, start, terms=400):
@@ -200,6 +248,14 @@ def selftest(verbose=True):
     for p in (3, 5, 7, 11):
         for u in (0, 1):
             chk(f"p={p} u={u}", cl_moment_Zp(p, u, EXP[p]), float(p ** -u), TOL)
+
+    if verbose:
+        print("\nHigher moments E[#Surj(Cl,H)] (want 1 for u=0, 1/|H| for u=1):")
+    for p in (3, 5, 7):
+        for H in ("Zp", "Zp2", "ZpZp"):
+            for u in (0, 1):
+                want = 1.0 if u == 0 else 1.0 / H_ORDER[H](p)
+                chk(f"p={p} H={H} u={u}", cl_moment(p, u, H, EXP[p]), want, TOL)
 
     if verbose:
         print("\nExternal anchors:")

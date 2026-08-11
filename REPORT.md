@@ -23,7 +23,7 @@ question) · `[UNVERIFIED]` (not checked; may not support any other claim).
 | H4 | Being the first term of Sarnak's regulator-ordered asymptotic is a distinguishing property | **FALSE** | argument, §3.4 | Sarnak, J. Number Theory 15 (1982), 229–247 |
 | H5 | Hurwitz-space topology (Landesman–Levy) and modular-surface geometry (Sarnak) constitute a mathematical link | **FALSE** | argument, §3.5 | §3.5 states what would be required and shows none of it holds |
 | Q1 | Under regulator ordering, the odd p-part of `Cl` follows the **real** quadratic Cohen–Lenstra measure `μ^r_CL` (the same as under discriminant ordering) | **FALSE** | `[COMPUTED]`, n = 3 996 897 | §4.2; `analysis/compare.py` |
-| Q2 | Under regulator ordering, it follows the **imaginary** quadratic measure `μ_CL` instead | **NOVEL** (empirical only — *not a theorem*, see §4.7) | `[COMPUTED]`, 4 primes × 4 bounds, 5 controls | §4.2–§4.6 |
+| Q2 | Under regulator ordering, it follows the **imaginary** quadratic measure `μ_CL` instead | **NOVEL** (empirical only — *not a theorem*, see §4.7) | `[COMPUTED]`, 12 moments (4 primes × 3 groups) all converging, 4 bounds, 5 controls | §4.2–§4.6a |
 | Q3 | The difference is a D-size effect rather than a regulator effect | **FALSE** | `[COMPUTED]`, n = 250 000 at D ≈ 10¹² | §4.3 |
 | Q4 | The regulator-ordered behaviour is just "h is large, so `p ∣ h` with probability ≈ 1/p" | **FALSE** | `[COMPUTED]` | §4.5 |
 | S1 | Sarnak's asymptotic `Σ_{ε(D)<x} h(D) ~ li(x²)` | **KNOWN** (true, and stated for the **narrow** class number and **narrow** unit) | `[CLASSICAL]` | verbatim in Hashimoto arXiv:1003.3716 §1 eqns (1.2)–(1.3) |
@@ -48,7 +48,12 @@ p = 3, 5, 7, 11, against the imaginary Cohen–Lenstra values 0.43987, 0.23967,
 0.16320, 0.09917 — and against the real-quadratic values 0.15981, 0.04958,
 0.02374, 0.00908, which are wrong by factors of 2.7 to 10.8. The residuals shrink
 monotonically as the bound grows (roughly like `T^{-1/2}`), while the residuals
-against the real-quadratic measure grow. Five controls survive, including the
+against the real-quadratic measure grow. Testing two further moments — `H = ℤ/p²`
+and `H = (ℤ/p)²`, where the two hypotheses differ by a factor `p²` rather than
+`p` — gives twelve independent statistics in all, and **all twelve converge
+monotonically to the imaginary prediction** while excluding the real one at z
+between 17 and 935 (§4.6a); since moments determine the distribution
+(Wood–Wood), that is qualitatively stronger than the single-moment test. Five controls survive, including the
 decisive one: a discriminant-ordered sample of 250 000 fields at the *same*
 `D ≈ 10¹²` scale reproduces the **real** measure to within about 2%, so the effect is
 caused by the regulator condition and not by the size of D. I found no statement
@@ -515,6 +520,66 @@ p, and at the floor it sits on `μ_CL` essentially exactly. This is the signatur
 the mechanism of §4.7 predicts, and it also explains the `u = 1` vs `u > 1` gap
 in confounder (1): `u = 1` forces `ρ ≈ 1`, while `u > 1` gives
 `ρ = log t/(log t − log u) > 1`, so `u` is a proxy for `ρ`.
+
+### 4.6a Higher moments (added after the pre-registered analysis; confirmatory)
+
+**Not pre-registered.** `preregistration.md` fixed three statistics, all built on
+`H = ℤ/p`. This section adds `H = ℤ/p²` and `H = (ℤ/p)²`, run afterwards on the
+same data by `analysis/moments2.py`. They are reported as confirmation rather
+than as a search, for a specific reason: the predictions are fixed by theory
+before looking and admit no tuning — `E[#Surj(Cl,H)] = 1` under `μ_CL` and
+`1/|H|` under `μ^r_CL`, for *every* `H`. All six predictions are checked in
+`analysis/cl.py::selftest`. Wood–Wood (quoted in Landesman–Levy §1) show the
+Cohen–Lenstra distribution is determined by its moments, so agreement across
+several `H` is qualitatively stronger evidence than agreement on one; and for the
+two groups of order `p²` the two hypotheses differ by a factor `p²` rather than
+`p`, making them sharper discriminations as well as independent ones.
+
+Regulator ordering at the largest bound, n = 3 996 897:
+
+| p | H | \|H\| | observed | `μ_CL` = 1 | `μ^r_CL` = 1/\|H\| | z vs `μ_CL` | z vs `μ^r_CL` |
+|---|---|---:|---:|---:|---:|---:|---:|
+| 3 | ℤ/3 | 3 | 0.98127 | 1 | 0.33333 | −27.0 | +935.4 |
+| 3 | ℤ/9 | 9 | 0.97740 | 1 | 0.11111 | −16.4 | +628.6 |
+| 3 | (ℤ/3)² | 9 | 0.91827 | 1 | 0.11111 | −20.1 | +198.2 |
+| 5 | ℤ/5 | 5 | 0.99091 | 1 | 0.20000 | −9.2 | +797.2 |
+| 5 | ℤ/25 | 25 | 0.97678 | 1 | 0.04000 | −9.6 | +386.6 |
+| 5 | (ℤ/5)² | 25 | 0.95246 | 1 | 0.04000 | −4.0 | +76.8 |
+| 7 | ℤ/7 | 7 | 0.99032 | 1 | 0.14286 | −8.0 | +697.3 |
+| 7 | ℤ/49 | 49 | 0.95974 | 1 | 0.02041 | −12.1 | +281.4 |
+| 7 | (ℤ/7)² | 49 | 0.94220 | 1 | 0.02041 | −2.7 | +42.3 |
+| 11 | ℤ/11 | 11 | 0.98860 | 1 | 0.09091 | −7.3 | +571.6 |
+| 11 | ℤ/121 | 121 | 0.91269 | 1 | 0.00826 | −17.1 | +176.8 |
+| 11 | (ℤ/11)² | 121 | 0.94784 | 1 | 0.00826 | −0.9 | +16.8 |
+
+Every one of the twelve sits near 1 and nowhere near `1/|H|`; `μ^r_CL` is
+excluded at z between 17 and 935. And the pre-registered convergence criterion,
+applied to all twelve, gives the same answer as it did for the first moment —
+**all twelve residuals against `μ_CL` shrink monotonically** across bounds
+`10⁵ → 10⁶ → 2·10⁶`, with shrink factors 2.2–3.6 per decade and 1.46–1.90 per
+doubling, against the `T^{-1/2}` reference values 3.16 and 1.41:
+
+| p | H | resid @10⁵ | @10⁶ | @2·10⁶ | ratios |
+|---|---|---:|---:|---:|---|
+| 3 | ℤ/9 | −0.10540 | −0.03461 | −0.02260 | 3.05, 1.53 |
+| 3 | (ℤ/3)² | −0.28769 | −0.11930 | −0.08173 | 2.41, 1.46 |
+| 5 | ℤ/25 | −0.13009 | −0.03626 | −0.02322 | 3.59, 1.56 |
+| 5 | (ℤ/5)² | −0.20266 | −0.09035 | −0.04754 | 2.24, 1.90 |
+| 7 | ℤ/49 | −0.20811 | −0.06478 | −0.04026 | 3.21, 1.61 |
+| 7 | (ℤ/7)² | −0.15014 | −0.10794 | −0.05780 | 1.39, 1.87 |
+| 11 | ℤ/121 | −0.36737 | −0.13070 | −0.08731 | 2.81, 1.50 |
+| 11 | (ℤ/11)² | −0.13882 | −0.09480 | −0.05216 | 1.46, 1.82 |
+
+`reg-narrow` (Sarnak's own ordering, by `ε⁺_D`) gives the same twelve-for-twelve
+picture. The discriminant-ordered channel and the `D ≈ 10¹²` control both go the
+other way, to `1/|H|`, as they must.
+
+**Honest caveat.** `#Surj(A,H)` grows like `p^{2·rank}`, so these estimators have
+heavy tails and their standard errors are dominated by rare high-rank fields. At
+the smaller bounds the `(ℤ/p)²` rows for p = 7, 11 rest on fewer than 200
+rank-≥2 fields and are flagged `<-- thin` in the script output; they are reported
+for completeness, not as precise. The p = 3 and p = 5 rows, and all rows at the
+largest bound, rest on thousands to tens of thousands.
 
 ### 4.6 Interpretation, and what this is not
 
