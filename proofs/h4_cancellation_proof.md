@@ -190,8 +190,10 @@ Each positive root alpha projects onto V_par and V_perp with norm-squared ratio:
 
 | Ratio | Count |
 |---|---|
-| 0.2763932... = (3-sqrt(5))/4 | 60 roots |
-| 0.7236068... = (3+sqrt(5))/4 | 60 roots |
+| 0.2763932... = (5-sqrt(5))/10 = 1/(2+phi) | 60 roots |
+| 0.7236068... = (5+sqrt(5))/10 = (1+phi)/(2+phi) | 60 roots |
+
+(Closed forms corrected 2026-09-18: the table previously read (3-sqrt(5))/4 and (3+sqrt(5))/4, which evaluate to 0.191 and 1.309; checked by `verification/check_projection_fractions.py`.)
 
 The roots split evenly into two classes by projection ratio, with the golden ratio again appearing. No root projects equally onto both subspaces.
 
