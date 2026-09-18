@@ -88,11 +88,13 @@ The 240 roots of E8 project onto V_parallel with five distinct parallel fraction
 
 | Parallel fraction p_x | Count |
 |----------------------|-------|
-| (3-sqrt(5))/8 = 0.0528 | 24 roots |
-| (3-phi^(-1))/5 = 0.2764 | 24 roots |
+| 1/2 - 1/sqrt(5) = (7-4phi)/10 = 0.0528 | 24 roots |
+| 1/2 - 1/(2 sqrt(5)) = (5-sqrt(5))/10 = 0.2764 | 24 roots |
 | 1/2 = 0.5000 | 144 roots |
-| (3+phi^(-1))/5 = 0.7236 | 24 roots |
-| (3+sqrt(5))/8 = 0.9472 | 24 roots |
+| 1/2 + 1/(2 sqrt(5)) = (5+sqrt(5))/10 = 0.7236 | 24 roots |
+| 1/2 + 1/sqrt(5) = (3+4phi)/10 = 0.9472 | 24 roots |
+
+(Closed forms corrected 2026-09-18: the earlier table wrote (3-sqrt(5))/8 for 0.0528 and (3+sqrt(5))/8 for 0.9472 — those evaluate to 0.0955 and 0.6545 — and (3-phi^(-1))/5 for 0.2764, which is 0.4764. The five values are p = 1/2 + k/(2 sqrt(5)) for k = -2..2 and are checked by `verification/check_projection_fractions.py`. Note also which map this table describes: it is the coordinate-pairing projection P_par,k = (a_2k + phi a_2k+1)/sqrt(2+phi) of `proofs/e8_oneloop_calculation.py`. The H4-symmetric E8 -> H4 projection — V_par spanned by the E8 Coxeter element's eigenplanes with the H4 exponents {1,29} and {11,19} — sends the 240 roots onto two 600-cells of 120 roots each with just two fractions, (5-sqrt(5))/10 and (5+sqrt(5))/10; the same script verifies both statements.)
 
 This golden-ratio structure in the projection geometry is what generates phi-dependent physical constants.
 
@@ -2013,7 +2015,7 @@ Since (2+phi)(3-phi) = 5, we have 1/(2+phi) = (3-phi)/5, ensuring all projection
 
 2. **Golden structure:** The five distinct parallel fractions {0.0528, 0.2764, 0.5000, 0.7236, 0.9472} are all elements of Q(phi) and symmetric about 1/2.
 
-3. **Uniqueness:** This is the unique projection from R^8 to R^4 that preserves the maximal non-crystallographic Coxeter symmetry. There is no freedom in the choice of projection.
+3. **Uniqueness (corrected 2026-09-18):** the projection that preserves the maximal non-crystallographic Coxeter symmetry H4 is the Coxeter-eigenplane projection, and under it the roots have only TWO parallel fractions, (5 -+ sqrt(5))/10, on two 600-cells of 120 roots each. The five-fraction table above belongs to the coordinate-pairing map, whose image has shells of 24/24/144/24/24 roots and is not a 600-cell — so that map is not the H4-symmetric one, and the uniqueness statement does not apply to it (`verification/check_projection_fractions.py`).
 
 ## 12.4 The Golden Ratio in Physics
 
